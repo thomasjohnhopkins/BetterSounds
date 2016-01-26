@@ -26,7 +26,7 @@ var LogIn = React.createClass({
   return(
     <div>
       <p>Welcome Back. Continue to discover new music by signing in below.</p>
-        <form className="sign-in-form" onSubmit={this.logIn}>
+        <form className="form-session group" onSubmit={this.logIn}>
           <label>Email</label>
           <input type="text"
             valueLink={this.linkState("email")} />
@@ -36,7 +36,7 @@ var LogIn = React.createClass({
               valueLink={this.linkState("password")} />
 
 
-          <button type="submit">Sign In</button>
+          <button className="sign-button" type="submit">Sign In</button>
         </form>
       </div>
     );

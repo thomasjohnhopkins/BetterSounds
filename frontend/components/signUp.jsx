@@ -47,7 +47,7 @@ var LogIn = React.createClass({
           <input type="text"
             valueLink={this.linkState("description")} />
 
-          <button className = "sign-button" type="submit">Sign Up</button>
+          <button className="sign-button" type="submit">Sign Up</button>
         </form>
       </div>
     );
