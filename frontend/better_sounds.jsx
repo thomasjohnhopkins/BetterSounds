@@ -6,20 +6,22 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
+var SignIn = require('./components/signIn');
+
 var App = React.createClass({
   render: function () {
     return(
-      <div>Better Sounds</div>
+      <div>{this.props.children}</div>
     );
   }
 });
 
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Home}/>
+    <IndexRoute component={SignIn}/>
   </Route>
 );
 
 document.addEventListener("DOMContentLoaded", function () {
-  ReactDOM.render(<App />, document.getElementById('content'));
+  ReactDOM.render(<Router>{routes}</Router>, document.getElementById('content'));
 });
