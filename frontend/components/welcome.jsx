@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Welcome = React.createClas({
+var Welcome = React.createClass({
   toSignIn: function () {
 
   },
@@ -12,10 +12,10 @@ var Welcome = React.createClas({
   render: function () {
     return(
       <div>
-        <button className="sign-button" type="submit">
+        <button className="sign-button" type="submit" onSubmit={this.toSignIn}>
           Sign In
         </button>
-        <button className="sign-button" type="submit" onSubmit="">
+        <button className="sign-button" type="submit" onSubmit={this.toSignUp}>
           Sign Up
         </button>
       </div>

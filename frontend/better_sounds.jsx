@@ -21,8 +21,8 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Welcome} />
-      <Route path="/sign-up" component={PokemonDetail}>
-      <Route path="/sign-in" component={PokemonDetail}>
+      <Route path="/sign-up" component={SignUp} />
+      <Route path="/sign-in" component={SignIn} />
   </Route>
 );
 
