@@ -26,11 +26,11 @@ var LogIn = React.createClass({
 
  render: function () {
   return(
-    <div>
+    <div className="entry">
       <p>Plenty of Tracks Await.</p>
       <p>A Forum to Share Your Own Music.</p>
       <p>Discover what BetterSounds Has to Offer by Signing Up Below.</p>
-        <form className="sign-in-form" onSubmit={this.SignUp}>
+        <form className="form-session group" onSubmit={this.SignUp}>
           <label>Username</label>
           <input type="text"
             valueLink={this.linkState("username")} />
@@ -43,11 +43,11 @@ var LogIn = React.createClass({
             <input type="password"
               valueLink={this.linkState("password")} />
 
-            <label>Describe Yourself</label>
-            <input type="text"
-              valueLink={this.linkState("description")} />
+          <label>Describe Yourself</label>
+          <input type="text"
+            valueLink={this.linkState("description")} />
 
-            <button type="submit">Sign Up</button>
+          <button className = "sign-button" type="submit">Sign Up</button>
         </form>
       </div>
     );

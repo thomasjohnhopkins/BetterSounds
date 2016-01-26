@@ -1,0 +1,45 @@
+.entry {
+  margin: 0 auto;
+  background: #fff;
+  width: 900px;
+}
+
+p {
+  text-align: center;
+  padding: 30px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.form-session {
+  margin: 0 auto;
+  padding: 19px;
+  width: 500px;
+  background: #eee;
+  border: 1px solid #ccc;
+}
+
+.form-session > input {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 478px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  padding: 10px 0;
+}
+
+
+.sign-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background: #f50;
+  font-weight: bold;
+  border-radius: 5px;
+  float: right;
+  display: block;
+}
