@@ -1,9 +1,12 @@
 class Api::UsersController < ApplicationController
   def create
-    user = User.new(bench_params)
+
+    user = User.new(user_params)
+    debugger
 
     if user.save!
-      render json: bench
+      log_in!(user)
+      render json: user
     end
   end
 
@@ -15,8 +18,7 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-   params
-    .require(:user)
-    .permit(:username, :email, :password, :description, :image_url)
+    params.require(:user).permit(:username, :email, :password, :description)
   end
+
 end
