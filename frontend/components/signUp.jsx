@@ -2,6 +2,7 @@ var React = require('react');
 var ApiUtil = require('../util/api_util');
 var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
+var ModalUtil = require('../util/modal_util');
 
 var LogIn = React.createClass({
   mixins: [LinkedStateMixin, History],
@@ -21,11 +22,14 @@ var LogIn = React.createClass({
    user.password = this.state.password;
    user.description = this.state.description;
 
+   debugger;
+   
    ApiUtil.SignUserUp(user);
  },
 
  closeForm: function (e) {
-   e.preventDefault();
+  e.preventDefault();
+  ModalUtil.removeCurrentModal();
  },
 
  render: function () {
@@ -53,8 +57,10 @@ var LogIn = React.createClass({
           <input type="text"
             valueLink={this.linkState("description")} />
 
-          <button className="cancel" onClick={this.closeForm}>Cancel</button>
-          <button className="sign-button" type="submit">Sign Up</button>
+          <ul className="form-buttons group">
+            <li><button className="cancel" onClick={this.closeForm}>Cancel</button></li>
+            <li><button className="sign-button" type="submit">Sign Up</button></li>
+          </ul>
         </form>
       </div>
     </div>

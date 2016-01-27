@@ -25,7 +25,7 @@ CurrentModalStore.__onDispatch = function (payload) {
       CurrentModalStore.__emitChange();
       break;
     case ModalConstants.REMOVE_MODAL:
-      removeCurrentUser();
+      removeCurrentModal();
       CurrentModalStore.__emitChange();
       break;
   }

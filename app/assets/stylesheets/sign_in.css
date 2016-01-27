@@ -50,10 +50,27 @@ label {
   color: #fff;
   background: #f50;
   border-radius: 5px;
-  float: right;
   display: block;
   cursor: pointer;
   font-size: 14px;
+}
+
+.form-buttons {
+  float: right;
+}
+
+.form-bottons > li {
+  float: left;
+  padding: 10px;
+}
+
+.cancel {
+  background: #fff;
+  color: #aaa;
+  float: right;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 10px;
 }
 
 .sign-in-button {
