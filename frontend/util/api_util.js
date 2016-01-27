@@ -33,6 +33,21 @@ var ApiUtil = {
       }
 
     });
+  },
+
+  fetchAllTracks: function () {
+    $.ajax({
+      type: "GET",
+      url: "api/tracks",
+      dataType: "json",
+      success: function (data) {
+        ApiActions.sendAllTracks(data);
+        console.log('fetch track success');
+      },
+      error: function (data) {
+        console.log('fetch track failure');
+      }
+    });
   }
 };
 

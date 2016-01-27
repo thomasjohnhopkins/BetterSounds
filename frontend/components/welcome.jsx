@@ -1,5 +1,6 @@
 var React = require('react');
 var History = require('react-router').History;
+var TrackIndex = require('./trackIndex');
 
 var Welcome = React.createClass({
   mixins: [History],
@@ -8,6 +9,7 @@ var Welcome = React.createClass({
     return(
       <div>
         <p>Welcome to Better Sounds!</p>
+        <TrackIndex />
       </div>
     );
   }
