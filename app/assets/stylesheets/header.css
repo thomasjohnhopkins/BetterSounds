@@ -9,11 +9,13 @@
 }
 
 .header-nav {
-  background: #000;
   border-top: 2px solid #f50;
   margin: 0 auto;
   width: 90%;
+  height: 300px;
   display: block;
+  background-image: url('hbo_concert.jpg');
+  background-size: cover;
 }
 
 .header-logo {

@@ -1,0 +1,7 @@
+.track-index {
+  margin: 0 auto;
+}
+
+.track-index > ul > li {
+  padding: 10px;
+}
