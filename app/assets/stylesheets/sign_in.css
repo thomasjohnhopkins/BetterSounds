@@ -11,12 +11,23 @@ p {
   font-weight: 400;
 }
 
+.modal {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  top: 25%;
+  left: 25%;
+}
+
 .form-session {
   margin: 0 auto;
-  padding: 19px;
+  padding: 19px 30px;
   width: 500px;
   background: #eee;
   border: 1px solid #ccc;
+  margin-bottom: 30px;
 }
 
 .form-session > input {

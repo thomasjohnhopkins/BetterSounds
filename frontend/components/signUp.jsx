@@ -24,9 +24,15 @@ var LogIn = React.createClass({
    ApiUtil.SignUserUp(user);
  },
 
+ closeForm: function (e) {
+   e.preventDefault();
+ },
+
  render: function () {
   return(
-    <div className="entry">
+    <div>
+      <div className='overlay'></div>
+      <div className='modal'>
       <p>Plenty of Tracks Await.</p>
       <p>A Forum to Share Your Own Music.</p>
       <p>Discover what BetterSounds Has to Offer by Signing Up Below.</p>
@@ -47,9 +53,11 @@ var LogIn = React.createClass({
           <input type="text"
             valueLink={this.linkState("description")} />
 
+          <button className="cancel" onClick={this.closeForm}>Cancel</button>
           <button className="sign-button" type="submit">Sign Up</button>
         </form>
       </div>
+    </div>
     );
   }
 });

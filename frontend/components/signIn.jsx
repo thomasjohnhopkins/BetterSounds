@@ -27,20 +27,23 @@ var LogIn = React.createClass({
  render: function () {
   return(
     <div>
-      <p>Welcome Back. Continue to discover new music by signing in below.</p>
-        <form className="form-session group" onSubmit={this.logIn}>
-          <label>Email</label>
-          <input type="text"
-            valueLink={this.linkState("email")} />
+    <div className='overlay'></div>
+      <div className="modal">
+        <p>Welcome Back. Continue to discover new music by signing in below.</p>
+          <form className="form-session group" onSubmit={this.logIn}>
+            <label>Email</label>
+            <input type="text"
+              valueLink={this.linkState("email")} />
 
-          <label>Password</label>
-            <input type="password"
-              valueLink={this.linkState("password")} />
+            <label>Password</label>
+              <input type="password"
+                valueLink={this.linkState("password")} />
 
 
-          <button className="sign-button" type="submit">Sign In</button>
-        </form>
+            <button className="sign-button" type="submit">Sign In</button>
+          </form>
       </div>
+    </div>
     );
   }
 });
