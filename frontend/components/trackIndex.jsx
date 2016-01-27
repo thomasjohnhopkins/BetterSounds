@@ -26,7 +26,7 @@ var TrackIndex = React.createClass({
 // until track audio uploaded, I am just rendering info for each track
 
   render: function () {
-    
+
     var allTracks = "";
     if (this.state !== null) {
       allTracks = this.state.tracks.map(function(track) {
