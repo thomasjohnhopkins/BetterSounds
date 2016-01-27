@@ -7,6 +7,8 @@ class Api::TracksController < ApplicationController
 
     if track.save!
       render json: track
+    else
+      render json: track.errors.full_messages
     end
   end
 
@@ -17,6 +19,8 @@ class Api::TracksController < ApplicationController
     if to_be_destoryed
       track.destroy
       render json: to_be_destoryed
+    else
+      render json: track.errors.full_messages
     end
   end
 

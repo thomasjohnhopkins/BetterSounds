@@ -5,6 +5,8 @@ class Api::UsersController < ApplicationController
     if user.save!
       log_in!(user)
       render json: user
+    else
+      render json: user.errors.full_messages
     end
   end
 

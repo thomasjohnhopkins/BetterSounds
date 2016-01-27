@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
-  has_many :notes
+  has_many :tracks
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
