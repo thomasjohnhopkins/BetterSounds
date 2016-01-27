@@ -1,5 +1,5 @@
 var Store = require('flux/utils').Store;
-var AppDispatcher = require('../dispatcher/dispatcher');
+var AppDispatcher = require('../dispatcher/app_dispatcher');
 var TrackConstants = require('../constants/track_constants');
 
 var _tracks = [];

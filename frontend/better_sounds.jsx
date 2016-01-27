@@ -10,6 +10,8 @@ var SignIn = require('./components/signIn');
 var SignUp = require('./components/signUp');
 var Welcome = require('./components/welcome');
 var Home = require('./components/home');
+var UserShow = require('./components/userShow');
+var CurrentUserStore = require('./stores/currentUser');
 
 var App = React.createClass({
   render: function () {
@@ -26,6 +28,7 @@ var routes = (
     <IndexRoute component={Home} />
       <Route path="/sign-up" component={SignUp} />
       <Route path="/sign-in" component={SignIn} />
+      <Route path="/current-user" component={UserShow} />
   </Route>
 );
 

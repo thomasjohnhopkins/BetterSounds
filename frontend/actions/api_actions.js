@@ -1,4 +1,4 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
+var AppDispatcher = require('../dispatcher/app_dispatcher.js');
 var SessionConstants = require('../constants/session_constants');
 var UserConstants = require('../constants/user_constants');
 var TrackConstants = require('../constants/track_constants');

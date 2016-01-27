@@ -1,7 +1,7 @@
 var Store = require('flux/utils').Store;
-var AppDispatcher = require('../dispatcher/dispatcher');
+var AppDispatcher = require('../dispatcher/app_dispatcher');
 var UserConstants = require('../constants/user_constants');
-var SessionConstants = require('../constatns/session_constants');
+var SessionConstants = require('../constants/session_constants');
 
 var _currentUser = {};
 
@@ -16,15 +16,15 @@ var setCurrentUser = function (user) {
 };
 
 CurrentUserStore.__onDispatch = function (payload) {
-switch(payload.actionType) {
-  case SessionConstants.USER_CONFIRMED:
-    setCurrentUser(payload.user);
-    CurrentUserStore.__emitChange();
-    break;
-  case UserConstants.NEW_USER:
-    setCurrentUser(payload.user);
-    CurrentUserStore.__emitChange();
-    break;
+  switch(payload.actionType) {
+    case SessionConstants.USER_CONFIRMED:
+      setCurrentUser(payload.user);
+      CurrentUserStore.__emitChange();
+      break;
+    case UserConstants.NEW_USER:
+      setCurrentUser(payload.user);
+      CurrentUserStore.__emitChange();
+      break;
   }
 };
 

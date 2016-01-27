@@ -20,6 +20,8 @@ var LogIn = React.createClass({
    user.password = this.state.password;
 
    ApiUtil.logUserIn(user);
+
+   this.history.pushState(null, "/current-user");
  },
 
  render: function () {
