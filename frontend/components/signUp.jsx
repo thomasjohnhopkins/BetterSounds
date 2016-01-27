@@ -22,9 +22,9 @@ var LogIn = React.createClass({
    user.password = this.state.password;
    user.description = this.state.description;
 
-   debugger;
-   
    ApiUtil.SignUserUp(user);
+
+   this.history.pushState(null, "/current-user");
  },
 
  closeForm: function (e) {
@@ -37,8 +37,7 @@ var LogIn = React.createClass({
     <div>
       <div className='overlay'></div>
       <div className='modal'>
-      <p>Plenty of Tracks Await.</p>
-      <p>A Forum to Share Your Own Music.</p>
+      <p>A Forum to Discover Artists and Share Your Own Music.</p>
       <p>Discover what BetterSounds Has to Offer by Signing Up Below.</p>
         <form className="form-session group" onSubmit={this.SignUp}>
           <label>Username</label>
