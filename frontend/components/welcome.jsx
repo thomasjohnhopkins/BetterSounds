@@ -1,23 +1,13 @@
 var React = require('react');
+var History = require('react-router').History;
 
 var Welcome = React.createClass({
-  toSignIn: function () {
-
-  },
-
-  toSignUp: function () {
-
-  },
+  mixins: [History],
 
   render: function () {
     return(
       <div>
-        <button className="sign-button" type="submit" onSubmit={this.toSignIn}>
-          Sign In
-        </button>
-        <button className="sign-button" type="submit" onSubmit={this.toSignUp}>
-          Sign Up
-        </button>
+        <p>Welcome to Better Sounds!</p>
       </div>
     );
   }

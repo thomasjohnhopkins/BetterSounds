@@ -9,18 +9,21 @@ var IndexRoute = ReactRouter.IndexRoute;
 var SignIn = require('./components/signIn');
 var SignUp = require('./components/signUp');
 var Welcome = require('./components/welcome');
+var Home = require('./components/home');
 
 var App = React.createClass({
   render: function () {
     return(
-      <div>{this.props.children}</div>
+      <div>
+        {this.props.children}
+      </div>
     );
   }
 });
 
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Welcome} />
+    <IndexRoute component={Home} />
       <Route path="/sign-up" component={SignUp} />
       <Route path="/sign-in" component={SignIn} />
   </Route>

@@ -1,4 +1,5 @@
-html, body, main, div, p, form, input, button {
+html, body, main, div, p, form, ul,
+input, button, a, header, nav, h1, li {
   margin: 0;
   padding: 0;
   border: 0;
