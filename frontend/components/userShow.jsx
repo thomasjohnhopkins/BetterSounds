@@ -85,17 +85,20 @@ var UserShow = React.createClass({
         className="post-image"
         src={this.state.user.image_url} />;
     }
+
     return(
       <div>
-        <div className="user-info">
-          <h2>{this.state.user.username}</h2>
-          <h5>{this.state.user.description}</h5>
-            <button className="add-track" type="submit" onClick={this.toAddTrack}>
-              Add Track
-            </button>
+        <div className="user-banner group">
           {image}
+          <div className="user-info">
+            <h2 className="user-text">{this.state.user.username}</h2>
+            <h5 className="user-text">{this.state.user.description}</h5>
+          </div>
           {display}
         </div>
+        <button className="add-track" type="submit" onClick={this.toAddTrack}>
+          Add Track
+        </button>
       </div>
     );
   }

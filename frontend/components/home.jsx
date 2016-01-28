@@ -15,7 +15,6 @@ var Home = React.createClass({
     return(
       <div>
         <SiteHeader loggedIn={this.state.loggedIn}/>
-        <p>Welcome Back Better Sounds!</p>
         <UserShow />
         <TrackIndex />
       </div>

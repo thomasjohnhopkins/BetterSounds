@@ -1,5 +1,5 @@
 html, body, main, div, p, form, ul, i,
-input, button, a, header, nav, h1, li {
+input, button, a, header, nav, h1, li, audio {
   margin: 0;
   padding: 0;
   border: 0;
@@ -30,6 +30,14 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+audio {
+  display: block;
+  position: relative;
+  z-index: -1;
+  padding: 20px 0;
+  width: 40%;
 }
 
 /* --- CLEARFIX --- */

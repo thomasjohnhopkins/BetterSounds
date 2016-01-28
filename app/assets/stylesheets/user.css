@@ -7,3 +7,32 @@ button.add-track {
   cursor: pointer;
   font-size: 12px;
 }
+
+.user-banner {
+  margin: 0 auto;
+  position: relative;
+  width: 90%;
+  height: 250px;
+  display: block;
+  background: linear-gradient(315deg, #fff, #aaa 50%, #eee);
+}
+
+.post-image {
+  float:left;
+  margin: 30px;
+  height: 150px;
+  width: auto;
+}
+
+.user-info {
+  margin-top: 30px;
+  float: left;
+}
+
+.user-text {
+  display: block;
+  background: #000;
+  color: #fff;
+  padding: 5px;
+  width: auto;
+}
