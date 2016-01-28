@@ -32,6 +32,15 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'paperclip'
+
+gem 'aws-sdk', '~> 1.6'
+
+gem 'figaro'
+
+gem 'font-awesome-rails'
+
+
 group :production do
   gem 'rails_12factor'
 end

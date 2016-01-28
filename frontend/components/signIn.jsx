@@ -32,7 +32,7 @@ var LogIn = React.createClass({
  render: function () {
   return(
     <div>
-    <div className='overlay'></div>
+    <div className='overlay' onClick={this.closeForm}></div>
       <div className="modal">
         <p>Welcome Back. Continue to discover new music by signing in below.</p>
           <form className="form-session group" onSubmit={this.logIn}>

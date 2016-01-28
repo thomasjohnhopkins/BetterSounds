@@ -53,11 +53,13 @@ var UserShow = React.createClass({
   },
 
   render: function () {
+    debugger
     return(
       <div>
         <div className="user-info">
           <h2>{this.state.user.username}</h2>
           <h5>{this.state.user.description}</h5>
+          <img className="post-image" src={this.state.user.image_url} />
         </div>
       </div>
     );

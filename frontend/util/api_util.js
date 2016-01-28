@@ -18,15 +18,18 @@ var ApiUtil = {
     });
   },
 
-  SignUserUp: function (user) {
+  signUserUp: function (formData, callback) {
     $.ajax({
       type: "POST",
       url: "api/users",
-      data: {user: user},
-      dataType: "json",
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
       success: function (data) {
         ApiActions.signUpUser(data);
         console.log('sign up success');
+        callback();
       },
       error: function (data) {
         console.log('sign up error');
