@@ -13,6 +13,7 @@ var LogIn = React.createClass({
 
  logIn: function (e) {
    e.preventDefault();
+   ModalUtil.removeCurrentModal();
 
    var user = {};
 

@@ -21,7 +21,6 @@
 .header-logo {
   text-decoration: none;
   float: left;
-  padding-top: 5px;
 }
 
 i {
@@ -37,4 +36,13 @@ i {
   display: block;
   padding-right: 10px;
   padding-bottom: 5px;
+}
+
+.background {
+  background-image: none;
+  background: #333;
+  margin: 0 auto;
+  width: 90%;
+  height: auto;
+  display: block;
 }

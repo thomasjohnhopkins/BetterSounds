@@ -59,8 +59,30 @@ var siteHeader = React.createClass({
     }
   },
 
+  welcomeButtons: function () {
+    if (this.props.loggedIn === true) {
+      return <div></div>;
+    } else {
+      return (<ul className="header-list">
+        <li>
+          <button className="sign-in-button" type="submit" onClick={this.toSignIn}>
+            Sign in
+          </button>
+        </li>
+        <li>
+          <button className="sign-button" type="submit" onClick={this.toSignUp}>
+            Create account
+          </button>
+        </li>
+      </ul>
+    );
+    }
+  },
+
   render: function () {
     var display;
+    var buttons;
+    var background = "header-nav group";
 
     if (this.state.modal === null) {
       display = "";
@@ -68,27 +90,22 @@ var siteHeader = React.createClass({
       display = this.getCurrentModal();
     }
 
+    buttons = this.welcomeButtons();
+
+    if (this.props.loggedIn === true) {
+      background = "header-nav group background";
+    }
+
     return (
       <div>
         <header className="header">
-          <nav className="header-nav group">
+          <nav className={background}>
 
             <h1 className="header-logo">
               <a href="#">BetterSounds</a>
             </h1>
 
-            <ul className="header-list">
-              <li>
-                <button className="sign-in-button" type="submit" onClick={this.toSignIn}>
-                  Sign in
-                </button>
-              </li>
-              <li>
-                <button className="sign-button" type="submit" onClick={this.toSignUp}>
-                  Create account
-                </button>
-              </li>
-            </ul>
+            {buttons}
 
           </nav>
         </header>

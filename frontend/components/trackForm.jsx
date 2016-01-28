@@ -35,6 +35,7 @@ var TrackForm = React.createClass({
 
   addTrack: function(e) {
     e.preventDefault();
+    ModalUtil.removeCurrentModal();
 
     var formData = new FormData();
 

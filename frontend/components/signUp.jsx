@@ -49,6 +49,7 @@ var LogIn = React.createClass({
 
   signUp: function(e) {
     e.preventDefault();
+    ModalUtil.removeCurrentModal();
 
     var formData = new FormData();
 

@@ -6,11 +6,15 @@ var SiteHeader = require('./siteHeader');
 
 var Home = React.createClass({
   mixins: [History],
+  getInitialState: function () {
+    return {loggedIn: true};
+  },
 
   render: function () {
+
     return(
       <div>
-        <SiteHeader />
+        <SiteHeader loggedIn={this.state.loggedIn}/>
         <p>Welcome Back Better Sounds!</p>
         <UserShow />
         <TrackIndex />

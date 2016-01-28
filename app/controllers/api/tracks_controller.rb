@@ -1,13 +1,13 @@
 class Api::TracksController < ApplicationController
 
   def create
-
+    debugger
     @track = Track.new(track_params)
     if @track.user_id == nil
       @track.user_id = current_user.id
     end
 
-    if track.save!
+    if @track.save!
       render :show
     else
       render json: @track.errors.full_messages
