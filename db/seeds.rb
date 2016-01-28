@@ -32,12 +32,10 @@ track1 = Track.create!(
   title: "You Know Me",
   artist: "Air Traffic Controller",
   user_id: user4.id,
-  sound_url: "www.atc.com"
 )
 
 track2 = Track.create!(
   title: "Parking Lots and Basements",
   artist: "Afternoon Men",
   user_id: user3.id,
-  sound_url: "www.afternoonmen.com"
 )

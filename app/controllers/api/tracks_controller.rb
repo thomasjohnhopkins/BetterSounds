@@ -2,13 +2,13 @@ class Api::TracksController < ApplicationController
 
   def create
 
-    track = Track.new(track_params)
-    track.user_id = current_user.id
+    @track = Track.new(track_params)
+    @track.user_id = current_user.id
 
     if track.save!
-      render json: track
+      render :show
     else
-      render json: track.errors.full_messages
+      render json: @track.errors.full_messages
     end
   end
 
@@ -25,21 +25,21 @@ class Api::TracksController < ApplicationController
   end
 
   def index
-    tracks = Track.all
+    @tracks = Track.all
 
-    render json: tracks
+    render json: @tracks
   end
 
   def show
-    track = Track.find_by(params[id])
+    @track = Track.find_by(params[id])
 
-    render json: track
+    render json: @track
   end
 
   private
   def track_params
     params
       .require(:track)
-      .permit(:title, :artist, :sound_url)
+      .permit(:title, :artist, :audio)
   end
 end
