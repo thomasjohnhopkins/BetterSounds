@@ -18,7 +18,7 @@ var ApiUtil = {
     });
   },
 
-  signUserUp: function (formData, callback) {
+  signUserUp: function (formData) {
     $.ajax({
       type: "POST",
       url: "api/users",
@@ -29,7 +29,6 @@ var ApiUtil = {
       success: function (data) {
         ApiActions.signUpUser(data);
         console.log('sign up success');
-        callback();
       },
       error: function (data) {
         console.log('sign up error');

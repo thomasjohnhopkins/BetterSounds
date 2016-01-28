@@ -53,7 +53,7 @@ var UserShow = React.createClass({
   },
 
   render: function () {
-    debugger
+    
     return(
       <div>
         <div className="user-info">

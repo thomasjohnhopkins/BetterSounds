@@ -39,7 +39,7 @@ var LogIn = React.createClass({
     reader.onloadend = function () {
       this.setState({imageFile: file, imageUrl: reader.result});
     }.bind(this);
-
+    
     if (file) {
       reader.readAsDataURL(file); // will trigger a load end event when it completes, and invoke reader.onloadend
     } else {
