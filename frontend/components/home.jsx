@@ -1,18 +1,19 @@
 var React = require('react');
 var History = require('react-router').History;
+var TrackIndex = require('./trackIndex');
+var UserShow = require('./userShow');
 var SiteHeader = require('./siteHeader');
-var Welcome = require('./welcome');
-
-
 
 var Home = React.createClass({
+  mixins: [History],
 
   render: function () {
-
     return(
       <div>
         <SiteHeader />
-        <Welcome />
+        <p>Welcome Back Better Sounds!</p>
+        <UserShow />
+        <TrackIndex />
       </div>
     );
   }

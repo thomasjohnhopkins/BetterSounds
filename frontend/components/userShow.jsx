@@ -72,11 +72,18 @@ var UserShow = React.createClass({
 
   render: function () {
     var display;
+    var image = "";
 
     if (this.state.modal === null) {
       display = "";
     } else {
       display = this.getCurrentModal();
+    }
+
+    if (this.state.user.image_url !== null) {
+      image = <img
+        className="post-image"
+        src={this.state.user.image_url} />;
     }
 
     return(
@@ -85,11 +92,10 @@ var UserShow = React.createClass({
           <h2>{this.state.user.username}</h2>
           <h5>{this.state.user.description}</h5>
             <button className="add-track" type="submit" onClick={this.toAddTrack}>
-              Add A Track
+              Add Track
             </button>
-          <img className="post-image" src={this.state.user.image_url} />
+          {image}
           {display}
-          <TrackIndex />
         </div>
       </div>
     );

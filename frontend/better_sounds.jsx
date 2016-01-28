@@ -9,6 +9,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var SignIn = require('./components/signIn');
 var SignUp = require('./components/signUp');
 var Welcome = require('./components/welcome');
+var Entry = require('./components/entry');
 var Home = require('./components/home');
 var UserShow = require('./components/userShow');
 var CurrentUserStore = require('./stores/currentUser');
@@ -25,10 +26,10 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Home} />
+    <IndexRoute component={Entry} />
       <Route path="/sign-up" component={SignUp} />
       <Route path="/sign-in" component={SignIn} />
-      <Route path="/current-user" component={UserShow} />
+      <Route path="/current-user" component={Home} />
   </Route>
 );
 

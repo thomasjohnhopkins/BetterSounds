@@ -58,7 +58,7 @@ var TrackForm = React.createClass({
     <div>
       <div className='overlay' onClick={this.closeForm}></div>
       <div className='modal'>
-      <p>Add A Track</p>
+      <p>Add Track Below</p>
         <form className="form-session group" onSubmit={this.addTrack}>
           <label>Track title</label>
           <input type="text"
@@ -68,7 +68,7 @@ var TrackForm = React.createClass({
           <input type="text"
             valueLink={this.linkState("artist")} />
 
-          <label>Upload Profile Picture</label>
+          <label>Add audio file</label>
           <input id="file-upload" type="file" onChange={this.changeFile} />
 
           <ul className="form-buttons group">

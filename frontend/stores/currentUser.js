@@ -8,6 +8,7 @@ var _currentUser = {};
 var CurrentUserStore = new Store(AppDispatcher);
 
 CurrentUserStore.currentUser = function () {
+  debugger
   return _currentUser;
 };
 
