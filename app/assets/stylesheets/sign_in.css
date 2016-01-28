@@ -1,46 +1,40 @@
-.entry {
-  margin: 0 auto;
-  background: #fff;
-  width: 900px;
-}
-
 p {
   text-align: center;
-  padding: 30px;
-  font-size: 18px;
-  font-weight: 400;
+  padding: 5px;
+  font-size: 14px;
 }
 
 .modal {
   position: absolute;
   background: #fff;
-  border: 1px solid #000;
+  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   top: 25%;
   left: 25%;
+  width: 400px;
 }
 
 .form-session {
   margin: 0 auto;
-  padding: 19px 30px;
-  width: 500px;
-  background: #eee;
-  border: 1px solid #ccc;
-  margin-bottom: 30px;
+  padding: 10px 25px;
+  background: #fff;
+  margin-bottom: 10px;
 }
 
 .form-session > input {
   background: #fff;
   border: 1px solid #ccc;
-  padding: 10px;
-  width: 478px;
+  padding: 3px 10px;
+  width: 325px;
+  border-radius: 5px;
 }
 
 label {
   display: block;
-  font-size: 14px;
-  padding: 10px 0;
+  font-size: 12px;
+  padding-top: 20px;
+  padding-bottom: 3px;
 }
 
 
@@ -52,25 +46,36 @@ label {
   border-radius: 5px;
   display: block;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .form-buttons {
   float: right;
 }
 
-.form-bottons > li {
+.form-li {
   float: left;
   padding: 10px;
 }
 
 .cancel {
+  display: inline;
   background: #fff;
-  color: #aaa;
-  float: right;
+  color: #333;
   cursor: pointer;
-  font-size: 14px;
-  margin: 10px;
+  font-size: 12px;
+  padding: 10px 2px;
+  margin-top: 5px;
+}
+
+.cancel-sign-in {
+  display: inline;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 10px 2px;
+  margin-top: 15px;
 }
 
 .sign-in-button {
@@ -83,5 +88,14 @@ label {
   float: right;
   display: block;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+#file-upload {
+  border: none;
+  font-size: 12px
+}
+
+.preview-image {
+  width: 50px;
 }

@@ -39,7 +39,7 @@ var LogIn = React.createClass({
     reader.onloadend = function () {
       this.setState({imageFile: file, imageUrl: reader.result});
     }.bind(this);
-    
+
     if (file) {
       reader.readAsDataURL(file); // will trigger a load end event when it completes, and invoke reader.onloadend
     } else {
@@ -75,31 +75,39 @@ var LogIn = React.createClass({
       <p>A Forum to Discover Artists and Share Your Own Music.</p>
       <p>Discover what BetterSounds Has to Offer by Signing Up Below.</p>
         <form className="form-session group" onSubmit={this.SignUp}>
-          <label>Username</label>
+          <label>Choose a username</label>
           <input type="text"
             valueLink={this.linkState("username")} />
 
-          <label>Email</label>
+          <label>What's your email address?</label>
           <input type="text"
             valueLink={this.linkState("email")} />
 
-          <label>Password</label>
+          <label>Choose a password</label>
             <input type="password"
               valueLink={this.linkState("password")} />
 
-          <label>Where Are You From</label>
+          <label>Where are you from</label>
           <input type="text"
             valueLink={this.linkState("description")} />
 
           <label>Upload Profile Picture</label>
-          <input type="file" onChange={this.changeFile} />
+          <input id="file-upload" type="file" onChange={this.changeFile} />
 
 
           <img className="preview-image" src={this.state.imageUrl}/>
 
           <ul className="form-buttons group">
-            <li><button className="cancel" onClick={this.closeForm}>Cancel</button></li>
-            <li><button className="sign-button" type="submit">Sign Up</button></li>
+            <li className="form-li">
+              <button className="cancel" onClick={this.closeForm}>
+                Cancel
+              </button>
+            </li>
+            <li className="form-li">
+              <button className="sign-button" type="submit">
+                Sign Up
+              </button>
+            </li>
           </ul>
         </form>
       </div>

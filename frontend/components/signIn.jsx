@@ -34,19 +34,22 @@ var LogIn = React.createClass({
     <div>
     <div className='overlay' onClick={this.closeForm}></div>
       <div className="modal">
-        <p>Welcome Back. Continue to discover new music by signing in below.</p>
+        <p>Welcome Back.</p>
+        <p>Continue to discover new music by signing in below.</p>
           <form className="form-session group" onSubmit={this.logIn}>
-            <label>Email</label>
+            <label>Your email address</label>
             <input type="text"
               valueLink={this.linkState("email")} />
 
-            <label>Password</label>
+            <label>Your password</label>
               <input type="password"
                 valueLink={this.linkState("password")} />
 
             <ul className="form-buttons group">
-              <li className="cancel" onClick={this.closeForm}>Cancel</li>
-              <li><button className="sign-button" type="submit">Sign In</button></li>
+              <li className="cancel-sign-in form-li" onClick={this.closeForm}>Cancel</li>
+              <li className="form-li">
+                <button className="sign-button" type="submit">Sign In</button>
+              </li>
             </ul>
           </form>
       </div>
