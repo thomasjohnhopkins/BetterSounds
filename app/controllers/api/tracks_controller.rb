@@ -1,7 +1,6 @@
 class Api::TracksController < ApplicationController
 
   def create
-    debugger
     @track = Track.new(track_params)
     if @track.user_id == nil
       @track.user_id = current_user.id
@@ -29,7 +28,7 @@ class Api::TracksController < ApplicationController
   def index
     @tracks = Track.all
 
-    render json: @tracks
+    render :index
   end
 
   def show

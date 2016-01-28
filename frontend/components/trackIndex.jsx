@@ -32,6 +32,7 @@ var TrackIndex = React.createClass({
       allTracks = this.state.tracks.map(function(track) {
         return <li className="track-index-item" key={track.id}>
           {track.title} : {track.artist}
+          <audio id="player" src={track.audio_url} controls></audio>
         </li>;
       });
     }

@@ -80,12 +80,11 @@ var UserShow = React.createClass({
       display = this.getCurrentModal();
     }
 
-    if (this.state.user.image_url !== null) {
+    if (this.state.user.image_url) {
       image = <img
         className="post-image"
         src={this.state.user.image_url} />;
     }
-
     return(
       <div>
         <div className="user-info">
