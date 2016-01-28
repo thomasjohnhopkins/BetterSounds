@@ -50,6 +50,25 @@ var ApiUtil = {
         console.log('fetch track failure');
       }
     });
+  },
+
+  addTrack: function (formData) {
+    $.ajax({
+      type: "POST",
+      url: "api/tracks",
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function (data) {
+        ApiActions.uploadTrack(data);
+        console.log('add track success');
+      },
+      error: function (data) {
+        console.log('add track error');
+      }
+
+    });
   }
 };
 

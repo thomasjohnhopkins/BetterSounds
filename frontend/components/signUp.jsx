@@ -47,7 +47,7 @@ var LogIn = React.createClass({
     }
   },
 
-  SignUp: function(e) {
+  signUp: function(e) {
     e.preventDefault();
 
     var formData = new FormData();
@@ -74,7 +74,7 @@ var LogIn = React.createClass({
       <div className='modal'>
       <p>A Forum to Discover Artists and Share Your Own Music.</p>
       <p>Discover what BetterSounds Has to Offer by Signing Up Below.</p>
-        <form className="form-session group" onSubmit={this.SignUp}>
+        <form className="form-session group" onSubmit={this.signUp}>
           <label>Choose a username</label>
           <input type="text"
             valueLink={this.linkState("username")} />

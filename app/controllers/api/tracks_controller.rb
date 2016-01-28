@@ -3,7 +3,9 @@ class Api::TracksController < ApplicationController
   def create
 
     @track = Track.new(track_params)
-    @track.user_id = current_user.id
+    if @track.user_id == nil
+      @track.user_id = current_user.id
+    end
 
     if track.save!
       render :show

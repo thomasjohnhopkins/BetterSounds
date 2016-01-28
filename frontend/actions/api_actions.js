@@ -23,6 +23,13 @@ ApiActions = {
       actionType: TrackConstants.TRACKS_RECEIVED,
       tracks: tracks
     });
+  },
+
+  uploadTrack: function (track) {
+    AppDispatcher.dispatch({
+      actionType: TrackConstants.TRACK_ADDED,
+      track: track
+    });
   }
 };
 

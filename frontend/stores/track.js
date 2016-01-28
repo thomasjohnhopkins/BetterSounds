@@ -29,6 +29,9 @@ switch(payload.actionType) {
     addTrack(payload.track);
     TrackStore.__emitChange();
     break;
+  case TrackConstants.TRACK_ADDED:
+    addTrack(payload.track);
+    TrackStore.__emitChange();
   }
 };
 
