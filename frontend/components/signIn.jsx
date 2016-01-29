@@ -34,6 +34,7 @@ var LogIn = React.createClass({
   return(
     <div>
     <div className='overlay' onClick={this.closeForm}></div>
+      <div className="top-of-page">
       <div className="modal">
         <p>Welcome Back.</p>
         <p>Continue to discover new music by signing in below.</p>
@@ -53,6 +54,7 @@ var LogIn = React.createClass({
               </li>
             </ul>
           </form>
+      </div>
       </div>
     </div>
     );

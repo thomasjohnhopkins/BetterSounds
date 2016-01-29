@@ -6,6 +6,7 @@ p {
 
 .modal {
   position: absolute;
+  z-index: 1001;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;

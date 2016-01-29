@@ -34,8 +34,6 @@ img {
 
 audio {
   display: block;
-  position: relative;
-  z-index: -1;
   padding: 20px 0;
   width: 40%;
 }
