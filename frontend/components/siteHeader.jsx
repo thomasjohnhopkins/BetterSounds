@@ -46,6 +46,15 @@ var siteHeader = React.createClass({
     ModalUtil.setCurrentModal(modal);
   },
 
+  toggleDropdown: function (e) {
+    e.preventDefault();
+    if (this.state.dropdownClicked === false) {
+      this.setState({dropdownClicked: true});
+    } else {
+      this.setState({dropdownClicked: false});
+    }
+  },
+
   _onChange: function () {
     this.setState({currentUser: CurrentUserStore.currentUser(),
       modal: CurrentModalStore.currentModal()} );
@@ -53,7 +62,9 @@ var siteHeader = React.createClass({
 
   getInitialState: function () {
     return {
-      currentUser: CurrentUserStore.currentUser(), modal: CurrentModalStore.currentModal()
+      currentUser: CurrentUserStore.currentUser(),
+      modal: CurrentModalStore.currentModal(),
+      dropdownClicked: false
     };
   },
 
@@ -79,31 +90,43 @@ var siteHeader = React.createClass({
     }
   },
 
+  showDropdown: function () {
+    return (
+      <ul className="dropdown">
+        <li className="dropdown-li" type="submit" onClick={this.toAddTrack}>
+          Add Track
+        </li>
+        <li className="dropdown-li" type="submit" onClick={this.toEditProfile}>
+          Edit Profile
+        </li>
+        <li className="dropdown-li" type="submit" onClick={this.toSignOut}>
+          Sign out
+        </li>
+      </ul>
+    );
+  },
+
   headerButtons: function () {
+    var dropdown = "";
+    var className;
+
+    if (this.state.dropdownClicked === true) {
+      dropdown = this.showDropdown();
+      className = "header-list-active";
+    } else {
+      className = "header-list";
+    }
 
     if (CurrentUserStore.isLoggedIn()) {
       return (
-        <ul className="header-list">
-          <li>
+        <div className={className} onClick={this.toggleDropdown}>
+          <div>
             <img className="header-image" src={this.state.currentUser.image_url} />
-          </li>
-          <li id="header-user-id">{this.state.currentUser.username}</li>
-          <li>
-            <button className="header-button" type="submit" onClick={this.toAddTrack}>
-              Add Track
-            </button>
-          </li>
-          <li>
-            <button className="header-button" type="submit" onClick={this.toEditProfile}>
-              Edit Profile
-            </button>
-          </li>
-          <li>
-            <button className="header-button" type="submit" onClick={this.toSignOut}>
-              Sign out
-            </button>
-          </li>
-        </ul>
+          </div>
+          <div id="header-user-id">{this.state.currentUser.username}</div>
+          {dropdown}
+        </div>
+
       );
     } else {
       return (<ul className="header-list">

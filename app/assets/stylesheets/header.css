@@ -1,10 +1,10 @@
 .header {
-  color: #fff;
+  color: #aaa;
 }
 
 .header a {
   display: block;
-  padding: 10px;
+  padding: 15px;
   text-decoration: none;
   vertical-align: bottom;
 }
@@ -30,9 +30,28 @@ i {
 
 .header-list {
   float: right;
+  position: relative;
+  margin-right: 20px;
+  padding-left: 20px;
 }
 
-.header-list > li {
+.header-list-active {
+  float: right;
+  position: relative;
+  margin-right: 20px;
+  padding-left: 20px;
+  background-color: #000;
+  color: #fff;
+}
+
+.header-list > div {
+  float: left;
+  display: block;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.header-list-active > div {
   float: left;
   display: block;
   padding-right: 10px;
@@ -44,7 +63,7 @@ i {
   background: #333;
   margin: 0 auto;
   width: 90%;
-  height: 40px;
+  height: 44px;
   display: block;
 }
 
@@ -70,4 +89,27 @@ i {
   display: block;
   cursor: pointer;
   font-size: 12px;
+}
+
+.header-list:hover {
+  color: #fff;
+}
+
+.dropdown {
+  position: absolute;
+  bottom: -108px;
+  left: 0;
+  right: 0;
+  background: #000;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.dropdown-li {
+  padding: 10px;
+}
+
+.dropdown-li:hover {
+  background: #333;
+  color: #fff;
 }
