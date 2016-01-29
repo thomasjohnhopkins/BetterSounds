@@ -6,6 +6,7 @@
   display: block;
   padding: 10px;
   text-decoration: none;
+  vertical-align: bottom;
 }
 
 .header-nav {
@@ -43,6 +44,19 @@ i {
   background: #333;
   margin: 0 auto;
   width: 90%;
-  height: auto;
+  height: 40px;
   display: block;
+}
+
+.header-image {
+  height: 29px;
+  width: 29px;
+  border: 1px solid #fff;
+  vertical-align: middle;
+  margin-top: 5px;
+}
+
+#header-user-id {
+  margin-right: 7px;
+  padding: 13px;
 }

@@ -2,6 +2,7 @@ var React = require('react');
 var History = require('react-router').History;
 var TrackStore = require('../../stores/track');
 var apiUtils = require('../../util/api_util');
+var TrackPlayer = require('./trackPlayer');
 
 var TrackIndex = React.createClass({
   mixins: [History],
@@ -31,8 +32,7 @@ var TrackIndex = React.createClass({
     if (this.state !== null) {
       allTracks = this.state.tracks.map(function(track) {
         return <li className="track-index-item" key={track.id}>
-          {track.title} : {track.artist}
-          <audio src={track.audio_url} controls></audio>
+          <TrackPlayer track={track} />
         </li>;
       });
     }

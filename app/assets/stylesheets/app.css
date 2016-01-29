@@ -33,9 +33,10 @@ img {
 }
 
 audio {
+  margin: auto;
   display: block;
-  padding: 20px 0;
-  width: 40%;
+  padding-top: 15px;
+  width: 92%;
 }
 
 /* --- CLEARFIX --- */

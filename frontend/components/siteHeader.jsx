@@ -62,9 +62,14 @@ var siteHeader = React.createClass({
   },
 
   welcomeButtons: function () {
+
     if (CurrentUserStore.isLoggedIn()) {
       return (
         <ul className="header-list">
+          <li>
+            <img className="header-image" src={this.state.currentUser.image_url} />
+          </li>
+          <li id="header-user-id">{this.state.currentUser.username}</li>
           <li>
             <button className="sign-button" type="submit" onClick={this.toSignOut}>
               Sign out
