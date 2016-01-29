@@ -1,8 +1,8 @@
 var React = require('react');
-var ApiUtil = require('../util/api_util');
+var ApiUtil = require('../../util/api_util');
 var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
-var ModalUtil = require('../util/modal_util');
+var ModalUtil = require('../../util/modal_util');
 
 
 var TrackForm = React.createClass({
@@ -47,7 +47,7 @@ var TrackForm = React.createClass({
     // not including a callback at the moment
     ApiUtil.addTrack(formData);
 
-    this.history.pushState(null, "/current-user");
+    this.history.pushState(null, "/");
   },
 
   resetForm: function() {

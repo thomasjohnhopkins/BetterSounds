@@ -8,8 +8,23 @@ var SessionApiUtil = {
       dataType: 'json',
       data: {user: user},
       success: function (currentUser) {
+        console.log("user logged in!");
         CurrentUserActions.receiveCurrentUser(currentUser);
         success && success();
+      }
+    });
+  },
+
+  fetchCurrentUser: function (cb) {
+    $.ajax({
+      url: '/api/session',
+      type: 'GET',
+      dataType: 'json',
+      success: function (currentUser) {
+
+        console.log("fetched current user!");
+        CurrentUserActions.receiveCurrentUser(currentUser);
+        cb && cb(currentUser);
       }
     });
   }

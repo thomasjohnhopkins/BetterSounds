@@ -61,7 +61,7 @@ var LogIn = React.createClass({
 
     ApiUtil.signUserUp(formData, this.resetForm);
 
-    this.history.pushState(null, "/current-user");
+    this.history.pushState(null, "/");
   },
 
   resetForm: function() {

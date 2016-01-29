@@ -1,7 +1,7 @@
 var React = require('react');
 var History = require('react-router').History;
-var TrackStore = require('../stores/track');
-var apiUtils = require('../util/api_util');
+var TrackStore = require('../../stores/track');
+var apiUtils = require('../../util/api_util');
 
 var TrackIndex = React.createClass({
   mixins: [History],

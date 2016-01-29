@@ -1,4 +1,5 @@
 var CurrentUserActions = require('../actions/current_user_actions');
+var ApiActions = require('../actions/api_actions');
 
 var ApiUtil = {
   signUserUp: function (formData) {

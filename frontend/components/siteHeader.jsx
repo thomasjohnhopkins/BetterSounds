@@ -1,6 +1,9 @@
 var React = require('react');
+
 var History = require('react-router').History;
 var CurrentModalStore = require('../stores/modal');
+var CurrentUserStore = require('../stores/currentUser');
+
 var ModalUtil = require('../util/modal_util');
 var SignIn = require('./signIn');
 var SignUp = require('./signUp');
@@ -8,16 +11,6 @@ var SignUp = require('./signUp');
 
 var siteHeader = React.createClass({
   mixins: [History],
-
-  // toSignIn: function (e) {
-  //   e.preventDefault();
-  //   this.history.pushState(null, "/sign-in/");
-  // },
-  //
-  // toSignUp: function (e) {
-  //   e.preventDefault();
-  //   this.history.pushState(null, "/sign-up/");
-  // },
 
   toSignIn: function (e) {
     e.preventDefault();
@@ -31,15 +24,10 @@ var siteHeader = React.createClass({
     ModalUtil.setCurrentModal(modal);
   },
 
-  getStateFromStore: function () {
-    return { modal: CurrentModalStore.currentModal() };
-  },
-
   _onChange: function () {
-    this.setState(this.getStateFromStore());
+    this.setState({currentUser: CurrentUserStore.currentUser(),
+      modal: CurrentModalStore.currentModal()} );
   },
-
-  // where I left off
 
   getInitialState: function () {
     return {
@@ -49,10 +37,12 @@ var siteHeader = React.createClass({
 
   componentDidMount: function () {
     this.currentModalListener = CurrentModalStore.addListener(this._onChange);
+    this.currentUserListener = CurrentUserStore.addListener(this._onChange);
   },
 
   componentWillUnmount: function () {
     this.currentModalListener.remove();
+    this.currentUserListener.remove();
   },
 
   getCurrentModal: function () {
@@ -64,8 +54,12 @@ var siteHeader = React.createClass({
   },
 
   welcomeButtons: function () {
-    if (this.props.loggedIn === true) {
-      return <div></div>;
+    if (CurrentUserStore.isLoggedIn()) {
+      return (
+        <button className="sign-in-button" type="submit" onClick={this.toSignOut}>
+          Sign out
+        </button>
+      );
     } else {
       return (<ul className="header-list">
         <li>
@@ -96,7 +90,7 @@ var siteHeader = React.createClass({
 
     buttons = this.welcomeButtons();
 
-    if (this.props.loggedIn === true) {
+    if (CurrentUserStore.isLoggedIn()) {
       background = "header-nav group background";
     }
 
