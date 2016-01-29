@@ -58,16 +58,8 @@ var UserShow = React.createClass({
     this.currentModalListener.remove();
   },
 
-  toAddTrack: function (e) {
-    e.preventDefault();
-    var modal = "add track";
-    ModalUtil.setCurrentModal(modal);
-  },
-
   getCurrentModal: function () {
-    if (this.state.modal === "add track") {
-      return <TrackForm user={this.state.user} />;
-    }
+
   },
 
   render: function () {
@@ -96,9 +88,6 @@ var UserShow = React.createClass({
           </div>
           {display}
         </div>
-        <button className="add-track" type="submit" onClick={this.toAddTrack}>
-          Add Track
-        </button>
       </div>
     );
   }

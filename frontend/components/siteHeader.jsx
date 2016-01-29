@@ -8,6 +8,8 @@ var SessionsApiUtil = require('../util/sessions_api_util');
 var ModalUtil = require('../util/modal_util');
 var SignIn = require('./signIn');
 var SignUp = require('./signUp');
+var TrackForm = require('./track/trackForm');
+var EditUserForm = require('./user/EditUserForm');
 
 
 var siteHeader = React.createClass({
@@ -32,6 +34,18 @@ var siteHeader = React.createClass({
      }.bind(this));
   },
 
+  toAddTrack: function (e) {
+    e.preventDefault();
+    var modal = "add track";
+    ModalUtil.setCurrentModal(modal);
+  },
+
+  toEditProfile: function (e) {
+    e.preventDefault();
+    var modal = "edit user";
+    ModalUtil.setCurrentModal(modal);
+  },
+
   _onChange: function () {
     this.setState({currentUser: CurrentUserStore.currentUser(),
       modal: CurrentModalStore.currentModal()} );
@@ -39,7 +53,7 @@ var siteHeader = React.createClass({
 
   getInitialState: function () {
     return {
-      currentUser: {}, modal: CurrentModalStore.currentModal()
+      currentUser: CurrentUserStore.currentUser(), modal: CurrentModalStore.currentModal()
     };
   },
 
@@ -58,10 +72,14 @@ var siteHeader = React.createClass({
       return <SignUp />;
     } else if (this.state.modal === "sign in") {
       return <SignIn />;
+    } else if (this.state.modal === "add track") {
+      return <TrackForm user={this.state.currentUser} />;
+    } else if (this.state.modal === "edit user") {
+      return <EditUserForm user={this.state.currentUser} />;
     }
   },
 
-  welcomeButtons: function () {
+  headerButtons: function () {
 
     if (CurrentUserStore.isLoggedIn()) {
       return (
@@ -71,7 +89,17 @@ var siteHeader = React.createClass({
           </li>
           <li id="header-user-id">{this.state.currentUser.username}</li>
           <li>
-            <button className="sign-button" type="submit" onClick={this.toSignOut}>
+            <button className="header-button" type="submit" onClick={this.toAddTrack}>
+              Add Track
+            </button>
+          </li>
+          <li>
+            <button className="header-button" type="submit" onClick={this.toEditProfile}>
+              Edit Profile
+            </button>
+          </li>
+          <li>
+            <button className="header-button" type="submit" onClick={this.toSignOut}>
               Sign out
             </button>
           </li>
@@ -105,7 +133,7 @@ var siteHeader = React.createClass({
       display = this.getCurrentModal();
     }
 
-    buttons = this.welcomeButtons();
+    buttons = this.headerButtons();
 
     if (CurrentUserStore.isLoggedIn()) {
       background = "header-nav group background";

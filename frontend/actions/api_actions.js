@@ -11,6 +11,13 @@ ApiActions = {
     });
   },
 
+  updateUser: function (user) {
+    AppDispatcher.dispatch({
+      actionType: SessionConstants.USER_CONFIRMED,
+      currentUser: user
+    });
+  },
+
   signUpUser: function (user) {
     AppDispatcher.dispatch({
       actionType: UserConstants.NEW_USER,

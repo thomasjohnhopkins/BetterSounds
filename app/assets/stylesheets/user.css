@@ -1,16 +1,7 @@
-button.add-track {
-  padding: 5px 10px;
-  color: #fff;
-  background: #f50;
-  border-radius: 5px;
-  display: block;
-  cursor: pointer;
-  font-size: 12px;
-}
-
 .user-banner {
   margin: 0 auto;
   position: relative;
+  z-index: -1;
   width: 90%;
   height: 250px;
   display: block;

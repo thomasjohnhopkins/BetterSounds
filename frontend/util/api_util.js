@@ -3,6 +3,25 @@ var ApiActions = require('../actions/api_actions');
 var SessionsApiUtil = require('./sessions_api_util');
 
 var ApiUtil = {
+  editUserInfo: function (formData, userId) {
+    $.ajax({
+      type: "PATCH",
+      url: "api/users/" + userId,
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function (user) {
+        ApiActions.updateUser(user);
+        console.log('edit success');
+      },
+      error: function (data) {
+        console.log('edit error');
+      }
+
+    });
+  },
+
   signUserUp: function (formData, success) {
     $.ajax({
       type: "POST",
