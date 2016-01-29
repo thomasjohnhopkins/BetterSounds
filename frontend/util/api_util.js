@@ -1,8 +1,9 @@
 var CurrentUserActions = require('../actions/current_user_actions');
 var ApiActions = require('../actions/api_actions');
+var SessionsApiUtil = require('./sessions_api_util');
 
 var ApiUtil = {
-  signUserUp: function (formData) {
+  signUserUp: function (formData, success) {
     $.ajax({
       type: "POST",
       url: "api/users",
@@ -10,9 +11,10 @@ var ApiUtil = {
       contentType: false,
       dataType: 'json',
       data: formData,
-      success: function (data) {
-        ApiActions.signUpUser(data);
+      success: function (user) {
+        CurrentUserActions.receiveCurrentUser(user);
         console.log('sign up success');
+        success && success();
       },
       error: function (data) {
         console.log('sign up error');

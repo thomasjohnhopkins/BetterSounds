@@ -3,6 +3,7 @@ var ApiUtil = require('../util/api_util');
 var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ModalUtil = require('../util/modal_util');
+var SessionsApiUtil = require('../util/sessions_api_util');
 
 var LogIn = React.createClass({
   mixins: [LinkedStateMixin, History],
@@ -11,21 +12,6 @@ var LogIn = React.createClass({
  getInitialState: function () {
    return ({username: "", email: "", password: "", description: "", imageFile: null, imageUrl: ""});
  },
-
- // SignUp: function (e) {
- //   e.preventDefault();
- //
- //   var user = {};
- //
- //   user.username = this.state.username;
- //   user.email = this.state.email;
- //   user.password = this.state.password;
- //   user.description = this.state.description;
- //
- //   ApiUtil.signUserUp(user);
- //
- //   this.history.pushState(null, "/current-user");
- // },
 
  closeForm: function (e) {
   e.preventDefault();
@@ -59,9 +45,11 @@ var LogIn = React.createClass({
     formData.append("user[description]", this.state.description);
     formData.append("user[image]", this.state.imageFile);
 
-    ApiUtil.signUserUp(formData, this.resetForm);
+    ApiUtil.signUserUp(formData, function () {
+       this.history.pushState({}, "/");
+     }.bind(this));
 
-    this.history.pushState(null, "/");
+    this.resetForm();
   },
 
   resetForm: function() {
