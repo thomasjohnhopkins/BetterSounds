@@ -39,8 +39,12 @@ var siteHeader = React.createClass({
     this.setState(this.getStateFromStore());
   },
 
+  // where I left off
+
   getInitialState: function () {
-    return this.getStateFromStore();
+    return {
+      currentUser: {}, modal: CurrentModalStore.currentModal()
+    };
   },
 
   componentDidMount: function () {

@@ -1,8 +1,8 @@
 var React = require('react');
-var ApiUtil = require('../util/api_util');
 var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ModalUtil = require('../util/modal_util');
+var SessionsApiUtil = require('../util/sessions_api_util');
 
 var LogIn = React.createClass({
   mixins: [LinkedStateMixin, History],
@@ -20,9 +20,9 @@ var LogIn = React.createClass({
    user.email = this.state.email;
    user.password = this.state.password;
 
-   ApiUtil.logUserIn(user);
-
-   this.history.pushState(null, "/current-user");
+   SessionsApiUtil.logUserIn(user, function () {
+      this.history.pushState({}, "/");
+    }.bind(this));
  },
 
  closeForm: function (e) {
