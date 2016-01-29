@@ -7,6 +7,12 @@ var CurrentUserActions = {
       actionType: SessionConstants.USER_CONFIRMED,
       currentUser: currentUser
     });
+  },
+
+  removeCurrentUser: function () {
+    AppDispatcher.dispatch({
+      actionType: SessionConstants.USER_LOGGED_OUT
+    });
   }
 };
 

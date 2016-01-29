@@ -27,4 +27,18 @@ CurrentUserStore.__onDispatch = function (payload) {
   }
 };
 
+CurrentUserStore.__onDispatch = function (payload) {
+  switch(payload.actionType) {
+    case SessionConstants.USER_CONFIRMED:
+      _currentUserHasBeenFetched = true;
+      _currentUser = payload.currentUser;
+      CurrentUserStore.__emitChange();
+      break;
+    case SessionConstants.USER_LOGGED_OUT:
+      _currentUser = {};
+      CurrentUserStore.__emitChange();
+      break;
+  }
+};
+
 module.exports = CurrentUserStore;

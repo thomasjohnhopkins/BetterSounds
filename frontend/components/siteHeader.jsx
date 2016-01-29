@@ -4,6 +4,7 @@ var History = require('react-router').History;
 var CurrentModalStore = require('../stores/modal');
 var CurrentUserStore = require('../stores/currentUser');
 
+var SessionsApiUtil = require('../util/sessions_api_util');
 var ModalUtil = require('../util/modal_util');
 var SignIn = require('./signIn');
 var SignUp = require('./signUp');
@@ -22,6 +23,13 @@ var siteHeader = React.createClass({
     e.preventDefault();
     var modal = "sign up";
     ModalUtil.setCurrentModal(modal);
+  },
+
+  toSignOut: function (e) {
+    e.preventDefault();
+    SessionsApiUtil.logUserOut(function () {
+       this.history.pushState({}, "welcome");
+     }.bind(this));
   },
 
   _onChange: function () {
@@ -56,9 +64,13 @@ var siteHeader = React.createClass({
   welcomeButtons: function () {
     if (CurrentUserStore.isLoggedIn()) {
       return (
-        <button className="sign-in-button" type="submit" onClick={this.toSignOut}>
-          Sign out
-        </button>
+        <ul className="header-list">
+          <li>
+            <button className="sign-button" type="submit" onClick={this.toSignOut}>
+              Sign out
+            </button>
+          </li>
+        </ul>
       );
     } else {
       return (<ul className="header-list">

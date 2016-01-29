@@ -15,6 +15,19 @@ var SessionApiUtil = {
     });
   },
 
+  logUserOut: function (success) {
+    $.ajax({
+      url: '/api/session',
+      type: 'DELETE',
+      dataType: 'json',
+      success: function (currentUser) {
+        console.log("user logged out!");
+        CurrentUserActions.removeCurrentUser();
+        success && success();
+      }
+    });
+  },
+
   fetchCurrentUser: function (cb) {
     $.ajax({
       url: '/api/session',
