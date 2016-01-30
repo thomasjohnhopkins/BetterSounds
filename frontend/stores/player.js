@@ -63,7 +63,7 @@ AudioPlayerStore.__onDispatch = function (payload) {
 };
 
 AudioPlayerStore.fetchTrack = function () {
-  var trackCopy = jQuery.extend({}, _track);
+  var trackCopy = _track;
 
   return trackCopy;
 };

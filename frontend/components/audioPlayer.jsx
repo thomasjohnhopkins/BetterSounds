@@ -27,7 +27,7 @@ var AudioPlayer = React.createClass({
   componentWillUpdate: function (nextProps, nextState) {
     this._handlePlayRequest(nextState.playTrack);
     this._handlePauseRequest(nextState.pauseTrack);
-    this._handleVolumeChangeRequest(nextstate.changeVolumeTo);
+    this._handleVolumeChangeRequest(nextState.changeVolumeTo);
   },
 
   componentWillUnmount: function () {
