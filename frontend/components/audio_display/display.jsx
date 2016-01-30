@@ -59,7 +59,7 @@ var Player = React.createClass({
 
     return (
       <div id="audio-player">
-        <section className="controller">
+        <section className="controller group">
 
           <figure className="audio-controller">
 
