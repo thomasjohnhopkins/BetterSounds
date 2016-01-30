@@ -11,7 +11,6 @@ var Entry = React.createClass({
 
     return(
       <div>
-        <SiteHeader />
         <Welcome />
       </div>
     );

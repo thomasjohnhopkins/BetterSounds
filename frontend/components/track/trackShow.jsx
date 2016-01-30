@@ -39,10 +39,10 @@ var TrackShow = React.createClass({
     return (
       <div>
         <div className="track-banner group">
-          <button className="play-audio"></button>
+          <button className="play-audio">P</button>
           <div className="track-info">
-            <h5>{artist}</h5>
-            <h2>{title}</h2>
+            <h5 className="track-text">{artist}</h5>
+            <h2 className="track-text">{title}</h2>
           </div>
           <div className="date-and-tags">
 

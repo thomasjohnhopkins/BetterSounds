@@ -1,6 +1,7 @@
 var React = require('react');
 var SessionsApiUtil = require('../util/sessions_api_util');
 var CurrentUserStore = require('../stores/currentUser');
+var SiteHeader = require('./siteHeader');
 
 var App = React.createClass({
 
@@ -11,9 +12,10 @@ var App = React.createClass({
   },
 
   render: function () {
-  
+
     return(
       <div>
+        <SiteHeader />
         {this.props.children}
       </div>
     );
