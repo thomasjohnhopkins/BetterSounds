@@ -20,3 +20,9 @@
   font-size: 20px;
   color: #aaa;
 }
+
+.track-player-title:hover {
+  font-size: 20px;
+  color: #aaa;
+  background: black;
+}

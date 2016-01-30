@@ -6,7 +6,7 @@ var SiteHeader = require('./siteHeader');
 
 var Home = React.createClass({
   mixins: [History],
-
+  
   render: function () {
 
     return(

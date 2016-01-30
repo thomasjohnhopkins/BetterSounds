@@ -1,17 +1,17 @@
 .user-banner {
   margin: 0 auto;
-  position: relative;
   z-index: -1;
   width: 90%;
   height: 250px;
   display: block;
-  background: linear-gradient(315deg, #fff, #aaa 50%, #eee);
+  background: linear-gradient(345deg, #fff, #aaa 50%, #eee);
 }
 
 .post-image {
   float:left;
   margin: 30px;
   height: 150px;
+  margin-left: -35px;
   width: auto;
 }
 

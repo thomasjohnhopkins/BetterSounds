@@ -15,6 +15,7 @@ var UserShow = require('./components/userShow');
 var CurrentUserStore = require('./stores/currentUser');
 var SessionsApiUtil = require('./util/sessions_api_util');
 var App = require('./components/app');
+var TrackShow = require('./components/track/trackShow');
 
 
 function _ensureLoggedIn(nextState, replace, callback) {
@@ -40,8 +41,9 @@ var routes = (
   <Route path="/" component={App} >
     <IndexRoute component={Home} onEnter={_ensureLoggedIn} />
       <Route path="welcome" component={Entry} />
-      <Route path="/sign-up" component={SignUp} />
-      <Route path="/sign-in" component={SignIn} />
+      <Route path="sign-up" component={SignUp} />
+      <Route path="sign-in" component={SignIn} />
+      <Route path="track/:trackId" component={TrackShow}/>
   </Route>
 );
 

@@ -19,6 +19,16 @@ var addTrack = function (track) {
   _tracks.push(track);
 };
 
+TrackStore.find = function (id) {
+  var currentTrack;
+  _tracks.forEach( function (track) {
+    if (track.id === id) {
+      currentTrack = track;
+    }
+  });
+  return currentTrack;
+};
+
 TrackStore.__onDispatch = function (payload) {
 switch(payload.actionType) {
   case TrackConstants.TRACKS_RECEIVED:

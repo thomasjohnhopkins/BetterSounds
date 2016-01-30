@@ -145,6 +145,12 @@ var siteHeader = React.createClass({
     }
   },
 
+  closeNav: function () {
+    if (this.state.dropdownClicked === true) {
+      this.setState({dropdownClicked: false});
+    }
+  },
+
   render: function () {
     var display;
     var buttons;
@@ -163,7 +169,7 @@ var siteHeader = React.createClass({
     }
 
     return (
-      <div>
+      <div onClick={this.closeNav}>
         <header className="header">
           <nav className={background}>
 
