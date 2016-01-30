@@ -9,7 +9,7 @@ var ModalUtil = require('../util/modal_util');
 var SignIn = require('./signIn');
 var SignUp = require('./signUp');
 var TrackForm = require('./track/trackForm');
-var EditUserForm = require('./user/EditUserForm');
+var EditUserForm = require('./user/editUserForm');
 
 
 var siteHeader = React.createClass({
