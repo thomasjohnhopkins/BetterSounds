@@ -1,11 +1,11 @@
 var React = require('react');
 var History = require('react-router').History;
-var apiUtils = require('../util/api_util');
-var UserStore = require('../stores/currentUser');
-var ModalStore = require('../stores/modal');
-var TrackIndex = require('./track/trackIndex');
-var ModalUtil = require('../util/modal_util');
-var TrackForm = require('./track/trackForm');
+var apiUtils = require('../../util/api_util');
+var UserStore = require('../../stores/currentUser');
+var ModalStore = require('../../stores/modal');
+var TrackIndex = require('./../track/trackIndex');
+var ModalUtil = require('../../util/modal_util');
+var TrackForm = require('./../track/trackForm');
 
 var UserShow = React.createClass({
   mixins: [History],

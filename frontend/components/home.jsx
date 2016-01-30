@@ -1,7 +1,7 @@
 var React = require('react');
 var History = require('react-router').History;
 var TrackIndex = require('./track/trackIndex');
-var UserShow = require('./userShow');
+var UserShow = require('./user/userShow');
 
 
 var Home = React.createClass({
