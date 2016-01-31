@@ -1,7 +1,62 @@
 .track-index {
   margin: 0 auto;
+  width: 90%;
 }
 
 .track-index > ul > li {
   padding: 10px;
+}
+
+.track-index-header {
+  padding: 20px;
+  font-weight: 300;
+}
+
+.track-index-item {
+  height: 125px;
+  width: 50%;
+  padding: 20px 20px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.track-index-item-details {
+  float: left;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.track-index-item-details > li {
+  padding: 10px 20px;
+}
+
+.track-index-item-artist {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.track-index-item-title {
+  font-size: 20px;
+  color: #555;
+}
+
+.track-index-item-title:hover {
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+}
+
+.track-index-item-button {
+  margin-top: 35px;
+  margin-left: 40px;
+  float: left;
+  font-size: 24px;
+  padding: 12px 5px;
+  color: #fff;
+  background: #f50;
+  border-radius: 50%;
+}
+
+.track-index-item-button:hover {
+  cursor: pointer;
 }

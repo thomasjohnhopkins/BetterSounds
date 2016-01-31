@@ -17,14 +17,14 @@ var TrackIndexItem = React.createClass({
   render: function () {
 
     return (
-      <div className="track-player">
-        <ul className="track-player-details">
-          <li className="track-player-artist">{this.props.track.artist}</li>
-          <li className="track-player-title" onClick={this.showTrack}>
+      <div className="group">
+        <button className="track-index-item-button" onClick={this.addToPlayerStore}>
+          Play
+        </button>
+        <ul className="track-index-item-details">
+          <li className="track-index-item-artist">{this.props.track.artist}</li>
+          <li className="track-index-item-title" onClick={this.showTrack}>
             {this.props.track.title}
-          </li>
-          <li className="track-play-button" onClick={this.addToPlayerStore}>
-            Play track
           </li>
         </ul>
       </div>
