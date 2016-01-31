@@ -41,7 +41,8 @@ var AudioPlayerActions = {
     });
   },
 
-  setDuration: function (duration) {
+  getDuration: function (duration) {
+    debugger
     AppDispatcher.dispatch({
       actionType: AudioPlayerConstants.AUDIO_DURATION_RECEIVED,
       duration: duration
@@ -69,7 +70,7 @@ var AudioPlayerActions = {
 
   resetRequests: function () {
     AppDispatcher.dispatch({
-      actionType: ActionTypes.RESET_AUDIO_PLAYER_REQUESTS
+      actionType: AudioPlayerConstants.RESET_AUDIO_PLAYER_REQUESTS
     });
   },
 };

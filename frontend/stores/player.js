@@ -110,7 +110,6 @@ AudioPlayerStore.getDuration = function () {
 var setTrack = function (track) {
   _track = {};
   _track = track;
-
   AudioPlayerStore.__emitChange();
 };
 
@@ -174,7 +173,7 @@ var setVolume = function (volume) {
 var setDuration = function (duration) {
   _duration = duration;
 
-  AudioStore.__emitChange();
+  AudioPlayerStore.__emitChange();
 };
 
 var resetRequests = function () {
@@ -182,7 +181,7 @@ var resetRequests = function () {
   _pauseRequested = false;
   _adjustVolumeTo = null;
 
-  PlayerStore.__emitChange();
+  AudioPlayerStore.__emitChange();
 };
 
 module.exports = AudioPlayerStore;

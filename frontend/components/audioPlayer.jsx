@@ -35,7 +35,9 @@ var AudioPlayer = React.createClass({
   },
 
   _handlePlayRequest: function (request) {
+    //
     if (request) {
+      this.refs.audio.src = this.state.track.audio_url;
       this.refs.audio.play();
       AudioPlayerActions.resetRequests();
     }
@@ -67,7 +69,7 @@ var AudioPlayer = React.createClass({
     AudioPlayerActions.setToOver();
   },
 
-  _handleTimeUpdate: function () {
+  _updateTime: function () {
     AudioPlayerActions.setCurrentTime(this.refs.audio.currentTime);
   },
 
@@ -76,22 +78,21 @@ var AudioPlayer = React.createClass({
   },
 
   _handleDurationChange: function () {
-    AudioPlayerActions.setDuration(this.refs.audio.duration);
+    AudioPlayerActions.getDuration(this.refs.audio.duration);
   },
 
   render: function () {
     return(
       <audio ref="audio"
-        id="audio-player"
+        id="audio"
         onPlaying={ this._handlePlay }
         onPause={ this._handlePause }
-        onTimeUpdate={ this._updateTimebar }
+        onTimeUpdate={ this._updateTime }
         onEnded={ this._handleOver }
         onVolumeChange={ this._handleVolumeChange }
-        onDurationChange={ this._hadnleDurationChange }>
+        onDurationChange={ this._handleDurationChange }>
 
-        <p>Sorry, your browser does not support BetterSounds
-          <code>audio</code> player</p>
+        <p>Sorry, your browser does not support BetterSounds player</p>
       </audio>
     );
   },

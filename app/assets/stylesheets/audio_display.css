@@ -10,21 +10,23 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -4em;
+  margin: 0 auto -155px;
 }
 
 .footer, .push {
-  height: 4em;
+  height: 155px;
+  clear: both;
 }
 
 div#audio-player {
-  position: fixed;
+  width: 100%;
   background-color: #eee;
   border-top: 1px solid #000;
 }
 
 section.controller {
   width: 100%;
+  margin: 0 auto;
   min-width: 970px;
   display: block;
   padding: 10px 0;

@@ -9,7 +9,7 @@ var PlayButton = React.createClass({
     }
   },
 
-  playPause: function () {
+  render: function () {
     var text;
 
     if (this.props.isPlaying) {
@@ -18,14 +18,10 @@ var PlayButton = React.createClass({
       text = "play";
     }
 
-    return className;
-  },
-
-  render: function () {
     return (
       <div className="controller-button">
         <a onClick={ this._togglePlayPause }>
-          <div>{this.playPause}</div>
+          <div>{text}</div>
         </a>
       </div>
     );

@@ -55,8 +55,8 @@ var Display = React.createClass({
   },
 
   render: function () {
-    if (AudioPlayerStore.fetchTrack() === {}) { return <div />; }
-
+    if (AudioPlayerStore.fetchTrack().id === undefined) { return <div />; }
+      
     return (
       <div id="audio-player">
         <section className="controller group">

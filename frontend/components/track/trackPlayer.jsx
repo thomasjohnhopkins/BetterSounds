@@ -27,7 +27,6 @@ var TrackPlayer = React.createClass({
             Play track
           </li>
         </ul>
-        <audio src={this.props.track.audio_url} controls></audio>
       </div>
     );
   }
