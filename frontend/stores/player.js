@@ -18,6 +18,9 @@ var AudioPlayerStore = new Store(AppDispatcher);
 
 AudioPlayerStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
+    case AudioPlayerConstants.SET_TRACK:
+      setTrack(payload.track);
+      break;
 
     case AudioPlayerConstants.PLAY_AUDIO:
       setPlayRequest();
@@ -102,6 +105,13 @@ AudioPlayerStore.getVolume = function () {
 
 AudioPlayerStore.getDuration = function () {
   return _duration;
+};
+
+var setTrack = function (track) {
+  _track = {};
+  _track = track;
+
+  AudioPlayerStore.__emitChange();
 };
 
 var setPlayRequest = function () {

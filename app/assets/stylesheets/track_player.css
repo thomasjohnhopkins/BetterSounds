@@ -26,3 +26,15 @@
   color: #aaa;
   background: black;
 }
+
+.track-play-button {
+  font-size: 20px;
+  color: #aaa;
+  border: 1px solid #000;
+}
+
+.track-play-button:hover {
+  font-size: 20px;
+  color: #aaa;
+  background: black;
+}

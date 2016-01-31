@@ -2,6 +2,13 @@ var AppDispatcher = require('../dispatcher/app_dispatcher.js');
 var AudioPlayerConstants = require('../constants/audio_player_constants');
 
 var AudioPlayerActions = {
+  setTrack: function (track) {
+    AppDispatcher.dispatch({
+      actionType: AudioPlayerConstants.SET_TRACK,
+      track: track
+    });
+  },
+
   setToIsPlaying: function () {
     AppDispatcher.dispatch({
       actionType: AudioPlayerConstants.AUDIO_PLAYING

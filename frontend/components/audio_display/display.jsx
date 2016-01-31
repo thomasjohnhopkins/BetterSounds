@@ -1,13 +1,13 @@
 var React = require("react");
-var AudioPlayerStore = require("../../stores/audio_store");
-var AudioPlayerActions = require("../../actions/player_actions");
+var AudioPlayerStore = require("../../stores/player");
+var AudioPlayerActions = require("../../actions/audio_player_actions");
 
-var PlayButton = require("./playBar");
+var PlayButton = require("./playButton");
 
-var TimeDisplay = require("./timeDispaly");
+var TimeDisplay = require("./timeDisplay");
 var DurationDisplay = require("./durationDisplay");
 
-var Player = React.createClass({
+var Display = React.createClass({
   getInitialState: function () {
     return this.getStateFromStore();
   },
@@ -39,7 +39,7 @@ var Player = React.createClass({
   },
 
   _onChange: function () {
-    this.setState(this.getStateFromStores());
+    this.setState(this.getStateFromStore());
   },
 
   _playAudio: function () {

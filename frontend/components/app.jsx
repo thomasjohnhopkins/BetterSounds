@@ -3,6 +3,7 @@ var SessionsApiUtil = require('../util/sessions_api_util');
 var CurrentUserStore = require('../stores/currentUser');
 var SiteHeader = require('./siteHeader');
 var AudioPlayer = require('./audioPlayer');
+var Display = require('./audio_display/display');
 
 var App = React.createClass({
 
@@ -16,9 +17,15 @@ var App = React.createClass({
 
     return(
       <div>
-        <SiteHeader />
-        <AudioPlayer />
-        {this.props.children}
+        <div className="wrapper">
+          <SiteHeader />
+          {this.props.children}
+          <div className="push"></div>
+        </div>
+        <div className="footer">
+          <Display />
+          <AudioPlayer />
+        </div>
       </div>
     );
   }
