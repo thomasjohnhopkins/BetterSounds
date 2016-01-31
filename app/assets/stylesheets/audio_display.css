@@ -10,17 +10,20 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -155px;
+  margin: 0 auto -125px;
 }
 
 .footer, .push {
-  height: 155px;
+  height: 125px;
   clear: both;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 div#audio-player {
   width: 100%;
-  background-color: #eee;
+  background-color: #aaa;
   border-top: 1px solid #000;
 }
 
@@ -32,22 +35,29 @@ section.controller {
   padding: 10px 0;
 }
 
+section.controller > figure {
+  float: left;
+}
+
 figure.audio-controller {
   display: block;
-  float: left;
   vertical-align: middle;
   margin: 10px;
 }
 
 div.controller-button {
   display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 15px;
+  margin: 10px;
+  width: 100px;
+  padding: 25px;
+  text-align: center;
   border-radius: 5px;
   border: 1px solid #ccc;
-  color: #ccc;
+  color: #000;
+  background: #fff;
 }
+
+div.controller-button
 
 div.audio-timeline {
   display: block;

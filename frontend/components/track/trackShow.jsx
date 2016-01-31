@@ -2,7 +2,7 @@ var React = require('react');
 var ApiUtil = require('../../util/api_util');
 var History = require('react-router').History;
 var TrackStore = require('../../stores/track');
-var TrackPlayer = require('./trackPlayer');
+var trackIndexItem = require('./trackIndexItem');
 
 var TrackShow = React.createClass({
   mixins: [History],

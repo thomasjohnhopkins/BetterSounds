@@ -42,7 +42,6 @@ var AudioPlayerActions = {
   },
 
   getDuration: function (duration) {
-    debugger
     AppDispatcher.dispatch({
       actionType: AudioPlayerConstants.AUDIO_DURATION_RECEIVED,
       duration: duration

@@ -26,7 +26,7 @@ ul {
   list-style: none;
 }
 
-img {
+img, i {
   display: block;
   width: 100%;
   height: auto;

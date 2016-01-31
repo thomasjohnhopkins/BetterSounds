@@ -174,7 +174,7 @@ var siteHeader = React.createClass({
           <nav className={background}>
 
             <h1 className="header-logo">
-              <a href="#">BetterSounds</a>
+              <a href="#"><i className="fa fa-volume-up"></i>BetterSounds</a>
             </h1>
 
             {buttons}

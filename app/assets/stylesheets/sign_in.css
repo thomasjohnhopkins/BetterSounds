@@ -11,8 +11,9 @@ p {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
-  top: 25%;
-  left: 25%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 400px;
 }
 

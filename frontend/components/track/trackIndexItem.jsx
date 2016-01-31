@@ -3,7 +3,7 @@ var History = require('react-router').History;
 var AudioPlayerActions = require('../../actions/audio_player_actions');
 
 
-var TrackPlayer = React.createClass({
+var TrackIndexItem = React.createClass({
   mixins: [History],
 
   showTrack: function () {
@@ -33,4 +33,4 @@ var TrackPlayer = React.createClass({
 
 });
 
-module.exports = TrackPlayer;
+module.exports = TrackIndexItem;
