@@ -10,19 +10,6 @@ var TrackForm = require('./../track/trackForm');
 var UserShow = React.createClass({
   mixins: [History],
 
-  // ==Future Direction When I have react Auth figured out
-  // getStateFromStore: function () {
-  //   return { user: UserStore.find(parseInt(this.props.params.userId)) };
-  // },
-  //
-  // _onChange: function () {
-  //   this.setState(this.getStateFromStore());
-  // },
-  //
-  // getInitialState: function () {
-  //   return this.getStateFromStore();
-  // },
-  //
   // componentWillReceiveProps: function (newProps) {
   //   ApiUtil.fetchCurrentUser(parseInt(newProps.params.userId));
   // },
@@ -30,10 +17,6 @@ var UserShow = React.createClass({
   // componentDidMount: function () {
   //   this.currentUserListener = UserStore.addListener(this._onChange);
   //   ApiUtil.fetchCurrentUser(parseInt(this.props.params.userId));
-  // },
-  //
-  // componentWillUnmount: function () {
-  //   this.currentUserListener.remove();
   // },
 
   getStateFromStore: function () {

@@ -43,42 +43,52 @@ figure.audio-controller {
   display: block;
   vertical-align: middle;
   margin: 10px;
+  margin-right: 100px;
 }
 
 div.controller-button {
   display: inline-block;
   margin: 10px;
   width: 100px;
-  padding: 25px;
+  padding: 20px;
+  font-size: 24px;
   text-align: center;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   color: #000;
   background: #fff;
+  margin-left: 100px;
 }
 
-div.controller-button
+div.controller-button:hover {
+  color: #fff;
+  background: #000;
+}
 
 div.audio-timeline {
+  padding-left: 100px;
   display: block;
   float: left;
   vertical-align: middle;
   margin: 10px;
 }
 
+
 div.audio-time-container {
+  float: left;
   display: inline-block;
-  vertical-align: top;
-  padding: 15px 5px 5px 5px;
+  vertical-align: bottom;
+  font-size: 16px;
+  padding-top: 50px;
+  padding-left: 10px;
 }
 
 div.audio-time {
-  font-size: 11px;
   letter-spacing: 0.08em;
 }
 
 .audio-time {
-  color: #0077A9;
+  color: #f50;
 }
 
 .audio-duration {
@@ -89,9 +99,10 @@ figure.audio-id {
   display: block;
   float: left;
   font-size: 16px;
-  color: #eee;
-  vertical-align: middle;
+  color: #555;
+  vertical-align: bottom;
   text-align: center;
-  min-width: 400px;
-  margin: 10px;
+  min-width: 300px;
+  padding-top: 50px;
+  padding-left: 100px;
 }

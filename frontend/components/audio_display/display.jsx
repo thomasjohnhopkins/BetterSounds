@@ -56,7 +56,7 @@ var Display = React.createClass({
 
   render: function () {
     if (AudioPlayerStore.fetchTrack().id === undefined) { return <div />; }
-      
+
     return (
       <div id="audio-player">
         <section className="controller group">
@@ -70,10 +70,10 @@ var Display = React.createClass({
 
           </figure>
 
-          <figure className="audio-timeline">
+          <figure className="audio-timeline group">
             <TimeDisplay currentTime={ this.state.currentTime } />
 
-            <div>:</div>
+            <div className="audio-time-container">:</div>
 
             <DurationDisplay duration={ this.state.duration } />
           </figure>
