@@ -13,6 +13,7 @@ var AudioPlayer = React.createClass({
       playTrack: AudioPlayerStore.playTrack(),
       pauseTrack: AudioPlayerStore.pauseTrack(),
       changeVolumeTo: AudioPlayerStore.changeVolumeTo(),
+      currentTime: AudioPlayerStore.getCurrentTime()
     };
   },
 
@@ -35,9 +36,9 @@ var AudioPlayer = React.createClass({
   },
 
   _handlePlayRequest: function (request) {
-    //
+    currentTimeHash = "#t=" + this.state.currentTime.toString();
     if (request) {
-      this.refs.audio.src = this.state.track.audio_url;
+      this.refs.audio.src = this.state.track.audio_url + currentTimeHash;
       this.refs.audio.play();
       AudioPlayerActions.resetRequests();
     }

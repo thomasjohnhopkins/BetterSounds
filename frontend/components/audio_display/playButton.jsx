@@ -10,18 +10,18 @@ var PlayButton = React.createClass({
   },
 
   render: function () {
-    var text;
+    var symbol;
 
     if (this.props.isPlaying) {
-      text = "pause";
+      symbol = <i className="fa fa-pause fa-2x"></i>;
     } else {
-      text = "play";
+      symbol = <i className="fa fa-play fa-2x"></i>;
     }
 
     return (
       <div className="controller-button">
         <a onClick={ this._togglePlayPause }>
-          <div>{text}</div>
+          <div className="controls">{symbol}</div>
         </a>
       </div>
     );

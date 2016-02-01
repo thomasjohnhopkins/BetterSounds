@@ -10,11 +10,11 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -80px;
+  margin: 0 auto -60px;
 }
 
 .footer, .push {
-  height: 80px;
+  height: 60px;
   clear: both;
   position: fixed;
   bottom: 0;
@@ -23,7 +23,7 @@ html, body {
 
 div#audio-player {
   width: 100%;
-  background-color: #aaa;
+  background-color: #ccc;
   border-top: 1px solid #000;
 }
 
@@ -32,7 +32,6 @@ section.controller {
   margin: 0 auto;
   min-width: 970px;
   display: block;
-  padding: 10px 0;
 }
 
 section.controller > figure {
@@ -48,28 +47,24 @@ figure.audio-controller {
 
 div.controller-button {
   display: inline-block;
-  width: 100px;
-  padding: 5px 20px;
-  font-size: 24px;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #000;
+  padding: 5px;
+}
+
+.controls > i {
   color: #000;
-  background: #fff;
   margin-left: 100px;
 }
 
-div.controller-button:hover {
-  color: #fff;
-  background: #000;
+.controls > i:hover {
+  cursor:pointer;
 }
 
-div.audio-timeline {
-  padding-left: 100px;
+figure.audio-timeline {
+  padding-left: 50px;
   display: block;
   float: left;
   vertical-align: middle;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 
@@ -78,7 +73,7 @@ div.audio-time-container {
   display: inline-block;
   vertical-align: bottom;
   font-size: 16px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 10px;
 }
 
