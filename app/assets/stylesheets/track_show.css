@@ -4,12 +4,11 @@
   width: 90%;
   height: 250px;
   display: block;
-  background: linear-gradient(345deg, #f50, #ccc 50%, #eee);
+  background: linear-gradient(345deg, #555, #eee);
 }
 
-.play-audio {
+.track-show-play-button {
   margin-top: 50px;
-  margin-right: 40px;
   text-align: center;
   float: left;
   border-radius: 50%;
@@ -20,15 +19,38 @@
   background: #f50;
 }
 
-.track-info {
-  margin-top: 30px;
-  float: left;
+.track-show-play-button:hover {
+  cursor: pointer;
 }
 
-.track-text {
-  display: block;
+.track-show-details {
+  float: left;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.track-show-details > li {
+  padding: 5px 10px;
+  margin-bottom: 10px;
   background: #333;
+}
+
+.track-show-artist {
+  font-size: 18px;
+  color: #aaa;
+  text-align: left;
+}
+
+.track-show-title {
+  font-size: 24px;
   color: #fff;
-  padding: 5px;
-  width: auto;
+  text-align: left;
+}
+
+.days-since-created {
+  float: right;
+  color: #aaa;
+  margin-top: 50px;
+  padding-right: 100px;
+  font-size: 20px;
 }

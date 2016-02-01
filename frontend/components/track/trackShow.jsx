@@ -3,6 +3,7 @@ var ApiUtil = require('../../util/api_util');
 var History = require('react-router').History;
 var TrackStore = require('../../stores/track');
 var trackIndexItem = require('./trackIndexItem');
+var AudioPlayerActions = require('../../actions/audio_player_actions');
 
 var TrackShow = React.createClass({
   mixins: [History],
@@ -28,25 +29,51 @@ var TrackShow = React.createClass({
     this.trackListener.remove();
   },
 
+  addToPlayerStore: function () {
+    AudioPlayerActions.setTrack(this.state.track);
+  },
+
+  findDateSinceCreated: function () {
+    var dateCreated = new Date(this.state.track.created_at);
+    var yearCreated = dateCreated.getUTCFullYear();
+    var monthCreated = dateCreated.getUTCMonth();
+    var dayCreated = dateCreated.getUTCDate();
+
+    var dateUTC = Date.UTC(yearCreated, monthCreated, dayCreated);
+
+    var difference = Date.now() - dateUTC;
+
+    return Math.floor(difference / 86400000).toString();
+
+  },
+
   render: function () {
     var title = "";
     var artist = "";
+    var days = "";
     if (this.state.track) {
       title = this.state.track.title;
       artist = this.state.track.artist;
+      if (this.findDateSinceCreated() === "1") {
+        days = "1 day";
+      } else {
+        days = this.findDateSinceCreated() + " days";
+      }
     }
 
     return (
       <div>
         <div className="track-banner group">
-          <button className="play-audio">P</button>
-          <div className="track-info">
-            <h5 className="track-text">{artist}</h5>
-            <h2 className="track-text">{title}</h2>
-          </div>
-          <div className="date-and-tags">
-
-          </div>
+          <button className="track-show-play-button" onClick={this.addToPlayerStore}>
+            Play
+          </button>
+          <ul className="track-show-details">
+            <li className="track-show-artist">{artist}</li>
+            <li className="track-show-title" onClick={this.showTrack}>
+              {title}
+            </li>
+          </ul>
+          <div className="days-since-created">{days}</div>
         </div>
         <div className="side-bar">
 

@@ -7,6 +7,7 @@ var TrackIndexItem = React.createClass({
   mixins: [History],
 
   showTrack: function () {
+    debugger
     this.history.pushState(null, '/track/' + this.props.track.id, {});
   },
 

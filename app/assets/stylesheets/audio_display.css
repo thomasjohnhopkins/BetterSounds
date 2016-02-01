@@ -10,11 +10,11 @@ html, body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -125px;
+  margin: 0 auto -80px;
 }
 
 .footer, .push {
-  height: 125px;
+  height: 80px;
   clear: both;
   position: fixed;
   bottom: 0;
@@ -48,9 +48,8 @@ figure.audio-controller {
 
 div.controller-button {
   display: inline-block;
-  margin: 10px;
   width: 100px;
-  padding: 20px;
+  padding: 5px 20px;
   font-size: 24px;
   text-align: center;
   border-radius: 5px;
@@ -79,7 +78,7 @@ div.audio-time-container {
   display: inline-block;
   vertical-align: bottom;
   font-size: 16px;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-left: 10px;
 }
 
@@ -103,6 +102,6 @@ figure.audio-id {
   vertical-align: bottom;
   text-align: center;
   min-width: 300px;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-left: 100px;
 }
