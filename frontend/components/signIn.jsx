@@ -36,8 +36,8 @@ var LogIn = React.createClass({
     <div className='overlay' onClick={this.closeForm}></div>
       <div className="top-of-page">
       <div className="modal">
-        <p>Welcome Back.</p>
-        <p>Continue to discover new music by signing in below.</p>
+        <p className="sign-form">Welcome Back.</p>
+        <p className="sign-form">Continue to discover new music by signing in below.</p>
           <form className="form-session group" onSubmit={this.logIn}>
             <label>Your email address</label>
             <input type="text"

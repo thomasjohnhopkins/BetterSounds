@@ -50,6 +50,8 @@ var LogIn = React.createClass({
     formData.append("user[email]", this.state.email);
     formData.append("user[password]", this.state.password);
     formData.append("user[description]", this.state.description);
+    formData.append("user[website]", this.state.website);
+    formData.append("user[bio]", this.state.bio);
     formData.append("user[image]", this.state.imageFile);
 
     ApiUtil.signUserUp(formData, function () {
@@ -60,7 +62,14 @@ var LogIn = React.createClass({
   },
 
   resetForm: function() {
-    this.setState({username: "", email: "", password: "", description: "", imageFile: null, imageUrl: ""});
+    this.setState({username: "",
+      email: "",
+      password: "",
+      description: "",
+      website: "",
+      bio: "",
+      imageFile: null,
+      imageUrl: ""});
   },
 
  render: function () {
@@ -74,10 +83,10 @@ var LogIn = React.createClass({
     <div>
       <div className='overlay' onClick={this.closeForm}></div>
       <div className='modal'>
-      <p className="sign-up-form">
+      <p className="sign-form">
         Discover Artists and Share Your Own Music.
       </p>
-      <p className="sign-up-form">
+      <p className="sign-form">
         Sign Up and Discover what BetterSounds Has to Offer.
       </p>
         <form className="form-session group" onSubmit={this.signUp}>

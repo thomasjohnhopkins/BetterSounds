@@ -13,7 +13,9 @@ var EditUserForm = React.createClass({
   getInitialState: function () {
    return ({username: this.props.user.username,
      email: this.props.user.email,
-     description: this.props.user.description
+     description: this.props.user.description,
+     website: this.props.user.website,
+     bio: this.props.user.bio
    });
   },
 
@@ -44,6 +46,8 @@ var EditUserForm = React.createClass({
     formData.append("user[username]", this.state.username);
     formData.append("user[email]", this.state.email);
     formData.append("user[description]", this.state.description);
+    formData.append("user[bio]", this.state.bio);
+    formData.append("user[website]", this.state.website);
     // if (imageFile === "") {
     //   formData.append("user[image]", this.props.user.imageFile)
     // } else {
@@ -58,7 +62,7 @@ var EditUserForm = React.createClass({
   },
 
   resetForm: function() {
-    this.setState({username: "", email: "", description: ""});
+    this.setState({username: "", email: "", description: "", website: "", bio: ""});
   },
 
   render: function () {
@@ -66,7 +70,7 @@ var EditUserForm = React.createClass({
     <div>
       <div className='overlay' onClick={this.closeForm}></div>
       <div className='modal'>
-      <p>Update your information below</p>
+      <p className="sign-form">Update your information below</p>
         <form className="form-session group" onSubmit={this.editProfile}>
           <label>Change your username</label>
           <input type="text"
@@ -75,10 +79,18 @@ var EditUserForm = React.createClass({
           <label>Update your email address</label>
           <input type="text"
             valueLink={this.linkState("email")} />
-          
+
+          <label>Update your website</label>
+          <input type="text"
+            valueLink={this.linkState("website")} />
+
           <label>Change your location</label>
             <input type="text"
             valueLink={this.linkState("description")} />
+
+          <label>Tell us about yourself</label>
+          <textarea
+            valueLink={this.linkState("bio")} />
 
           <ul className="form-buttons group">
             <li className="form-li">

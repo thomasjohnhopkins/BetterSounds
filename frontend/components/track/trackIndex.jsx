@@ -39,7 +39,6 @@ var TrackIndex = React.createClass({
 
     return(
       <div className="track-index">
-        <h2 className="track-index-header">Collection</h2>
         <ul>{allTracks}</ul>
       </div>
     );
