@@ -7,15 +7,16 @@ var _comments = [];
 var CommentStore = new Store(AppDispatcher);
 
 var addComment = function (comment) {
-  debugger
   _comments.push(comment);
+  CommentStore.__emitChange();
 };
 
 CommentStore.findComments = function (id) {
   var currentComments = [];
+  
   _comments.forEach( function (comment) {
     if (comment.track_id === id) {
-      currentComments.push(track);
+      currentComments.push(comment);
     }
   });
   return currentComments;
@@ -25,7 +26,6 @@ CommentStore.__onDispatch = function (payload) {
 switch(payload.actionType) {
   case CommentConstants.POST_COMMENT:
     addComment(payload.comment);
-    CommentStore.__emitChange();
     break;
   }
 };

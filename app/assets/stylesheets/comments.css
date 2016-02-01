@@ -1,0 +1,52 @@
+.track-info-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.comment-form {
+
+}
+
+.comment-input {
+  margin-top: 15px;
+  margin-left: 15px;
+  border: 1px solid #ccc;
+  width: 400px;
+  background: #fff;
+  color: #aaa;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.add-comment {
+  font-size: 14px;
+  padding: 5px;
+  color: #000;
+  background: #eee;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.comment-index {
+  margin-top: 30px;
+  margin-left: 15px;
+}
+
+.comment-index-header {
+  font-size: 24px;
+  width: 500px;
+  font-weight: 300;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.comment-item {
+  padding-top: 25px;
+  padding-bottom: 15px;
+  margin-left: 50px;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  width: 450px;
+  font-weight: 300;
+}

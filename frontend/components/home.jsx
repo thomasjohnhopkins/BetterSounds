@@ -34,7 +34,7 @@ var Home = React.createClass({
     return(
       <div>
         <UserShow />
-        <div className="group">
+        <div className="index-info-contatiner group">
           <h2 className="track-index-header">Collection</h2>
           <TrackIndex />
           <UserDeatils user={this.state.user} />

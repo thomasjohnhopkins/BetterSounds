@@ -65,9 +65,11 @@ var TrackShow = React.createClass({
     return (
       <div>
         <div className="track-banner group">
+
           <button className="track-show-play-button" onClick={this.addToPlayerStore}>
             <i className="fa fa-play-circle fa-5x"></i>
           </button>
+
           <ul className="track-show-details">
             <li className="track-show-artist">{artist}</li>
             <li className="track-show-title" onClick={this.showTrack}>
@@ -75,12 +77,15 @@ var TrackShow = React.createClass({
             </li>
           </ul>
           <div className="days-since-created">{days}</div>
-        </div>
-        <div className="comments">
-          <TrackComments track={this.state.track} />
-        </div>
-        <div className="side-bar">
 
+        </div>
+        <div className="track-info-container">
+          <div className="comments">
+            <TrackComments track={this.state.track} />
+          </div>
+          <div className="side-bar">
+
+          </div>
         </div>
       </div>
 
