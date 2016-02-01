@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :tracks
+  has_many :comments
+
   has_attached_file :image, default_url: "hbo_concert.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 

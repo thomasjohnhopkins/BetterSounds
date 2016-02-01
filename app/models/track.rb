@@ -4,6 +4,7 @@ class Track < ActiveRecord::Base
   validates_attachment_content_type :audio, :content_type => /.*/
 
   belongs_to :user
+  has_many :comments
 
   validates :title, presence: true
   validates :artist, presence: true
