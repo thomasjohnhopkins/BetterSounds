@@ -26,6 +26,13 @@ ApiActions = {
     });
   },
 
+  sendUsers: function (users) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.RESET_USERS,
+      users: users
+    });
+  },
+
   sendAllTracks: function (tracks) {
     AppDispatcher.dispatch({
       actionType: TrackConstants.TRACKS_RECEIVED,

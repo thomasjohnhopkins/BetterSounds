@@ -4,6 +4,7 @@ var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var CommentStore = require('../../stores/comment');
 var CurrentUserStore = require('../../stores/currentUser');
+var UserStore = require('../../stores/user');
 
 var TrackComments = React.createClass({
   mixins: [LinkedStateMixin, History],
@@ -24,6 +25,7 @@ var TrackComments = React.createClass({
   componentDidMount: function () {
     this.commentListener = CommentStore.addListener(this._onChange);
     ApiUtil.fetchComments(this.props.track.id);
+    ApiUtil.fetchUsers();
   },
 
   componentWillUnmount: function () {
@@ -52,8 +54,10 @@ var TrackComments = React.createClass({
 
     var comments = this.state.comments.map( function (comment) {
         var content = comment.body;
+        var author = UserStore.findUser(comment.user_id);
         return <li className="comment-item" key={comment.id}>
-          {content}
+          <span>{content}</span>
+          <span className="author-tag">posted by: {author.username}</span>
         </li>;
     });
 

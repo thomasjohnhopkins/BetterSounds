@@ -42,6 +42,21 @@ var ApiUtil = {
     });
   },
 
+  fetchUsers: function () {
+    $.ajax({
+      type: "GET",
+      url: "api/users",
+      dataType: "json",
+      success: function (data) {
+        ApiActions.sendUsers(data);
+        console.log('fetch users success');
+      },
+      error: function (data) {
+        console.log('fetch users failure');
+      }
+    });
+  },
+
   fetchAllTracks: function () {
     $.ajax({
       type: "GET",

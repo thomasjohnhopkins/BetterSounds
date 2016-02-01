@@ -50,3 +50,10 @@
   width: 450px;
   font-weight: 300;
 }
+
+.author-tag {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: right;
+}
