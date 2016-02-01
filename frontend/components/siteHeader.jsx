@@ -155,6 +155,7 @@ var siteHeader = React.createClass({
     var display;
     var buttons;
     var background = "header-nav group";
+    var logo = "header-logo welcome";
 
     if (this.state.modal === null) {
       display = "";
@@ -166,6 +167,7 @@ var siteHeader = React.createClass({
 
     if (CurrentUserStore.isLoggedIn()) {
       background = "header-nav group background";
+      logo = "header-logo";
     }
 
     return (
@@ -173,11 +175,11 @@ var siteHeader = React.createClass({
         <header className="header">
           <nav className={background}>
 
-            <h1 className="header-logo">
-              <a href="#"><i className="fa fa-volume-up"></i>BetterSounds</a>
-            </h1>
+          <h1 className={logo}>
+            <a href="#"><i className="fa fa-volume-up">  BetterSounds</i></a>
+          </h1>
 
-            {buttons}
+          {buttons}
 
           </nav>
         </header>

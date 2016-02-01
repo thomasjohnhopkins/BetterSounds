@@ -65,7 +65,7 @@ var TrackShow = React.createClass({
       <div>
         <div className="track-banner group">
           <button className="track-show-play-button" onClick={this.addToPlayerStore}>
-            Play
+            <i className="fa fa-play-circle fa-5x"></i>
           </button>
           <ul className="track-show-details">
             <li className="track-show-artist">{artist}</li>

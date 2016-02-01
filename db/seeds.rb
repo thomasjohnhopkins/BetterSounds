@@ -8,14 +8,14 @@ demo_user = User.create!(
     image: 'https://pixabay.com/static/uploads/photo/2016/01/13/01/36/bagan-1137015_960_720.jpg'
 )
 
-Track.destroy_all
-
-demo_track = Track.create!(
-  title: "You Know Me",
-  artist: "Air Traffic Controller",
-  user_id: demo_user.id,
-  audio: 'https://s3.amazonaws.com/better-sounds-dev/tracks/audios/000/000/009/original/You_Know_Me_-_Air_Traffic_Controller.mp3?X-Amz-Date=20160131T210915Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=d6307bfae9a271fa0a103f1f7aedbd5330128ab719c017f3f4f8715bb977333b&X-Amz-Credential=ASIAJVBCP4NWLTWI6AKA/20160131/us-east-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEPT//////////wEagAJIyUlCVBc9MV/lkyhIK7yO7hSiL8sNm5H3xAQql7vKM7IsSlY9Mu/lcdWqh6T7isFsUBXyOZCDh8bv/WwZ36ChD7SmKEtg8yihV%2B72rh6nmqMJi9yCBtOBvk7bOTByfzgmuXdM0ea4jtRH/RQ0eILBnCeNdASGR4Js2lgBDLAzyJljeGMJGIUTR3V1DoCGSREkky2Q03sjt8xA3ST4zKlszKO7i9ckjhWX/7gMfkJCpCbIBcLZSbaEKJWUwSS33aebms5tyJGb1Vc2kEJpYxPtNGoW48CpN6PsAuj1n85GPq1iWPR/KU0HzXdCqjSxq0dgSz9ikJsg6kgnuBDNkLziINuuubUF'
-)
+# Track.destroy_all
+#
+# demo_track = Track.create!(
+#   title: "You Know Me",
+#   artist: "Air Traffic Controller",
+#   user_id: demo_user.id,
+#   audio: 'https://s3.amazonaws.com/better-sounds-dev/tracks/audios/000/000/009/original/You_Know_Me_-_Air_Traffic_Controller.mp3?X-Amz-Date=20160131T210915Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=d6307bfae9a271fa0a103f1f7aedbd5330128ab719c017f3f4f8715bb977333b&X-Amz-Credential=ASIAJVBCP4NWLTWI6AKA/20160131/us-east-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEPT//////////wEagAJIyUlCVBc9MV/lkyhIK7yO7hSiL8sNm5H3xAQql7vKM7IsSlY9Mu/lcdWqh6T7isFsUBXyOZCDh8bv/WwZ36ChD7SmKEtg8yihV%2B72rh6nmqMJi9yCBtOBvk7bOTByfzgmuXdM0ea4jtRH/RQ0eILBnCeNdASGR4Js2lgBDLAzyJljeGMJGIUTR3V1DoCGSREkky2Q03sjt8xA3ST4zKlszKO7i9ckjhWX/7gMfkJCpCbIBcLZSbaEKJWUwSS33aebms5tyJGb1Vc2kEJpYxPtNGoW48CpN6PsAuj1n85GPq1iWPR/KU0HzXdCqjSxq0dgSz9ikJsg6kgnuBDNkLziINuuubUF'
+# )
 
 #
 # user1 = User.create!({

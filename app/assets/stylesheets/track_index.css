@@ -20,6 +20,20 @@
   border-radius: 5px;
 }
 
+.track-index-item-button {
+  float: left;
+}
+
+.track-index-item-button > i {
+  margin-top: 25px;
+  margin-left: 40px;
+  color: #f50;
+}
+
+.track-index-item-button:hover {
+  cursor: pointer;
+}
+
 .track-index-item-details {
   float: left;
   margin-top: 20px;
@@ -43,20 +57,5 @@
 .track-index-item-title:hover {
   font-size: 20px;
   color: #000;
-  cursor: pointer;
-}
-
-.track-index-item-button {
-  margin-top: 35px;
-  margin-left: 40px;
-  float: left;
-  font-size: 24px;
-  padding: 12px 5px;
-  color: #fff;
-  background: #f50;
-  border-radius: 50%;
-}
-
-.track-index-item-button:hover {
   cursor: pointer;
 }

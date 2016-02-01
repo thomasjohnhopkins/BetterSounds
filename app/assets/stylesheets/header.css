@@ -1,5 +1,6 @@
 .header {
   color: #aaa;
+  font-weight: 300;
 }
 
 .header a {
@@ -22,6 +23,10 @@
 .header-logo {
   text-decoration: none;
   float: left;
+}
+
+.header-logo > a > i {
+  color: #aaa;
 }
 
 i {
@@ -79,12 +84,14 @@ i {
   width: 29px;
   border: 1px solid #fff;
   vertical-align: middle;
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
 #header-user-id {
   margin-right: 7px;
-  padding: 13px;
+  padding: 10px;
+  padding-top: 16px;
+
 }
 
 .header-button {

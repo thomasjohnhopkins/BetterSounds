@@ -7,7 +7,6 @@ var TrackIndexItem = React.createClass({
   mixins: [History],
 
   showTrack: function () {
-    debugger
     this.history.pushState(null, '/track/' + this.props.track.id, {});
   },
 
@@ -20,7 +19,7 @@ var TrackIndexItem = React.createClass({
     return (
       <div className="group">
         <button className="track-index-item-button" onClick={this.addToPlayerStore}>
-          Play
+          <i className="fa fa-play-circle fa-4x"></i>
         </button>
         <ul className="track-index-item-details">
           <li className="track-index-item-artist">{this.props.track.artist}</li>
