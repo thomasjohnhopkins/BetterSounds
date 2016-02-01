@@ -55,9 +55,16 @@ var TrackComments = React.createClass({
     var comments = this.state.comments.map( function (comment) {
         var content = comment.body;
         var author = UserStore.findUser(comment.user_id);
-        return <li className="comment-item" key={comment.id}>
-          <span>{content}</span>
-          <span className="author-tag">posted by: {author.username}</span>
+        return <li className="comment-item group" key={comment.id}>
+          <span className="comment-content">{content}</span>
+          <ul className="commenter-details">
+            <li>
+              <img className="comment-image" src={author.image_url} />
+            </li>
+            <li className="author-tag">
+              posted by: {author.username}
+            </li>
+          </ul>
         </li>;
     });
 

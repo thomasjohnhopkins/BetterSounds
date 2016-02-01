@@ -53,7 +53,26 @@
 
 .author-tag {
   display: block;
-  font-size: 14px;
   margin-top: 5px;
   text-align: right;
+  font-size: 14px;
+  width: auto;
+  padding: 5px;
+}
+
+.comment-content {
+  float: left;
+  width: 250px;
+}
+
+.commenter-details {
+  float: right;
+}
+
+.comment-image {
+  display: block;
+  margin-left: 5px;
+  height: 29px;
+  width: 29px;
+  border: 1px solid #fff;
 }
