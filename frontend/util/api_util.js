@@ -72,9 +72,26 @@ var ApiUtil = {
       error: function (data) {
         console.log('add track error');
       }
-
     });
-  }
+  },
+
+  postComment: function (comment, track_id) {
+    $.ajax({
+      type: "POST",
+      url: "/api/tracks/" + track_id + "/comments",
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: comment,
+      success: function (data) {
+        ApiActions.postComment(data);
+        console.log('add comment success');
+      },
+      error: function (data) {
+        console.log('add comment error');
+      }
+    });
+  },
 };
 
 module.exports = ApiUtil;

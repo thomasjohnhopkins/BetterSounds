@@ -4,6 +4,7 @@ var History = require('react-router').History;
 var TrackStore = require('../../stores/track');
 var trackIndexItem = require('./trackIndexItem');
 var AudioPlayerActions = require('../../actions/audio_player_actions');
+var TrackComments = require('./trackComments');
 
 var TrackShow = React.createClass({
   mixins: [History],
@@ -75,10 +76,10 @@ var TrackShow = React.createClass({
           </ul>
           <div className="days-since-created">{days}</div>
         </div>
-        <div className="side-bar">
-
-        </div>
         <div className="comments">
+          <TrackComments track={this.state.track} />
+        </div>
+        <div className="side-bar">
 
         </div>
       </div>

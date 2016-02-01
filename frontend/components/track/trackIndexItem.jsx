@@ -6,7 +6,8 @@ var AudioPlayerActions = require('../../actions/audio_player_actions');
 var TrackIndexItem = React.createClass({
   mixins: [History],
 
-  showTrack: function () {
+  showTrack: function (e) {
+    e.preventDefault();
     this.history.pushState(null, '/track/' + this.props.track.id, {});
   },
 
