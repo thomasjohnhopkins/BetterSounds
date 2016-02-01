@@ -1,7 +1,9 @@
-p {
+.sign-up-form {
+  margin: 0 auto;
   text-align: center;
   padding: 5px;
-  font-size: 14px;
+  padding-top: 10px;
+  font-size: 16px;
 }
 
 .modal {
@@ -30,6 +32,17 @@ p {
   padding: 3px 10px;
   width: 325px;
   border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-session > textarea {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 3px 10px;
+  width: 325px;
+  height: 75px;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 label {
@@ -100,4 +113,8 @@ label {
 
 .preview-image {
   width: 50px;
+}
+
+img.no-preview-image {
+  content: "";
 }

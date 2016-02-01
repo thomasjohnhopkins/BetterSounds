@@ -8,8 +8,10 @@
 }
 
 .track-index-header {
-  padding: 20px;
-  font-weight: 300;
+  padding: 20px 20px 10px 20px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  border-bottom: 1px solid #ccc;
 }
 
 .track-index-item {

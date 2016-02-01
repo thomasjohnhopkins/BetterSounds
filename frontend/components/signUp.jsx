@@ -10,7 +10,14 @@ var LogIn = React.createClass({
 
 
  getInitialState: function () {
-   return ({username: "", email: "", password: "", description: "", imageFile: null, imageUrl: ""});
+   return ({username: "",
+    email: "",
+    password: "",
+    description: "",
+    bio: "",
+    website: "",
+    imageFile: null,
+    imageUrl: ""});
  },
 
  closeForm: function (e) {
@@ -57,12 +64,22 @@ var LogIn = React.createClass({
   },
 
  render: function () {
+  var previewImage = "preview-image";
+
+  if (this.state.imageUrl === "") {
+    previewImage = "no-preview-image";
+  }
+
   return(
     <div>
       <div className='overlay' onClick={this.closeForm}></div>
       <div className='modal'>
-      <p>A Forum to Discover Artists and Share Your Own Music.</p>
-      <p>Discover what BetterSounds Has to Offer by Signing Up Below.</p>
+      <p className="sign-up-form">
+        Discover Artists and Share Your Own Music.
+      </p>
+      <p className="sign-up-form">
+        Sign Up and Discover what BetterSounds Has to Offer.
+      </p>
         <form className="form-session group" onSubmit={this.signUp}>
           <label>Choose a username</label>
           <input type="text"
@@ -80,11 +97,19 @@ var LogIn = React.createClass({
           <input type="text"
             valueLink={this.linkState("description")} />
 
+          <label>Add a website</label>
+          <input type="text"
+            valueLink={this.linkState("website")} />
+
+          <label>Tell us about yourself</label>
+          <textarea
+            valueLink={this.linkState("bio")} />
+
           <label>Upload Profile Picture</label>
           <input id="file-upload" type="file" onChange={this.changeFile} />
 
 
-          <img className="preview-image" src={this.state.imageUrl}/>
+          <img className={previewImage} src={this.state.imageUrl}/>
 
           <ul className="form-buttons group">
             <li className="form-li">
