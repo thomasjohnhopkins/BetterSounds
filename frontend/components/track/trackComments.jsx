@@ -23,6 +23,7 @@ var TrackComments = React.createClass({
 
   componentDidMount: function () {
     this.commentListener = CommentStore.addListener(this._onChange);
+    ApiUtil.fetchComments(this.props.track.id);
   },
 
   componentWillUnmount: function () {

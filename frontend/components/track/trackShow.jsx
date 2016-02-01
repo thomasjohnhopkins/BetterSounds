@@ -5,6 +5,7 @@ var TrackStore = require('../../stores/track');
 var trackIndexItem = require('./trackIndexItem');
 var AudioPlayerActions = require('../../actions/audio_player_actions');
 var TrackComments = require('./trackComments');
+var TrackDetails = require('./trackDetails');
 
 var TrackShow = React.createClass({
   mixins: [History],
@@ -84,7 +85,7 @@ var TrackShow = React.createClass({
             <TrackComments track={this.state.track} />
           </div>
           <div className="side-bar">
-
+            <TrackDetails track={this.state.track} />
           </div>
         </div>
       </div>

@@ -45,6 +45,13 @@ ApiActions = {
       actionType: CommentConstants.POST_COMMENT,
       comment: comment
     });
+  },
+
+  setComments: function (comments) {
+    AppDispatcher.dispatch({
+      actionType: CommentConstants.RESET_COMMENTS,
+      comments: comments
+    });
   }
 };
 

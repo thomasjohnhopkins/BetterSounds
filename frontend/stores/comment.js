@@ -11,9 +11,14 @@ var addComment = function (comment) {
   CommentStore.__emitChange();
 };
 
+var resetComments = function (comments) {
+  _comments = comments;
+  CommentStore.__emitChange();
+};
+
 CommentStore.findComments = function (id) {
   var currentComments = [];
-  
+
   _comments.forEach( function (comment) {
     if (comment.track_id === id) {
       currentComments.push(comment);
@@ -26,6 +31,9 @@ CommentStore.__onDispatch = function (payload) {
 switch(payload.actionType) {
   case CommentConstants.POST_COMMENT:
     addComment(payload.comment);
+    break;
+  case CommentConstants.RESET_COMMENTS:
+    resetComments(payload.comments);
     break;
   }
 };

@@ -51,3 +51,19 @@
   padding-right: 100px;
   font-size: 20px;
 }
+
+.side-bar {
+  float: right;
+  margin-right: 5%;
+  padding-left: 50px;
+  border-left: 1px solid #ccc;
+  width: 350px;
+  height: 250px;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 43px;
+}
+
+.track-detail {
+  padding: 15px;
+}

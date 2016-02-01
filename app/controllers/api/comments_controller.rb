@@ -1,5 +1,11 @@
 class Api::CommentsController < ApplicationController
 
+  def index
+    @comments = Comment.all
+
+    render :index
+  end
+
   def create
     @comment = Comment.new(comment_params)
 
@@ -9,6 +15,7 @@ class Api::CommentsController < ApplicationController
       render json: @comment.errors.full_messages
     end
   end
+
 
   def destroy
     comment = Comment.find_by(params[id])

@@ -92,6 +92,23 @@ var ApiUtil = {
       }
     });
   },
+
+  fetchComments: function (track_id) {
+    $.ajax({
+      type: "GET",
+      url: "/api/tracks/" + track_id + "/comments",
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      success: function (data) {
+        ApiActions.setComments(data);
+        console.log('fetch comment success');
+      },
+      error: function (data) {
+        console.log('fetch comment error');
+      }
+    });
+  }
 };
 
 module.exports = ApiUtil;
