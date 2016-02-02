@@ -1,7 +1,8 @@
 var React = require('react');
 var History = require('react-router').History;
 var apiUtils = require('../../util/api_util');
-var UserStore = require('../../stores/currentUser');
+var CurrentUserStore = require('../../stores/currentUser');
+var UserStore = require('../../stores/user');
 var ModalStore = require('../../stores/modal');
 var TrackIndex = require('./../track/trackIndex');
 var ModalUtil = require('../../util/modal_util');
@@ -20,7 +21,16 @@ var UserShow = React.createClass({
   // },
 
   getStateFromStore: function () {
-    return { user: UserStore.currentUser(), modal: ModalStore.currentModal() };
+    var location = window.location.hash;
+    var locationArray = location.split("/");
+    var toShow;
+    if (locationArray[1] === "user") {
+      toShow = UserStore.findUser(parseInt(locationArray[2].substring(0, 1)));
+    } else {
+      toShow = CurrentUserStore.currentUser();
+    }
+
+    return { user: toShow, modal: ModalStore.currentModal() };
   },
 
   _onChange: function () {

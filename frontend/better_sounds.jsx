@@ -16,6 +16,7 @@ var CurrentUserStore = require('./stores/currentUser');
 var SessionsApiUtil = require('./util/sessions_api_util');
 var App = require('./components/app');
 var TrackShow = require('./components/track/trackShow');
+var UserPage = require('./components/user/userPage');
 
 
 function _ensureLoggedIn(nextState, replace, callback) {
@@ -44,6 +45,7 @@ var routes = (
       <Route path="sign-up" component={SignUp} />
       <Route path="sign-in" component={SignIn} />
       <Route path="track/:trackId" component={TrackShow}/>
+      <Route path="user/:userId" component={UserPage} />
   </Route>
 );
 

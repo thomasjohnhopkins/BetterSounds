@@ -39,7 +39,7 @@ var WelcomeIndex = React.createClass({
 
     return(
       <div className="welcome-index">
-        <ul className="group">{allTracks}</ul>
+        <ul className="index-tracks group">{allTracks}</ul>
       </div>
     );
   }

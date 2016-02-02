@@ -9,6 +9,10 @@ p.welcome-text {
   width: 90%;
 }
 
+.index-tracks {
+  margin-bottom: 60px;
+}
+
 .welcome-index-items {
   float: left;
 }

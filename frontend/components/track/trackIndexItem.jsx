@@ -36,6 +36,11 @@ var TrackIndexItem = React.createClass({
     this.history.pushState(null, '/track/' + this.props.track.id, {});
   },
 
+  showUser: function (e) {
+    e.preventDefault();
+    this.history.pushState(null, '/user/' + this.props.user.id, {});
+  },
+
   addToPlayerStore: function () {
     if (this.state.track === this.props.track && this.state.isPlaying) {
       AudioPlayerActions.pauseAudio();
@@ -66,7 +71,9 @@ var TrackIndexItem = React.createClass({
           {icon}
         </button>
         <ul className="track-index-item-details">
-          <li className="track-index-item-artist">{this.props.track.artist}</li>
+          <li className="track-index-item-artist" onClick={this.showUser}>
+            {this.props.track.artist}
+          </li>
           <li className="track-index-item-title" onClick={this.showTrack}>
             {this.props.track.title}
           </li>
