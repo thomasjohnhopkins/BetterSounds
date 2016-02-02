@@ -1,6 +1,7 @@
 var Store = require('flux/utils').Store;
 var AppDispatcher = require('../dispatcher/app_dispatcher');
 var AudioPlayerConstants = require('../constants/audio_player_constants');
+var AudioPlayerActions = require('../actions/audio_player_actions');
 
 var _track = {};
 var _playRequested = false;
@@ -110,6 +111,9 @@ AudioPlayerStore.getDuration = function () {
 var setTrack = function (track) {
   _track = {};
   _track = track;
+  _isPlaying = true;
+  _playRequested = true;
+  _currentTime = 0;
   AudioPlayerStore.__emitChange();
 };
 

@@ -14,4 +14,14 @@ BetterSounds allows users to:
 - Upload your own audio files.
 - Comment on the audio files of others.
 
-## Project Design
+## Exploring the site
+
+Click around to experience the sites various functionality:
+
+- from the welcome page you can discover tracks. Clicking them will bring up
+the music player. If you start playing a track before you log in, don't worry
+about it, the player persists throughout the site, including the sign in/sign
+up process.
+- Clicking the username in the site header produces a dropdown that allows
+you to add tracks, edit your profile, and sign out.
+- Clicking on the names of tracks brings you to the track show page.

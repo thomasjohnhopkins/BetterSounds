@@ -13,6 +13,7 @@ var TrackIndexItem = React.createClass({
 
   addToPlayerStore: function () {
     AudioPlayerActions.setTrack(this.props.track);
+    // AudioPlayerActions.playAudio();
   },
 
   render: function () {

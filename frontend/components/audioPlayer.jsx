@@ -8,6 +8,7 @@ var AudioPlayer = React.createClass({
   },
 
   getStateFromStore: function () {
+    
     return {
       track: AudioPlayerStore.fetchTrack(),
       playTrack: AudioPlayerStore.playTrack(),
@@ -36,9 +37,9 @@ var AudioPlayer = React.createClass({
   },
 
   _handlePlayRequest: function (request) {
-    currentTimeHash = "#t=" + this.state.currentTime.toString();
+    var currentTimeHash = "#t=" + this.state.currentTime.toString();
     if (request) {
-      this.refs.audio.src = this.state.track.audio_url + currentTimeHash;
+      this.refs.audio.src = AudioPlayerStore.fetchTrack().audio_url + currentTimeHash;
       this.refs.audio.play();
       AudioPlayerActions.resetRequests();
     }

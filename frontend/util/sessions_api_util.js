@@ -8,7 +8,6 @@ var SessionApiUtil = {
       dataType: 'json',
       data: {user: user},
       success: function (currentUser) {
-        console.log("user logged in!");
         CurrentUserActions.receiveCurrentUser(currentUser);
         success && success();
       }
@@ -21,7 +20,6 @@ var SessionApiUtil = {
       type: 'DELETE',
       dataType: 'json',
       success: function (currentUser) {
-        console.log("user logged out!");
         CurrentUserActions.removeCurrentUser();
         success && success();
       }
@@ -34,8 +32,6 @@ var SessionApiUtil = {
       type: 'GET',
       dataType: 'json',
       success: function (currentUser) {
-
-        console.log("fetched current user!");
         CurrentUserActions.receiveCurrentUser(currentUser);
         cb && cb(currentUser);
       }
