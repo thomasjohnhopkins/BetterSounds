@@ -42,7 +42,7 @@ var TrackDetails = React.createClass({
     } else if (this.state.poster === undefined) {
       return <div></div>;
     }
-    
+
     return (
       <ul className="track-details">
         <li className="track-detail">

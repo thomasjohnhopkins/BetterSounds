@@ -5,6 +5,7 @@
 
 .comments {
   float: left;
+  margin-bottom: 60px;
 }
 
 .comment-input {
