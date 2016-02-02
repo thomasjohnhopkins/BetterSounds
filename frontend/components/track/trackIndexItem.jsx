@@ -2,6 +2,8 @@ var React = require('react');
 var History = require('react-router').History;
 var AudioPlayerActions = require('../../actions/audio_player_actions');
 var AudioPlayerStore = require('../../stores/player');
+var ApiUtil = require('../../util/api_util');
+var CurrentUserStore = require('../../stores/currentUser');
 
 
 var TrackIndexItem = React.createClass({
@@ -51,6 +53,18 @@ var TrackIndexItem = React.createClass({
     }
   },
 
+  followTrack: function () {
+    var user_id = CurrentUserStore.currentUser().id;
+    var track_id = this.props.track.id;
+
+    var formData = new FormData();
+
+    formData.append("user_follow[track_id]", track_id);
+    formData.append("user_follow[user_id]", user_id);
+
+    ApiUtil.followTrack(formData);
+  },
+
   _onChange: function () {
     this.setState(this.getStateFromStore());
   },
@@ -76,6 +90,9 @@ var TrackIndexItem = React.createClass({
           </li>
           <li className="track-index-item-title" onClick={this.showTrack}>
             {this.props.track.title}
+          </li>
+          <li className="follow-track-icon" onClick={this.followTrack}>
+            <i className="fa fa-retweet"></i>
           </li>
         </ul>
       </div>

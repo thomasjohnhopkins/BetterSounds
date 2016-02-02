@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :tracks, only: [:create, :destroy, :index, :show] do
       resources :comments, :only => [:create, :destroy, :index]
     end
+    resources :user_follows, :only => [:create, :destroy]
   end
 end

@@ -105,6 +105,23 @@ var ApiUtil = {
     });
   },
 
+  followTrack: function (formData) {
+    $.ajax({
+      type: "POST",
+      url: "api/user_follows",
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function (data) {
+        debugger
+      },
+      error: function (data) {
+
+      }
+    });
+  },
+
   postComment: function (comment, track_id) {
     $.ajax({
       type: "POST",
@@ -135,7 +152,7 @@ var ApiUtil = {
 
       },
       error: function (data) {
-  
+
       }
     });
   }

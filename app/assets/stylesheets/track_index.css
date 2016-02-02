@@ -70,3 +70,11 @@
   color: #000;
   cursor: pointer;
 }
+
+i.fa-retweet {
+  color: #f50;
+}
+
+i.fa-retweet:hover {
+  cursor: pointer;
+}
