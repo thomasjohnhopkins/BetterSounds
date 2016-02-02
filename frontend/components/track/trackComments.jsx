@@ -5,31 +5,43 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var CommentStore = require('../../stores/comment');
 var CurrentUserStore = require('../../stores/currentUser');
 var UserStore = require('../../stores/user');
+var TrackStore = require('../../stores/track');
 
 var TrackComments = React.createClass({
   mixins: [LinkedStateMixin, History],
 
+  getTrackId: function () {
+    var hashString = window.location.hash;
+    var splitString = hashString.split("?");
+    return splitString[0].substring(8, splitString[0].length);
+  },
+
   _onChange: function () {
-    var track_id = this.state.track.id;
+    var track_id = parseInt(this.getTrackId());
     this.setState({comments: CommentStore.findComments(track_id)});
   },
 
   getInitialState: function () {
-    return { track: this.props.track,
+    var track_id = parseInt(this.getTrackId());
+    return { track: TrackStore.find(track_id),
       comment: "",
       user: CurrentUserStore.currentUser(),
-      comments: CommentStore.findComments(this.props.track.id)
+      comments: CommentStore.findComments(this.getTrackId())
     };
   },
 
   componentDidMount: function () {
     this.commentListener = CommentStore.addListener(this._onChange);
-    ApiUtil.fetchComments(this.props.track.id);
+    this.trackListener = TrackStore.addListener(this._onChange);
+    var trackId = parseInt(this.getTrackId());
+    ApiUtil.fetchComments();
     ApiUtil.fetchUsers();
+    ApiUtil.fetchAllTracks();
   },
 
   componentWillUnmount: function () {
     this.commentListener.remove();
+    this.trackListener.remove();
   },
 
   addComment: function (e) {
@@ -55,6 +67,9 @@ var TrackComments = React.createClass({
     var comments = this.state.comments.map( function (comment) {
         var content = comment.body;
         var author = UserStore.findUser(comment.user_id);
+        if (author === undefined) {
+          return <div></div>;
+        }
         return <li className="comment-item group" key={comment.id}>
           <span className="comment-content">{content}</span>
           <ul className="commenter-details">

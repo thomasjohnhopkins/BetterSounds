@@ -72,6 +72,21 @@ var ApiUtil = {
     });
   },
 
+  fetchTrack: function (id) {
+    $.ajax({
+      type: "GET",
+      url: "api/tracks" + id,
+      dataType: "json",
+      success: function (data) {
+        ApiActions.sendTrack(data);
+        console.log('fetch track success');
+      },
+      error: function (data) {
+        console.log('fetch track failure');
+      }
+    });
+  },
+
   addTrack: function (formData) {
     $.ajax({
       type: "POST",

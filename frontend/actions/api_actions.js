@@ -47,6 +47,13 @@ ApiActions = {
     });
   },
 
+  sendTrack: function (track) {
+    AppDispatcher.dispatch({
+      actionType: TrackConstants.SEND_TRACK,
+      track: track
+    });
+  },
+
   postComment: function (comment) {
     AppDispatcher.dispatch({
       actionType: CommentConstants.POST_COMMENT,
