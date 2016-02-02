@@ -5,7 +5,7 @@ var TrackStore = require('../../stores/track');
 var AudioPlayerActions = require('../../actions/audio_player_actions');
 var UserStore = require('../../stores/user');
 var UserShow = require('./userShow');
-var TrackIndex = require('../track/TrackIndex');
+var TrackIndex = require('../track/trackIndex');
 var UserDetails = require('./userDetails');
 
 var UserPage = React.createClass({
