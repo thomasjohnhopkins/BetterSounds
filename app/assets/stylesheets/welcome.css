@@ -9,8 +9,12 @@ p.welcome-text {
   width: 90%;
 }
 
-.welcome-index-item {
+.welcome-index-items {
   float: left;
+}
+
+.welcome-index-item {
+  display: block;
   height: 130px;
   width: 180px;
   margin: 20px;

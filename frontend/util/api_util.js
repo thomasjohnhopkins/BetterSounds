@@ -13,10 +13,10 @@ var ApiUtil = {
       data: formData,
       success: function (user) {
         ApiActions.updateUser(user);
-        console.log('edit success');
+
       },
       error: function (data) {
-        console.log('edit error');
+
       }
 
     });
@@ -32,7 +32,7 @@ var ApiUtil = {
       data: formData,
       success: function (user) {
         CurrentUserActions.receiveCurrentUser(user);
-        console.log('sign up success');
+
         success && success();
       },
       error: function (data) {
@@ -49,10 +49,10 @@ var ApiUtil = {
       dataType: "json",
       success: function (data) {
         ApiActions.sendUsers(data);
-        console.log('fetch users success');
+
       },
       error: function (data) {
-        console.log('fetch users failure');
+
       }
     });
   },
@@ -64,10 +64,10 @@ var ApiUtil = {
       dataType: "json",
       success: function (data) {
         ApiActions.sendAllTracks(data);
-        console.log('fetch track success');
+
       },
       error: function (data) {
-        console.log('fetch track failure');
+
       }
     });
   },
@@ -79,10 +79,10 @@ var ApiUtil = {
       dataType: "json",
       success: function (data) {
         ApiActions.sendTrack(data);
-        console.log('fetch track success');
+
       },
       error: function (data) {
-        console.log('fetch track failure');
+
       }
     });
   },
@@ -97,10 +97,10 @@ var ApiUtil = {
       data: formData,
       success: function (data) {
         ApiActions.uploadTrack(data);
-        console.log('add track success');
+
       },
       error: function (data) {
-        console.log('add track error');
+
       }
     });
   },
@@ -115,10 +115,10 @@ var ApiUtil = {
       data: comment,
       success: function (data) {
         ApiActions.postComment(data);
-        console.log('add comment success');
+
       },
       error: function (data) {
-        console.log('add comment error');
+
       }
     });
   },
@@ -132,10 +132,10 @@ var ApiUtil = {
       dataType: 'json',
       success: function (data) {
         ApiActions.setComments(data);
-        console.log('fetch comment success');
+
       },
       error: function (data) {
-        console.log('fetch comment error');
+  
       }
     });
   }

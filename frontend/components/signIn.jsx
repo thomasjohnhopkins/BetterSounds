@@ -25,6 +25,20 @@ var LogIn = React.createClass({
     }.bind(this));
  },
 
+ demoSignIn: function (e) {
+   e.preventDefault();
+   ModalUtil.removeCurrentModal();
+
+   var user = {};
+
+   user.email = "demo@user.com";
+   user.password = "password";
+
+   SessionsApiUtil.logUserIn(user, function () {
+      this.history.pushState({}, "/");
+    }.bind(this));
+ },
+
  closeForm: function (e) {
   e.preventDefault();
   ModalUtil.removeCurrentModal();
@@ -48,9 +62,12 @@ var LogIn = React.createClass({
                 valueLink={this.linkState("password")} />
 
             <ul className="form-buttons group">
+              <li className="guest-sign-in form-li" onClick={this.demoSignIn}>
+                Sign in as a guest
+              </li>
               <li className="cancel-sign-in form-li" onClick={this.closeForm}>Cancel</li>
               <li className="form-li">
-                <button className="sign-button" type="submit">Sign In</button>
+                <button className="sign-button" type="submit">Sign in</button>
               </li>
             </ul>
           </form>

@@ -31,7 +31,7 @@ var WelcomeIndex = React.createClass({
     var allTracks = "";
     if (this.state !== null) {
       allTracks = this.state.tracks.map(function(track) {
-        return <li className="group" key={track.id}>
+        return <li className="welcome-index-items" key={track.id}>
           <WelcomeIndexItem track={track} />
         </li>;
       });
@@ -39,7 +39,7 @@ var WelcomeIndex = React.createClass({
 
     return(
       <div className="welcome-index">
-        <ul>{allTracks}</ul>
+        <ul className="group">{allTracks}</ul>
       </div>
     );
   }

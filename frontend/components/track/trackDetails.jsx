@@ -14,7 +14,7 @@ var TrackDetails = React.createClass({
   _onChange: function () {
     var track_id = parseInt(this.getTrackId());
     var track = TrackStore.find(track_id);
-    
+
     this.setState({poster: UserStore.findUser(track.user_id)});
   },
 
@@ -42,7 +42,7 @@ var TrackDetails = React.createClass({
     } else if (this.state.poster === undefined) {
       return <div></div>;
     }
-    debugger
+    
     return (
       <ul className="track-details">
         <li className="track-detail">

@@ -7,7 +7,6 @@ var WelcomeIndexItem = React.createClass({
   mixins: [History],
 
   playTrack: function () {
-    debugger
     AudioPlayerActions.setTrack(this.props.track);
   },
 

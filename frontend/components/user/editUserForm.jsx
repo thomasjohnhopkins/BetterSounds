@@ -20,8 +20,8 @@ var EditUserForm = React.createClass({
   },
 
   closeForm: function (e) {
-  e.preventDefault();
-  ModalUtil.removeCurrentModal();
+    e.preventDefault();
+    ModalUtil.removeCurrentModal();
   },
 
   // changeFile: function(e) {
