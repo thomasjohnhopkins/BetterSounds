@@ -48,3 +48,7 @@
   color: #333;
   font-weight: 300;
 }
+
+.website:hover {
+  color: #38d;
+}
