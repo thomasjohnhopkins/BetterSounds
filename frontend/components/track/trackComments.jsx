@@ -18,7 +18,11 @@ var TrackComments = React.createClass({
 
   _onChange: function () {
     var track_id = parseInt(this.getTrackId());
-    this.setState({comments: CommentStore.findComments(track_id)});
+    this.setState({
+      comments: CommentStore.findComments(track_id),
+      user: CurrentUserStore.currentUser(),
+      track: TrackStore.find(track_id)
+    });
   },
 
   getInitialState: function () {
@@ -45,6 +49,7 @@ var TrackComments = React.createClass({
   },
 
   addComment: function (e) {
+    debugger
     e.preventDefault();
 
     var formData = new FormData();
@@ -63,25 +68,32 @@ var TrackComments = React.createClass({
   },
 
   render: function () {
+    var indexedComments = [];
+    var trackComments = this.state.comments;
 
-    var comments = this.state.comments.map( function (comment) {
-        var content = comment.body;
-        var author = UserStore.findUser(comment.user_id);
-        if (author === undefined) {
-          return <div></div>;
-        }
-        return <li className="comment-item group" key={comment.id}>
-          <span className="comment-content">{content}</span>
-          <ul className="commenter-details">
-            <li>
-              <img className="comment-image" src={author.image_url} />
-            </li>
-            <li className="author-tag">
-              posted by: {author.username}
-            </li>
-          </ul>
-        </li>;
-    });
+    if (trackComments.length === 0) {
+      indexedComments = <div></div>;
+    }
+
+    for (var i = (trackComments.length - 1); i >= 0; i--) {
+      var content = trackComments[i].body;
+      var author = UserStore.findUser(trackComments[i].user_id);
+      if (author === undefined) {
+        return <div></div>;
+      }
+      indexedComments.push(<li className="comment-item group" key={trackComments[i].id}>
+        <span className="comment-content">{content}</span>
+        <ul className="commenter-details">
+          <li>
+            <img className="comment-image" src={author.image_url} />
+          </li>
+          <li className="author-tag">
+            posted by: {author.username}
+          </li>
+        </ul>
+      </li>);
+    }
+
 
     var commentsLength = this.state.comments.length;
 
@@ -99,7 +111,7 @@ var TrackComments = React.createClass({
 
         <div className="comment-index">
           <h5 className="comment-index-header">{commentsLength} Comments</h5>
-          <ul className="comment-list">{comments}</ul>
+          <ul className="comment-list">{indexedComments}</ul>
         </div>
       </div>
     );

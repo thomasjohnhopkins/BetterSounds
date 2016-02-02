@@ -13,7 +13,7 @@ var resetUsers = function (users) {
 
 UserStore.findUser = function (id) {
   var selectedUser;
-  debugger
+  
   _users.forEach( function (user) {
     if (user.id === id) {
       selectedUser = user;
