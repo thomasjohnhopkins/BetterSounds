@@ -1,8 +1,0 @@
-== BETTER SOUNDS
-
-[BetterSounds]: better-sounds.herokuapp.com
-
-Better Sounds is an app that allows you to organize all of your favorite tracks
-in one place. You can upload your own music, or follow users who have similar
-tastes.  This web application is inspired by SoundCloud and built using
-Ruby on Rails and React.js.
