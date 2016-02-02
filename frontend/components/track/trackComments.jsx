@@ -49,7 +49,6 @@ var TrackComments = React.createClass({
   },
 
   addComment: function (e) {
-    debugger
     e.preventDefault();
 
     var formData = new FormData();
@@ -94,8 +93,12 @@ var TrackComments = React.createClass({
       </li>);
     }
 
-
-    var commentsLength = this.state.comments.length;
+    var commentNumber;
+    if (this.state.comments.length === 1) {
+      commentNumber = "1 Comment";
+    } else {
+      commentNumber = this.state.comments.length + " Comments";
+    }
 
     return (
       <div>
@@ -110,7 +113,7 @@ var TrackComments = React.createClass({
         </form>
 
         <div className="comment-index">
-          <h5 className="comment-index-header">{commentsLength} Comments</h5>
+          <h5 className="comment-index-header">{commentNumber}</h5>
           <ul className="comment-list">{indexedComments}</ul>
         </div>
       </div>

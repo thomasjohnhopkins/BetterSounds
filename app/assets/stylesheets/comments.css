@@ -55,7 +55,7 @@
 .author-tag {
   display: block;
   margin-top: 5px;
-  text-align: right;
+  text-align: left;
   font-size: 14px;
   width: auto;
   padding: 5px;
@@ -68,6 +68,7 @@
 
 .commenter-details {
   float: right;
+  width: 150px;
 }
 
 .comment-image {

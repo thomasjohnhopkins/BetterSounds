@@ -6,12 +6,22 @@ var trackIndexItem = require('./trackIndexItem');
 var AudioPlayerActions = require('../../actions/audio_player_actions');
 var TrackComments = require('./trackComments');
 var TrackDetails = require('./trackDetails');
+var AudioPlayerStore = require('../../stores/player');
+
 
 var TrackShow = React.createClass({
   mixins: [History],
 
   getStateFromStore: function () {
-    return { track: TrackStore.find(parseInt(this.props.params.trackId)) };
+    return {
+      track: TrackStore.find(parseInt(this.props.params.trackId)),
+      isPlaying: AudioPlayerStore.isPlaying(),
+      isPaused: AudioPlayerStore.isPaused(),
+      isEnded: AudioPlayerStore.isEnded(),
+      currentTime: AudioPlayerStore.getCurrentTime(),
+      volume: AudioPlayerStore.getVolume(),
+      duration: AudioPlayerStore.getDuration()
+    };
   },
 
   _onChange: function () {
@@ -23,16 +33,26 @@ var TrackShow = React.createClass({
   },
 
   componentDidMount: function () {
+    this.audioPlayerToken = AudioPlayerStore.addListener(this._onChange);
     this.trackListener = TrackStore.addListener(this._onChange);
     ApiUtil.fetchAllTracks();
   },
 
   componentWillUnmount: function () {
+    this.audioPlayerToken.remove();
     this.trackListener.remove();
   },
 
   addToPlayerStore: function () {
-    AudioPlayerActions.setTrack(this.state.track);
+    var currentTrack = AudioPlayerStore.fetchTrack();
+
+    if (this.state.track === currentTrack && this.state.isPlaying) {
+      AudioPlayerActions.pauseAudio();
+    } else if (this.state.track === currentTrack && this.state.currentTime !== 0) {
+      AudioPlayerActions.playAudio();
+    } else {
+      AudioPlayerActions.setTrack(this.state.track);
+    }
   },
 
   findDateSinceCreated: function () {
@@ -63,12 +83,21 @@ var TrackShow = React.createClass({
       }
     }
 
+    var icon;
+    var currentTrack = AudioPlayerStore.fetchTrack();
+
+    if (this.state.track === currentTrack && this.state.isPlaying) {
+      icon = <i className="fa fa-pause-circle fa-5x"></i>;
+    } else {
+      icon = <i className="fa fa-play-circle fa-5x"></i>;
+    }
+
     return (
       <div>
         <div className="track-banner group">
 
           <button className="track-show-play-button" onClick={this.addToPlayerStore}>
-            <i className="fa fa-play-circle fa-5x"></i>
+            {icon}
           </button>
 
           <ul className="track-show-details">
