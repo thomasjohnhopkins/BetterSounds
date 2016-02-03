@@ -38,6 +38,20 @@ var ApiUtil = {
     });
   },
 
+  deleteTrack: function (trackId) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/tracks/" + trackId,
+      dataType: 'json',
+      success: function (track) {
+        ApiActions.deleteTrack(track);
+      },
+      error: function (errors) {
+      }
+
+    });
+  },
+
   signUserUp: function (formData, success) {
     $.ajax({
       type: "POST",

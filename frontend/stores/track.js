@@ -27,6 +27,14 @@ var updateTracks = function (track) {
   }
 };
 
+var deleteTrack = function (track) {
+  for (var i = 0; i < _tracks.length; i++) {
+    if (_tracks[i].id === track.id) {
+      _tracks.splice(i, 1);
+    }
+  }
+};
+
 TrackStore.find = function (id) {
   var currentTrack;
   _tracks.forEach( function (track) {
@@ -54,6 +62,11 @@ switch(payload.actionType) {
   case TrackConstants.UPDATED_TRACK:
     updateTracks(payload.track);
     TrackStore.__emitChange();
+    break;
+  case TrackConstants.DELETE_TRACK:
+    deleteTrack(payload.track);
+    TrackStore.__emitChange();
+    break;
   }
 };
 

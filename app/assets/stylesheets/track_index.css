@@ -82,6 +82,7 @@
 }
 
 i.rt-index {
+  border-radius: 5px;
   width: auto;
   color: #f50;
   padding: 2px 6px;
@@ -90,6 +91,7 @@ i.rt-index {
 }
 
 i.h-index {
+  border-radius: 5px;
   width: auto;
   color: #f50;
   padding: 2px 8px;
@@ -97,6 +99,7 @@ i.h-index {
 }
 
 i.e-index {
+  border-radius: 5px;
   width: auto;
   color: #f50;
   padding: 2px 8px;
@@ -104,7 +107,17 @@ i.e-index {
   margin-left: 10px;
 }
 
-i.fa-retweet:hover, i.fa-heart:hover, i.fa-pencil-square-o:hover {
+i.t-index {
+  border-radius: 5px;
+  width: auto;
+  color: #f50;
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+}
+
+i.fa-retweet:hover, i.fa-heart:hover,
+i.fa-pencil-square-o:hover, i.fa-trash-o:hover {
   cursor: pointer;
   background: #ccc;
 }

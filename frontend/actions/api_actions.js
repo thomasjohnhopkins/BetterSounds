@@ -42,6 +42,13 @@ ApiActions = {
     });
   },
 
+  deleteTrack: function (track) {
+    AppDispatcher.dispatch({
+      actionType: TrackConstants.DELETE_TRACK,
+      track: track
+    });
+  },
+
   sendAllTracks: function (tracks) {
     AppDispatcher.dispatch({
       actionType: TrackConstants.TRACKS_RECEIVED,

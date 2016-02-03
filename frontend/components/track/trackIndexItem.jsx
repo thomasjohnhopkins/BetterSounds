@@ -138,6 +138,12 @@ var TrackIndexItem = React.createClass({
     ModalUtil.setCurrentModal(modal);
   },
 
+  deleteTrack: function (e) {
+    e.preventDefault();
+
+    ApiUtil.deleteTrack(this.props.track.id);
+  },
+
   _onChange: function () {
     this.setState(this.getStateFromStore());
   },
@@ -182,6 +188,16 @@ var TrackIndexItem = React.createClass({
       editIcon = <div></div>;
     }
 
+    var deleteIcon;
+    if (CurrentUserStore.currentUser().id === this.props.track.user_id) {
+      deleteIcon = <div className="follow-track-icon"
+        onClick={this.deleteTrack}>
+          <i className="fa fa-trash-o t-index"></i>
+      </div>;
+    } else {
+      deleteIcon = <div></div>;
+    }
+
     if (this.state.modal === null) {
       display = "";
     } else {
@@ -211,6 +227,7 @@ var TrackIndexItem = React.createClass({
                 <i className={likeIconClass}></i>
               </div>
               {editIcon}
+              {deleteIcon}
             </li>
           </ul>
         </div>
