@@ -145,6 +145,50 @@ var ApiUtil = {
     });
   },
 
+  fetchUserLikes: function () {
+    $.ajax({
+      type: "GET",
+      url: "api/user_likes",
+      dataType: 'json',
+      success: function (data) {
+        ApiActions.resetUserLikes(data);
+      }
+    });
+  },
+
+  likeTrack: function (formData) {
+    $.ajax({
+      type: "POST",
+      url: "api/user_likes",
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function (data) {
+        ApiActions.addUserLike(data);
+      },
+      error: function (data) {
+
+      }
+    });
+  },
+
+  unlikeTrack: function (id) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/user_likes/" + id,
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      success: function (data) {
+        ApiActions.removeUserLike(data);
+      },
+      error: function (data) {
+
+      }
+    });
+  },
+
   postComment: function (comment, track_id) {
     $.ajax({
       type: "POST",

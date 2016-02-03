@@ -78,19 +78,21 @@
 
 .follow-track-icon {
   padding-top: 1px;
+  display: inline;
+  margin-left: 10px;
 }
 
-i.fa-retweet {
+i.fa-retweet, i.fa-heart {
   padding: 3px;
   width: auto;
   color: #f50;
   border: 1px solid #ccc;
 }
 
-i.fa-retweet:hover {
+i.fa-retweet:hover, i.fa-heart {
   cursor: pointer;
 }
 
-.followed {
+.followed, .liked {
   background: #ccc;
 }

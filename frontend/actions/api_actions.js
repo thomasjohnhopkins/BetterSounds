@@ -4,6 +4,7 @@ var UserConstants = require('../constants/user_constants');
 var TrackConstants = require('../constants/track_constants');
 var CommentConstants = require('../constants/comment_constants');
 var UserFollowConstants = require('../constants/user_follow_constants');
+var UserLikeConstants = require('../constants/user_like_constants');
 
 ApiActions = {
   logInUser: function (user) {
@@ -87,6 +88,27 @@ ApiActions = {
     AppDispatcher.dispatch({
       actionType: UserFollowConstants.RESET_USER_FOLLOWS,
       userFollows: userFollows
+    });
+  },
+
+  addUserLike: function (userLike) {
+    AppDispatcher.dispatch({
+      actionType: UserLikeConstants.ADD_USER_LIKE,
+      userLike: userLike
+    });
+  },
+
+  removeUserLike: function (userLike) {
+    AppDispatcher.dispatch({
+      actionType: UserLikeConstants.REMOVE_USER_LIKE,
+      userLike: userLike
+    });
+  },
+
+  resetUserLikes: function (userLikes) {
+    AppDispatcher.dispatch({
+      actionType: UserLikeConstants.RESET_USER_LIKES,
+      userLikes: userLikes
     });
   }
 };

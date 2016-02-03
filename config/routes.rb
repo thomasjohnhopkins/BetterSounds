@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       resources :comments, :only => [:create, :destroy, :index]
     end
     resources :user_follows, :only => [:create, :index, :destroy]
+    resources :user_likes, :only => [:create, :index, :destroy]
   end
 end
