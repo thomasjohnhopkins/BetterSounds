@@ -6,6 +6,7 @@ class Track < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   has_many :user_follows
+  has_many :user_likes
 
   validates :title, presence: true
   validates :artist, presence: true

@@ -81,7 +81,9 @@ var TrackComments = React.createClass({
   userFollowsTrack: function () {
     var user = CurrentUserStore.currentUser();
     var userFollows = UserFollowStore.allUserFollows();
-
+    if (user === undefined || this.props.track === undefined) {
+      return false;
+    }
     for (var i = 0; i < userFollows.length; i++) {
       if (userFollows[i].track_id === this.props.track.id && userFollows[i].user_id === user.id) {
         return userFollows[i];
@@ -93,7 +95,9 @@ var TrackComments = React.createClass({
   userLikesTrack: function () {
     var user = CurrentUserStore.currentUser();
     var userLikes = UserLikeStore.allUserLikes();
-
+    if (user === undefined || this.props.track === undefined) {
+      return false;
+    }
     for (var i = 0; i < userLikes.length; i++) {
       if (userLikes[i].track_id === this.props.track.id && userLikes[i].user_id === user.id) {
         return userLikes[i];
@@ -121,7 +125,7 @@ var TrackComments = React.createClass({
   toggleLikeTrack: function () {
     var user_id = CurrentUserStore.currentUser().id;
     var track_id = this.state.track.id;
-    
+
     if (this.userLikesTrack()) {
       ApiUtil.unlikeTrack(this.userLikesTrack().id);
     } else {

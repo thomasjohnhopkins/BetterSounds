@@ -33,6 +33,18 @@ UserLikeStore.allUserLikes = function () {
   return _userLikes.slice(0);
 };
 
+UserLikeStore.getLikes = function (track_id) {
+  var totalLikes = [];
+
+  for (var i = 0; i < _userLikes.length; i++) {
+    if (_userLikes[i].track_id === track_id) {
+      totalLikes.push(_userLikes[i]);
+    }
+  }
+
+  return totalLikes;
+};
+
 UserLikeStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case UserLikeConstants.ADD_USER_LIKE:

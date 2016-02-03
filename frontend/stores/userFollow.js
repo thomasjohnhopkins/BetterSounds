@@ -33,6 +33,18 @@ UserFollowStore.allUserFollows = function () {
   return _userFollows.slice(0);
 };
 
+UserFollowStore.getFollows = function (track_id) {
+  var totalFollows = [];
+
+  for (var i = 0; i < _userFollows.length; i++) {
+    if (_userFollows[i].track_id === track_id) {
+      totalFollows.push(_userFollows[i]);
+    }
+  }
+
+  return totalFollows;
+};
+
 UserFollowStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case UserFollowConstants.ADD_USER_FOLLOW:
