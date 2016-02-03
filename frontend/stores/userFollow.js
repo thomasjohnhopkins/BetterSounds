@@ -23,6 +23,12 @@ var addUserFollow = function (userFollow) {
   UserFollowStore.__emitChange();
 };
 
+var resetUserFollows = function (userFollows) {
+  _userFollows = userFollows;
+
+  UserFollowStore.__emitChange();
+};
+
 UserFollowStore.allUserFollows = function () {
   return _userFollows.slice(0);
 };
@@ -34,6 +40,9 @@ UserFollowStore.__onDispatch = function (payload) {
       break;
     case UserFollowConstants.REMOVE_USER_FOLLOW:
       removeUserFollow(payload.userFollow);
+      break;
+    case UserFollowConstants.RESET_USER_FOLLOWS:
+      resetUserFollows(payload.userFollows);
       break;
   }
 };

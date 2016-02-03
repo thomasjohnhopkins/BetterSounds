@@ -81,6 +81,13 @@ ApiActions = {
       actionType: UserFollowConstants.REMOVE_USER_FOLLOW,
       userFollow: userFollow
     });
+  },
+
+  resetUserFollows: function (userFollows) {
+    AppDispatcher.dispatch({
+      actionType: UserFollowConstants.RESET_USER_FOLLOWS,
+      userFollows: userFollows
+    });
   }
 };
 

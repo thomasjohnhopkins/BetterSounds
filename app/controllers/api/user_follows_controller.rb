@@ -10,6 +10,12 @@ class Api::UserFollowsController < ApplicationController
     end
   end
 
+  def index
+    @user_follows = UserFollow.all
+
+    render :index
+  end
+
   def destroy
     user_follow = UserFollow.find(params[:id])
     to_be_destoryed = user_follow

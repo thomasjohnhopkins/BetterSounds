@@ -95,9 +95,19 @@ var ApiUtil = {
       data: formData,
       success: function (data) {
         ApiActions.uploadTrack(data);
-
       },
       error: function (data) {
+      }
+    });
+  },
+
+  fetchUserFollows: function () {
+    $.ajax({
+      type: "GET",
+      url: "api/user_follows",
+      dataType: 'json',
+      success: function (data) {
+        ApiActions.resetUserFollows(data);
       }
     });
   },

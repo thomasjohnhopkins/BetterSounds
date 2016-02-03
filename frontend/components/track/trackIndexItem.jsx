@@ -27,6 +27,10 @@ var TrackIndexItem = React.createClass({
     };
   },
 
+  componentWillMount: function () {
+    ApiUtil.fetchUserFollows();
+  },
+
   componentDidMount: function () {
     this.audioPlayerToken = AudioPlayerStore.addListener(this._onChange);
     this.userFollowListener = UserFollowStore.addListener(this._onChange);
@@ -60,7 +64,7 @@ var TrackIndexItem = React.createClass({
   userFollowsTrack: function () {
     var user = CurrentUserStore.currentUser();
     var userFollows = UserFollowStore.allUserFollows();
-    
+
     for (var i = 0; i < userFollows.length; i++) {
       if (userFollows[i].track_id === this.props.track.id && userFollows[i].user_id === user.id) {
         return userFollows[i];
@@ -73,7 +77,7 @@ var TrackIndexItem = React.createClass({
     var user_id = CurrentUserStore.currentUser().id;
     var track_id = this.props.track.id;
 
-    if (this.state.followed) {
+    if (this.userFollowsTrack()) {
       ApiUtil.unfollowTrack(this.userFollowsTrack().id);
     } else {
       var formData = new FormData();
@@ -100,7 +104,7 @@ var TrackIndexItem = React.createClass({
     }
 
     var iconClass;
-    if (this.state.followed) {
+    if (this.userFollowsTrack()) {
       iconClass = "fa fa-retweet followed";
     } else {
       iconClass = "fa fa-retweet";
