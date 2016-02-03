@@ -6,6 +6,7 @@ var ApiUtil = require('../../util/api_util');
 var CurrentUserStore = require('../../stores/currentUser');
 var UserFollowStore = require('../../stores/userFollow');
 var UserLikeStore = require('../../stores/userLike');
+var UserStore = require('../../stores/user');
 
 
 var TrackIndexItem = React.createClass({
@@ -53,6 +54,7 @@ var TrackIndexItem = React.createClass({
 
   showUser: function (e) {
     e.preventDefault();
+    ApiUtil.fetchUsers();
     this.history.pushState(null, '/user/' + this.props.user.id, {});
   },
 
@@ -138,16 +140,16 @@ var TrackIndexItem = React.createClass({
 
     var followIconClass;
     if (this.userFollowsTrack()) {
-      followIconClass = "fa fa-retweet followed";
+      followIconClass = "fa fa-retweet rt-index followed";
     } else {
-      followIconClass = "fa fa-retweet";
+      followIconClass = "fa fa-retweet rt-index";
     }
 
     var likeIconClass;
     if (this.userLikesTrack()) {
-      likeIconClass = "fa fa-heart liked";
+      likeIconClass = "fa fa-heart h-index liked";
     } else {
-      likeIconClass = "fa fa-heart";
+      likeIconClass = "fa fa-heart h-index";
     }
 
     return (

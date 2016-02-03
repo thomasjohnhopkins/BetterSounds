@@ -54,7 +54,7 @@ var TrackDetails = React.createClass({
 
     return (
       <ul className="track-details">
-        <li className="track-detail" onClick={this.showUser}>
+        <li className="track-uploader" onClick={this.showUser}>
           Uploaded by: {this.state.poster.username}
         </li>
       </ul>

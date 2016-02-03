@@ -12,7 +12,16 @@ var UserPage = React.createClass({
   mixins: [History],
 
   getStateFromStore: function () {
-    return { user: UserStore.findUser(parseInt(this.props.params.userId)) };
+    var location = window.location.hash;
+    var locationArray = location.split("/");
+    var toShow;
+    if (locationArray[1] === "user") {
+      toShow = UserStore.findUser(parseInt(locationArray[2].substring(0, 1)));
+    } else {
+      toShow = UserStore.findUser(parseInt(CurrentUserStore.currentUser().id));
+    }
+
+    return { user: toShow };
   },
 
   _onChange: function () {
@@ -37,7 +46,7 @@ var UserPage = React.createClass({
 
   render: function () {
     if (this.state.user === undefined) { return <div></div>; }
-    
+
     return (
       <div>
         <UserShow />

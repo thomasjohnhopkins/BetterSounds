@@ -64,6 +64,11 @@
   margin-top: 43px;
 }
 
-.track-detail {
+.track-uploader {
   padding: 15px;
+}
+
+.track-uploader:hover {
+  cursor: pointer;
+  color: #ccc;
 }

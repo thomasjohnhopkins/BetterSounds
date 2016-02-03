@@ -29,6 +29,11 @@
   border-right: 1px solid #ccc;
 }
 
+.add-comment:hover {
+  background: #ccc;
+  cursor: pointer;
+}
+
 .comment-index {
   margin-top: 30px;
   margin-left: 15px;
@@ -75,6 +80,40 @@
   display: block;
   margin-left: 5px;
   height: 29px;
-  width: 29px;
+  width: 34px;
   border: 1px solid #fff;
+  background-size: cover;
+}
+
+.track-actions {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.track-show-icons {
+  display: inline;
+  width: 70px;
+  text-align: center;
+}
+
+i.rt-comment {
+  width: auto;
+  color: #f50;
+  padding: 4px 8px;
+  letter-spacing: .5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+i.h-comment {
+  width: auto;
+  color: #f50;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+}
+
+i.fa-comment {
+  display: inline;
+  color: #000;
+  margin-right: 10px; 
 }
