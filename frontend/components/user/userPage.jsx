@@ -37,7 +37,7 @@ var UserPage = React.createClass({
 
   render: function () {
     if (this.state.user === undefined) { return <div></div>; }
-
+    
     return (
       <div>
         <UserShow />

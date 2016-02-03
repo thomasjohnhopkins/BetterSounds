@@ -2,7 +2,7 @@ class Api::UserFollowsController < ApplicationController
 
   def create
     @user_follow = UserFollow.new(user_follow_params)
-    
+
     if @user_follow.save!
       render :show
     else
@@ -11,7 +11,7 @@ class Api::UserFollowsController < ApplicationController
   end
 
   def destroy
-    user_follow = UserFollow.find_by(params[id])
+    user_follow = UserFollow.find(params[:id])
     to_be_destoryed = user_follow
 
     if to_be_destoryed

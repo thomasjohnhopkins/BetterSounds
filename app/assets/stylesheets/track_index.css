@@ -60,8 +60,13 @@
   color: #aaa;
 }
 
+.track-index-item-artist:hover {
+  cursor: pointer;
+}
+
 .track-index-item-title {
   font-size: 20px;
+  padding-bottom: 5px;
   color: #555;
 }
 
@@ -71,10 +76,21 @@
   cursor: pointer;
 }
 
+.follow-track-icon {
+  padding-top: 1px;
+}
+
 i.fa-retweet {
+  padding: 3px;
+  width: auto;
   color: #f50;
+  border: 1px solid #ccc;
 }
 
 i.fa-retweet:hover {
   cursor: pointer;
+}
+
+.followed {
+  background: #ccc;
 }

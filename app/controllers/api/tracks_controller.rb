@@ -14,7 +14,7 @@ class Api::TracksController < ApplicationController
   end
 
   def destroy
-    track = Track.find_by(params[id])
+    track = Track.find(params[:id])
     to_be_destoryed = track
 
     if to_be_destoryed

@@ -114,7 +114,23 @@ var ApiUtil = {
       dataType: 'json',
       data: formData,
       success: function (data) {
-        debugger
+        ApiActions.addUserFollow(data);
+      },
+      error: function (data) {
+
+      }
+    });
+  },
+
+  unfollowTrack: function (id) {
+    $.ajax({
+      type: "DELETE",
+      url: "api/user_follows/" + id,
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      success: function (data) {
+        ApiActions.removeUserFollow(data);
       },
       error: function (data) {
 

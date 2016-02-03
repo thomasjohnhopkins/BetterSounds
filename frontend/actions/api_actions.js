@@ -3,6 +3,7 @@ var SessionConstants = require('../constants/session_constants');
 var UserConstants = require('../constants/user_constants');
 var TrackConstants = require('../constants/track_constants');
 var CommentConstants = require('../constants/comment_constants');
+var UserFollowConstants = require('../constants/user_follow_constants');
 
 ApiActions = {
   logInUser: function (user) {
@@ -65,6 +66,20 @@ ApiActions = {
     AppDispatcher.dispatch({
       actionType: CommentConstants.RESET_COMMENTS,
       comments: comments
+    });
+  },
+
+  addUserFollow: function (userFollow) {
+    AppDispatcher.dispatch({
+      actionType: UserFollowConstants.ADD_USER_FOLLOW,
+      userFollow: userFollow
+    });
+  },
+
+  removeUserFollow: function (userFollow) {
+    AppDispatcher.dispatch({
+      actionType: UserFollowConstants.REMOVE_USER_FOLLOW,
+      userFollow: userFollow
     });
   }
 };
