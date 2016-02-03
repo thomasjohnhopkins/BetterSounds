@@ -164,7 +164,7 @@ var TrackIndexItem = React.createClass({
           <li className="track-index-item-title" onClick={this.showTrack}>
             {this.props.track.title}
           </li>
-          <li>
+          <li className="track-index-icons">
             <div className="follow-track-icon" onClick={this.toggleFollowTrack}>
               <i className={followIconClass}></i>
             </div>

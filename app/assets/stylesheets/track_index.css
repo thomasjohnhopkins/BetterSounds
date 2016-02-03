@@ -76,23 +76,41 @@
   cursor: pointer;
 }
 
+.track-index-icons {
+  padding-top: none;
+}
+
 .follow-track-icon {
   padding-top: 1px;
   display: inline;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
-i.fa-retweet, i.fa-heart {
-  padding: 3px;
+i.fa-retweet {
   width: auto;
   color: #f50;
+  padding: 2px 6px;
   border: 1px solid #ccc;
 }
 
-i.fa-retweet:hover, i.fa-heart {
+i.fa-heart {
+  width: auto;
+  color: #f50;
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+}
+
+
+i.fa-retweet:hover, i.fa-heart:hover {
   cursor: pointer;
+  background: #ccc;
 }
 
 .followed, .liked {
   background: #ccc;
+}
+
+.followed:hover, .liked:hover {
+  background: #ccc;
+  border: 1px solid #000;
 }

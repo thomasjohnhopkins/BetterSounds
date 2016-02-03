@@ -3,6 +3,7 @@ var React = require('react');
 var History = require('react-router').History;
 var CurrentModalStore = require('../stores/modal');
 var CurrentUserStore = require('../stores/currentUser');
+var ErrorStore = require('../stores/error');
 
 var SessionsApiUtil = require('../util/sessions_api_util');
 var ModalUtil = require('../util/modal_util');
@@ -10,6 +11,7 @@ var SignIn = require('./signIn');
 var SignUp = require('./signUp');
 var TrackForm = require('./track/trackForm');
 var EditUserForm = require('./user/editUserForm');
+var ErrorDisplay = require('./errorDisplay');
 
 
 var siteHeader = React.createClass({
@@ -57,25 +59,29 @@ var siteHeader = React.createClass({
 
   _onChange: function () {
     this.setState({currentUser: CurrentUserStore.currentUser(),
-      modal: CurrentModalStore.currentModal()} );
+      modal: CurrentModalStore.currentModal(),
+      errors: ErrorStore.all()} );
   },
 
   getInitialState: function () {
     return {
       currentUser: CurrentUserStore.currentUser(),
       modal: CurrentModalStore.currentModal(),
-      dropdownClicked: false
+      dropdownClicked: false,
+      errors: ErrorStore.all()
     };
   },
 
   componentDidMount: function () {
     this.currentModalListener = CurrentModalStore.addListener(this._onChange);
     this.currentUserListener = CurrentUserStore.addListener(this._onChange);
+    this.errorListener = ErrorStore.addListener(this._onChange);
   },
 
   componentWillUnmount: function () {
     this.currentModalListener.remove();
     this.currentUserListener.remove();
+    this.errorListener.remove();
   },
 
   getCurrentModal: function () {
@@ -157,7 +163,9 @@ var siteHeader = React.createClass({
     var background = "header-nav group";
     var logo = "header-logo welcome";
 
-    if (this.state.modal === null) {
+    if (this.state.errors && this.state.errors.length > 0) {
+      display = <ErrorDisplay errors={this.state.errors} />;
+    } else if (this.state.modal === null) {
       display = "";
     } else {
       display = this.getCurrentModal();
