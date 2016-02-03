@@ -25,19 +25,14 @@ var LogIn = React.createClass({
     }.bind(this));
  },
 
- demoSignIn: function (e) {
-   e.preventDefault();
-   ModalUtil.removeCurrentModal();
-
-   var user = {};
-
-   user.email = "demo@user.com";
-   user.password = "password";
-
-   SessionsApiUtil.logUserIn(user, function () {
-      this.history.pushState({}, "/");
-    }.bind(this));
- },
+  // oauthSubmit: function (e) {
+  //   e.preventDefault();
+  //
+  //   var credentials = $(e.currentTarget).serializeJSON();
+  //   SessionsApiUtil.logUserIn(credentials, function () {
+  //     this.history.pushState({}, "/");
+  //   }.bind(this));
+  // },
 
  closeForm: function (e) {
   e.preventDefault();
@@ -51,7 +46,14 @@ var LogIn = React.createClass({
       <div className="top-of-page">
       <div className="modal">
         <p className="sign-form">Welcome Back.</p>
-        <p className="sign-form">Continue to discover new music by signing in below.</p>
+        <p className="sign-form">
+          Continue to discover new music by signing in below.
+        </p>
+
+        <i className="fa fa-facebook-official">
+        <a className="oauth-text" href="/auth/facebook">
+          Sign in with Facebook
+        </a></i>
           <form className="form-session group" onSubmit={this.logIn}>
             <label>Your email address</label>
             <input type="text"
@@ -62,10 +64,9 @@ var LogIn = React.createClass({
                 valueLink={this.linkState("password")} />
 
             <ul className="form-buttons group">
-              <li className="guest-sign-in form-li" onClick={this.demoSignIn}>
-                Sign in as a guest
+              <li className="cancel-sign-in form-li" onClick={this.closeForm}>
+                Cancel
               </li>
-              <li className="cancel-sign-in form-li" onClick={this.closeForm}>Cancel</li>
               <li className="form-li">
                 <button className="sign-button" type="submit">Sign in</button>
               </li>

@@ -40,6 +40,8 @@ gem 'figaro'
 
 gem 'font-awesome-rails'
 
+gem 'omniauth-facebook'
+
 
 group :production do
   gem 'rails_12factor'

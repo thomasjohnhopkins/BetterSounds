@@ -27,4 +27,15 @@ class Api::SessionsController < ApplicationController
     log_out!
     render json: ["Successfully signed out"], status: 200
   end
+
+  def omniauth_facebook
+    @user = User.find_or_create_by_auth_hash(auth_hash)
+    log_in!(@user)
+    redirect_to root_url + '#/'
+  end
+
+  private
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 end

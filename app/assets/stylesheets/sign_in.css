@@ -24,6 +24,7 @@
   padding: 10px 25px;
   background: #fff;
   margin-bottom: 10px;
+  margin-top: 1px;
 }
 
 .form-session > input {
@@ -55,7 +56,7 @@ label {
 
 .sign-button {
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 6px 10px;
   color: #fff;
   background: #f50;
   border-radius: 5px;
@@ -115,6 +116,31 @@ label {
   display: block;
   cursor: pointer;
   font-size: 12px;
+}
+
+i.fa-facebook-official {
+  color: blue;
+  font-size: 12px;
+  margin-left: 25px;
+  margin-top: 30px;
+  padding: 10px;
+  font-size: 14px;
+  font: sans-serif;
+  border: 1px solid #ccc;
+  width: 160px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.fa-facebook-official:hover {
+  background: #ccc;
+  border: 1px solid #000;
+}
+
+
+.oauth-text {
+  margin-right: 5px;
+  color: #000;
 }
 
 #file-upload {

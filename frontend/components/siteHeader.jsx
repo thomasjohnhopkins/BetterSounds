@@ -112,6 +112,20 @@ var siteHeader = React.createClass({
     );
   },
 
+  demoSignIn: function (e) {
+    e.preventDefault();
+    ModalUtil.removeCurrentModal();
+
+    var user = {};
+
+    user.email = "demo@user.com";
+    user.password = "password";
+
+    SessionsApiUtil.logUserIn(user, function () {
+       this.history.pushState({}, "/");
+     }.bind(this));
+  },
+
   headerButtons: function () {
     var dropdown = "";
     var className;
@@ -136,6 +150,11 @@ var siteHeader = React.createClass({
       );
     } else {
       return (<ul className="header-list">
+        <li>
+          <button className="sign-in-button" type="submit" onClick={this.demoSignIn}>
+            Sign in as guest
+          </button>
+        </li>
         <li>
           <button className="sign-in-button" type="submit" onClick={this.toSignIn}>
             Sign in
