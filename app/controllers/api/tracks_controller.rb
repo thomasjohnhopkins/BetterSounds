@@ -37,10 +37,20 @@ class Api::TracksController < ApplicationController
     render json: @track
   end
 
+  def update
+    @track = Track.find(params[:id])
+
+    if @track.update(track_params)
+      render :show
+    else
+      render json: @track.errors.full_messages
+    end
+  end
+
   private
   def track_params
     params
       .require(:track)
-      .permit(:title, :artist, :audio)
+      .permit(:title, :artist, :audio, :play_count)
   end
 end

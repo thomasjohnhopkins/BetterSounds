@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203144402) do
+ActiveRecord::Schema.define(version: 20160203182234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,15 +28,16 @@ ActiveRecord::Schema.define(version: 20160203144402) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "tracks", force: :cascade do |t|
-    t.string   "title",              null: false
-    t.string   "artist",             null: false
-    t.integer  "user_id",            null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "title",                          null: false
+    t.string   "artist",                         null: false
+    t.integer  "user_id",                        null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "audio_file_name"
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
+    t.integer  "play_count",         default: 0
   end
 
   add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree

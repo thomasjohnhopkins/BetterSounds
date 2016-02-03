@@ -19,6 +19,14 @@ var addTrack = function (track) {
   _tracks.push(track);
 };
 
+var updateTracks = function (track) {
+  for (var i = 0; i < _tracks.length; i++) {
+    if (_tracks[i].id === track.id) {
+      _tracks[i] = track;
+    }
+  }
+};
+
 TrackStore.find = function (id) {
   var currentTrack;
   _tracks.forEach( function (track) {
@@ -41,6 +49,10 @@ switch(payload.actionType) {
     break;
   case TrackConstants.TRACK_ADDED:
     addTrack(payload.track);
+    TrackStore.__emitChange();
+    break;
+  case TrackConstants.UPDATED_TRACK:
+    updateTracks(payload.track);
     TrackStore.__emitChange();
   }
 };

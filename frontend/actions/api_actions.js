@@ -35,6 +35,13 @@ ApiActions = {
     });
   },
 
+  updateTrack: function (track) {
+    AppDispatcher.dispatch({
+      actionType: TrackConstants.UPDATED_TRACK,
+      track: track
+    });
+  },
+
   sendAllTracks: function (tracks) {
     AppDispatcher.dispatch({
       actionType: TrackConstants.TRACKS_RECEIVED,

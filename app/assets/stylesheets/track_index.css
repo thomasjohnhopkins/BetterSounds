@@ -96,8 +96,15 @@ i.h-index {
   border: 1px solid #ccc;
 }
 
+i.e-index {
+  width: auto;
+  color: #f50;
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+}
 
-i.fa-retweet:hover, i.fa-heart:hover {
+i.fa-retweet:hover, i.fa-heart:hover, i.fa-pencil-square-o:hover {
   cursor: pointer;
   background: #ccc;
 }

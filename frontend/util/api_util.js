@@ -21,6 +21,23 @@ var ApiUtil = {
     });
   },
 
+  editTrackInfo: function (formData, trackId) {
+    $.ajax({
+      type: "PATCH",
+      url: "api/tracks/" + trackId,
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function (track) {
+        ApiActions.updateTrack(track);
+      },
+      error: function (errors) {
+      }
+
+    });
+  },
+
   signUserUp: function (formData, success) {
     $.ajax({
       type: "POST",

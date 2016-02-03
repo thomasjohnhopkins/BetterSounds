@@ -1,12 +1,16 @@
 var React = require('react');
 var History = require('react-router').History;
+
 var AudioPlayerActions = require('../../actions/audio_player_actions');
 var AudioPlayerStore = require('../../stores/player');
 var ApiUtil = require('../../util/api_util');
+var ModalUtil = require('../../util/modal_util');
 var CurrentUserStore = require('../../stores/currentUser');
+var CurrentModalStore = require('../../stores/modal');
 var UserFollowStore = require('../../stores/userFollow');
 var UserLikeStore = require('../../stores/userLike');
 var UserStore = require('../../stores/user');
+var EditTrackForm = require('./editTrackForm');
 
 
 var TrackIndexItem = React.createClass({
@@ -26,7 +30,8 @@ var TrackIndexItem = React.createClass({
       volume: AudioPlayerStore.getVolume(),
       duration: AudioPlayerStore.getDuration(),
       followed: this.userFollowsTrack(),
-      liked: this.userLikesTrack()
+      liked: this.userLikesTrack(),
+      modal: CurrentModalStore.currentModal()
     };
   },
 
@@ -39,12 +44,14 @@ var TrackIndexItem = React.createClass({
     this.audioPlayerToken = AudioPlayerStore.addListener(this._onChange);
     this.userFollowListener = UserFollowStore.addListener(this._onChange);
     this.userLikeListener = UserLikeStore.addListener(this._onChange);
+    this.currentModalListener = CurrentModalStore.addListener(this._onChange);
   },
 
   componentWillUnmount: function () {
     this.audioPlayerToken.remove();
     this.userFollowListener.remove();
     this.userLikeListener.remove();
+    this.currentModalListener.remove();
   },
 
   showTrack: function (e) {
@@ -124,8 +131,21 @@ var TrackIndexItem = React.createClass({
     }
   },
 
+  editTrack: function (e) {
+    e.preventDefault();
+    var modal = "edit track";
+
+    ModalUtil.setCurrentModal(modal);
+  },
+
   _onChange: function () {
     this.setState(this.getStateFromStore());
+  },
+
+  getCurrentModal: function () {
+    if (this.state.modal === "edit track") {
+      return <EditTrackForm track={this.props.track} />;
+    }
   },
 
   render: function () {
@@ -152,30 +172,48 @@ var TrackIndexItem = React.createClass({
       likeIconClass = "fa fa-heart h-index";
     }
 
+    var editIcon;
+    if (CurrentUserStore.currentUser().id === this.props.track.user_id) {
+      editIcon = <div className="follow-track-icon"
+        onClick={this.editTrack}>
+          <i className="fa fa-pencil-square-o e-index"></i>
+      </div>;
+    } else {
+      editIcon = <div></div>;
+    }
+
+    if (this.state.modal === null) {
+      display = "";
+    } else {
+      display = this.getCurrentModal();
+    }
+
     return (
-      <div className="group">
-        <button className="track-index-item-button"
-          onClick={this.addToPlayerStore}>
-            {icon}
-        </button>
-        <ul className="track-index-item-details">
-          <li className="track-index-item-artist"
-            onClick={this.showUser}>
-              {this.props.track.artist}
-          </li>
-          <li className="track-index-item-title" onClick={this.showTrack}>
-            {this.props.track.title}
-          </li>
-          <li className="track-index-icons">
-            <div className="follow-track-icon" onClick={this.toggleFollowTrack}>
-              <i className={followIconClass}></i>
-            </div>
-            <div className="follow-track-icon" onClick={this.toggleLikeTrack}>
-              <i className={likeIconClass}></i>
-            </div>
-          </li>
-        </ul>
-      </div>
+        <div className="group">
+          {display}
+          <button className="track-index-item-button"
+            onClick={this.addToPlayerStore}>
+              {icon}
+          </button>
+          <ul className="track-index-item-details">
+            <li className="track-index-item-artist"
+              onClick={this.showUser}>
+                {this.props.track.artist}
+            </li>
+            <li className="track-index-item-title" onClick={this.showTrack}>
+              {this.props.track.title}
+            </li>
+            <li className="track-index-icons">
+              <div className="follow-track-icon" onClick={this.toggleFollowTrack}>
+                <i className={followIconClass}></i>
+              </div>
+              <div className="follow-track-icon" onClick={this.toggleLikeTrack}>
+                <i className={likeIconClass}></i>
+              </div>
+              {editIcon}
+            </li>
+          </ul>
+        </div>
     );
   }
 
