@@ -38,6 +38,10 @@ CurrentUserStore.__onDispatch = function (payload) {
       _currentUser = {};
       CurrentUserStore.__emitChange();
       break;
+    case UserConstants.UPDATED_USER:
+      _currentUser = payload.user;
+      CurrentUserStore.__emitChange();
+      break;
   }
 };
 

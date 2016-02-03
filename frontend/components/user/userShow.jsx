@@ -27,7 +27,7 @@ var UserShow = React.createClass({
     if (locationArray[1] === "user") {
       toShow = UserStore.findUser(parseInt(locationArray[2].substring(0, 1)));
     } else {
-      toShow = CurrentUserStore.currentUser();
+      toShow = UserStore.findUser(parseInt(CurrentUserStore.currentUser().id));
     }
 
     return { user: toShow, modal: ModalStore.currentModal() };
@@ -58,6 +58,10 @@ var UserShow = React.createClass({
   render: function () {
     var display;
     var image = "";
+
+    if (this.state.user === undefined) {
+      return <div></div>;
+    }
 
     if (this.state.modal === null) {
       display = "";

@@ -11,9 +11,18 @@ var resetUsers = function (users) {
   UserStore.__emitChange();
 };
 
+var updateUsers = function (user) {
+  for (var i = 0; i < _users.length; i++) {
+    if (_users[i].id === user.id) {
+      _users[i] = user;
+    }
+  }
+  UserStore.__emitChange();
+};
+
 UserStore.findUser = function (id) {
   var selectedUser;
-  
+
   _users.forEach( function (user) {
     if (user.id === id) {
       selectedUser = user;
@@ -27,6 +36,8 @@ switch(payload.actionType) {
   case UserConstants.RESET_USERS:
     resetUsers(payload.users);
     break;
+  case UserConstants.UPDATED_USER:
+    updateUsers(payload.user);
   }
 };
 

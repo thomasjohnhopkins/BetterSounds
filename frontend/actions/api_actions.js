@@ -16,8 +16,8 @@ ApiActions = {
 
   updateUser: function (user) {
     AppDispatcher.dispatch({
-      actionType: SessionConstants.USER_CONFIRMED,
-      currentUser: user
+      actionType: UserConstants.UPDATED_USER,
+      user: user
     });
   },
 
