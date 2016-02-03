@@ -26,7 +26,7 @@ var SessionApiUtil = {
       success: function (currentUser) {
         CurrentUserActions.removeCurrentUser();
         success && success();
-      }
+      },
     });
   },
 

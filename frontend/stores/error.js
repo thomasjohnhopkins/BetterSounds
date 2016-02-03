@@ -12,7 +12,7 @@ var display = function (errors) {
 };
 
 ErrorStore.all = function () {
-  return _errors.slice(0);
+  return _errors.splice(0);
 };
 
 ErrorStore.__onDispatch = function (payload) {

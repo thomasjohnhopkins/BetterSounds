@@ -15,12 +15,13 @@ var App = React.createClass({
   },
 
   render: function () {
+    var errors = "";
 
     return(
       <div>
         <div className="wrapper">
           <SiteHeader />
-          <ErrorDisplay />
+          {errors}
           {this.props.children}
           <div className="push"></div>
         </div>

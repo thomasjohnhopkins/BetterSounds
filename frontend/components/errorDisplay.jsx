@@ -26,7 +26,7 @@ var ErrorDisplay = React.createClass({
     }
 
     var currentErrors = this.state.errors[0];
-
+     
     return (
         <div className="error-item">{currentErrors}</div>
     );

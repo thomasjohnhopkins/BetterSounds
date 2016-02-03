@@ -1,6 +1,7 @@
 var CurrentUserActions = require('../actions/current_user_actions');
 var ApiActions = require('../actions/api_actions');
 var SessionsApiUtil = require('./sessions_api_util');
+var ErrorActions = require('../actions/error_actions');
 
 var ApiUtil = {
   editUserInfo: function (formData, userId) {
@@ -13,10 +14,8 @@ var ApiUtil = {
       data: formData,
       success: function (user) {
         ApiActions.updateUser(user);
-
       },
-      error: function (data) {
-
+      error: function (errors) {
       }
 
     });
@@ -35,10 +34,9 @@ var ApiUtil = {
 
         success && success();
       },
-      error: function (data) {
-        console.log('sign up error');
+      error: function (errors) {
+        ErrorActions.displayErrors("Sorry. The required fields were not completed, please try again.");
       }
-
     });
   },
 
@@ -100,7 +98,6 @@ var ApiUtil = {
 
       },
       error: function (data) {
-
       }
     });
   },
