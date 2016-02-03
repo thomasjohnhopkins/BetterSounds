@@ -1,4 +1,5 @@
 var CurrentUserActions = require('../actions/current_user_actions');
+var ErrorActions = require('../actions/error_actions');
 
 var SessionApiUtil = {
   logUserIn: function (user, success) {
@@ -10,6 +11,9 @@ var SessionApiUtil = {
       success: function (currentUser) {
         CurrentUserActions.receiveCurrentUser(currentUser);
         success && success();
+      },
+      error: function (errors) {
+        ErrorActions.displayErrors(errors.responseText);
       }
     });
   },

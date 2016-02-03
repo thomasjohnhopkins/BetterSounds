@@ -60,7 +60,7 @@ var TrackIndexItem = React.createClass({
   userFollowsTrack: function () {
     var user = CurrentUserStore.currentUser();
     var userFollows = UserFollowStore.allUserFollows();
-    debugger
+    
     for (var i = 0; i < userFollows.length; i++) {
       if (userFollows[i].track_id === this.props.track.id && userFollows[i].user_id === user.id) {
         return userFollows[i];

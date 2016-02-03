@@ -4,6 +4,7 @@ var CurrentUserStore = require('../stores/currentUser');
 var SiteHeader = require('./siteHeader');
 var AudioPlayer = require('./audioPlayer');
 var Display = require('./audio_display/display');
+var ErrorDisplay = require('./ErrorDisplay');
 
 var App = React.createClass({
 
@@ -19,6 +20,7 @@ var App = React.createClass({
       <div>
         <div className="wrapper">
           <SiteHeader />
+          <ErrorDisplay />
           {this.props.children}
           <div className="push"></div>
         </div>
