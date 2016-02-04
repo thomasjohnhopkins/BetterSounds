@@ -57,9 +57,9 @@ var TrackForm = React.createClass({
  render: function () {
   return(
     <div>
-      <div className='overlay' onClick={this.closeForm}></div>
-      <div className='modal'>
-      <p>Add Track Below</p>
+      <div className="overlay" onClick={this.closeForm}></div>
+      <div className="modal">
+      <p className="sign-form">Add Track Below</p>
         <form className="form-session group" onSubmit={this.addTrack}>
           <label>Track title</label>
           <input type="text"

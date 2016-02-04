@@ -66,9 +66,9 @@ var TrackIndexItem = React.createClass({
   },
 
   addToPlayerStore: function () {
-    if (this.state.track === this.props.track && this.state.isPlaying) {
+    if (this.state.track.id === this.props.track.id && this.state.isPlaying) {
       AudioPlayerActions.pauseAudio();
-    } else if (this.state.track === this.props.track ) {
+    } else if (this.state.track.id === this.props.track.id ) {
       AudioPlayerActions.playAudio();
     } else {
       AudioPlayerActions.setTrack(this.props.track);
@@ -158,7 +158,7 @@ var TrackIndexItem = React.createClass({
 
     var icon;
 
-    if (this.state.track === this.props.track && this.state.isPlaying) {
+    if (this.state.track.id === this.props.track.id && this.state.isPlaying) {
       icon = <i className="fa fa-pause-circle fa-4x"></i>;
     } else {
       icon = <i className="fa fa-play-circle fa-4x"></i>;

@@ -68,8 +68,8 @@ var EditTrackForm = React.createClass({
   render: function () {
   return(
     <div>
-      <div className='overlay' onClick={this.closeForm}></div>
-      <div className='modal'>
+      <div className="overlay" onClick={this.closeForm}></div>
+      <div className="modal">
       <p className="sign-form">Update your track below</p>
         <form className="form-session group" onSubmit={this.editProfile}>
           <label>Change the song title</label>
@@ -79,10 +79,6 @@ var EditTrackForm = React.createClass({
           <label>Update the artist's name</label>
           <input type="text"
             valueLink={this.linkState("artist")} />
-
-          <label>playcount</label>
-            <input type="text"
-            valueLink={this.linkState("play_count")} />
 
           <ul className="form-buttons group">
             <li className="form-li">

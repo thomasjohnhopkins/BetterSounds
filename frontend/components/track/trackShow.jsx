@@ -45,10 +45,10 @@ var TrackShow = React.createClass({
 
   addToPlayerStore: function () {
     var currentTrack = AudioPlayerStore.fetchTrack();
-
-    if (this.state.track === currentTrack && this.state.isPlaying) {
+    
+    if (this.state.track.id === currentTrack.id && this.state.isPlaying) {
       AudioPlayerActions.pauseAudio();
-    } else if (this.state.track === currentTrack && this.state.currentTime !== 0) {
+    } else if (this.state.track.id === currentTrack.id && this.state.currentTime !== 0) {
       AudioPlayerActions.playAudio();
     } else {
       AudioPlayerActions.setTrack(this.state.track);
@@ -81,12 +81,14 @@ var TrackShow = React.createClass({
       } else {
         days = this.findDateSinceCreated() + " days";
       }
+    } else {
+      return <div></div>;
     }
 
     var icon;
     var currentTrack = AudioPlayerStore.fetchTrack();
 
-    if (this.state.track === currentTrack && this.state.isPlaying) {
+    if (this.state.track.id === currentTrack.id && this.state.isPlaying) {
       icon = <i className="fa fa-pause-circle fa-5x"></i>;
     } else {
       icon = <i className="fa fa-play-circle fa-5x"></i>;
