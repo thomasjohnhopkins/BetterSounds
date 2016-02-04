@@ -45,6 +45,10 @@ TrackStore.find = function (id) {
   return currentTrack;
 };
 
+TrackStore.findUsersTracks = function (user) {
+  
+};
+
 TrackStore.__onDispatch = function (payload) {
 switch(payload.actionType) {
   case TrackConstants.TRACKS_RECEIVED:

@@ -14,6 +14,7 @@ var AudioPlayer = React.createClass({
       playTrack: AudioPlayerStore.playTrack(),
       pauseTrack: AudioPlayerStore.pauseTrack(),
       changeVolumeTo: AudioPlayerStore.changeVolumeTo(),
+      seekTo: AudioPlayerStore.getSeekTo(),
       currentTime: AudioPlayerStore.getCurrentTime()
     };
   },
@@ -29,6 +30,7 @@ var AudioPlayer = React.createClass({
   componentWillUpdate: function (nextProps, nextState) {
     this._handlePlayRequest(nextState.playTrack);
     this._handlePauseRequest(nextState.pauseTrack);
+    this._handleSeekTo(nextState.seekTo);
     this._handleVolumeChangeRequest(nextState.changeVolumeTo);
   },
 
@@ -65,6 +67,13 @@ var AudioPlayer = React.createClass({
 
   _handlePause: function () {
     AudioPlayerActions.setToIsPaused();
+  },
+
+  _handleSeekTo: function (seekTo) {
+    if (seekTo) {
+      this.refs.audio.currentTime = seekTo;
+      AudioPlayerActions.resetRequests();
+    }
   },
 
   _handleOver: function () {

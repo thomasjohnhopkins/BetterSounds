@@ -42,7 +42,7 @@ figure.audio-controller {
   display: block;
   vertical-align: middle;
   margin: 10px;
-  margin-right: 100px;
+  margin-right: 50px;
 }
 
 div.controller-button {
@@ -73,7 +73,7 @@ div.audio-time-container {
   float: left;
   display: inline-block;
   vertical-align: bottom;
-  font-size: 16px;
+  font-size: 14px;
   padding-top: 10px;
   padding-left: 10px;
 }
@@ -90,14 +90,75 @@ div.audio-time {
   color: #555;
 }
 
+div.audio-progress-container {
+  float:left;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 20px;
+}
+
+div.audio-progress {
+  display: inline-block;
+  height: 15px;
+  cursor: pointer;
+}
+
+div.audio-progress:hover >
+  div.audio-progress-bar-handle {
+    opacity: 1;
+}
+
+
+div.audio-progress-background {
+  float: left;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 350px;
+  height: 2px;
+  background: #bbb;
+}
+
+div.audio-progress-bar {
+  float: left;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  background: #f50;
+}
+
+div.audio-progress-bar-handle {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid #f50;
+  border-radius: 100%;
+  height: 7px;
+  width: 7px;
+  background-color: #f50;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+
 figure.audio-id {
   display: block;
   float: left;
-  font-size: 16px;
+  font-size: 14px;
   color: #555;
   vertical-align: bottom;
   text-align: center;
   min-width: 300px;
   padding-top: 20px;
-  padding-left: 100px;
+  padding-left: 75px;
+}
+
+div.current-audio {
+  float: left;
+  margin-left: 15px;
+}
+
+div.player-title {
+  font-weight: bold;
 }

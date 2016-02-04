@@ -34,6 +34,13 @@ var AudioPlayerActions = {
     });
   },
 
+  seekTo: function (time) {
+    AppDispatcher.dispatch({
+      actionType: AudioPlayerConstants.SEEK_AUDIO_TO,
+      time: time
+    });
+  },
+
   setVolume: function (volume) {
     AppDispatcher.dispatch({
       actionType: AudioPlayerConstants.AUDIO_VOLUME_RECEIVED,

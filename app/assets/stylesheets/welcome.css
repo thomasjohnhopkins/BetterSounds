@@ -19,12 +19,16 @@ p.welcome-text {
 
 .welcome-index-item {
   display: block;
-  height: 130px;
-  width: 180px;
-  margin: 20px;
-  margin-top: 15px;
+  height: 120px;
+  width: 250px;
+  text-align: center;
+  margin: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.welcome-index-item-details {
+  height: 100px;
 }
 
 .welcome-index-item-details > li {
@@ -34,6 +38,7 @@ p.welcome-text {
 .welcome-index-item-artist {
   font-size: 12px;
   color: #aaa;
+  vertical-align: bottom;
 }
 
 .welcome-index-item-title {

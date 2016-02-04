@@ -4,6 +4,7 @@
 }
 
 .comments {
+  margin-top: 30px;
   float: left;
   margin-bottom: 60px;
 }
@@ -115,5 +116,5 @@ i.h-comment {
 i.fa-comment {
   display: inline;
   color: #000;
-  margin-right: 10px; 
+  margin-right: 10px;
 }

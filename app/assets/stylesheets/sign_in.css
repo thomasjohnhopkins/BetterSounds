@@ -123,11 +123,12 @@ i.fa-facebook-official {
   font-size: 12px;
   margin-left: 25px;
   margin-top: 30px;
-  padding: 10px;
-  font-size: 14px;
+  padding: 5px;
+  font-size: 13px;
+  font-weight: 300;
   font: sans-serif;
   border: 1px solid #ccc;
-  width: 160px;
+  width: 150px;
   text-align: center;
   border-radius: 5px;
 }

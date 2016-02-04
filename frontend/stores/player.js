@@ -13,6 +13,7 @@ var _isEnded = false;
 var _currentTime = 0;
 var _volume = null;
 var _duration = 0;
+var _seekTo = null;
 
 
 var AudioPlayerStore = new Store(AppDispatcher);
@@ -63,6 +64,9 @@ AudioPlayerStore.__onDispatch = function (payload) {
     case AudioPlayerConstants.RESET_AUDIO_PLAYER_REQUESTS:
       resetRequests();
       break;
+    case AudioPlayerConstants.SEEK_AUDIO_TO:
+      seekTo(payload.time);
+      break;
   }
 };
 
@@ -78,6 +82,10 @@ AudioPlayerStore.playTrack = function () {
 
 AudioPlayerStore.pauseTrack = function () {
   return _pauseRequested;
+};
+
+AudioPlayerStore.getSeekTo = function () {
+  return _seekTo;
 };
 
 AudioPlayerStore.changeVolumeTo = function () {
@@ -151,6 +159,12 @@ var setToPause = function () {
   AudioPlayerStore.__emitChange();
 };
 
+var seekTo = function (time) {
+  _seekTo = time;
+
+  AudioPlayerStore.__emitChange();
+};
+
 var setToEnded = function () {
   _isPlaying = false;
   _isPaused = false;
@@ -184,6 +198,7 @@ var resetRequests = function () {
   _playRequested = false;
   _pauseRequested = false;
   _adjustVolumeTo = null;
+  _seekTo = null;
 
   AudioPlayerStore.__emitChange();
 };

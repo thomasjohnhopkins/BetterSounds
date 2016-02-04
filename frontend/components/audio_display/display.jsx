@@ -3,7 +3,7 @@ var AudioPlayerStore = require("../../stores/player");
 var AudioPlayerActions = require("../../actions/audio_player_actions");
 
 var PlayButton = require("./playButton");
-
+var ProgressBar = require("./progressBar");
 var TimeDisplay = require("./timeDisplay");
 var DurationDisplay = require("./durationDisplay");
 
@@ -50,6 +50,10 @@ var Display = React.createClass({
     AudioPlayerActions.pauseAudio();
   },
 
+  _seekTo: function (time) {
+    AudioPlayerActions.seekTo(time);
+  },
+
   _adjustVolumeTo: function (volume) {
     AudioPlayerActions.changeVolume(volume);
   },
@@ -73,13 +77,20 @@ var Display = React.createClass({
           <figure className="audio-timeline group">
             <TimeDisplay currentTime={ this.state.currentTime } />
 
-            <div className="audio-time-container">:</div>
+              <ProgressBar seekTo={ this._seekTo }
+                currentTime={ this.state.currentTime }
+                duration={ this.state.duration } />
 
             <DurationDisplay duration={ this.state.duration } />
           </figure>
 
-          <figure className="audio-id">
-            { this.state.track.title } : { this.state.track.artist }
+          <figure className="audio-id group">
+            <div className="current-audio player-title">
+              { this.state.track.title }
+            </div>
+            <div className="current-audio player-artist">
+              { this.state.track.artist }
+            </div>
           </figure>
 
         </section>
