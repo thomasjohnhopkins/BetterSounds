@@ -194,7 +194,7 @@ var TrackIndexItem = React.createClass({
           <i className="fa fa-pencil-square-o e-index"></i>
       </div>;
     } else {
-      editIcon = <div></div>;
+      editIcon = <div className="follow-track-icon"></div>;
     }
 
     var deleteIcon;
@@ -204,7 +204,7 @@ var TrackIndexItem = React.createClass({
           <i className="fa fa-trash-o t-index"></i>
       </div>;
     } else {
-      deleteIcon = <div></div>;
+      deleteIcon = <div className="follow-track-icon"></div>;
     }
 
     var playCount = this.props.track.play_count;
