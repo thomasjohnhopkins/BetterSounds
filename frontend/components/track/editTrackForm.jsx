@@ -5,17 +5,38 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ModalUtil = require('../../util/modal_util');
 var CurrentUserStore = require('../../stores/currentUser');
 var ModalUtil = require('../../util/modal_util');
+var TagStore = require('../../stores/tag');
 
 
 var EditTrackForm = React.createClass({
   mixins: [LinkedStateMixin, History],
 
+  _onChange: function () {
+    this.setState({ allTags: TagStore.allTags() });
+  },
+
+  componentDidMount: function () {
+    this.tagListener = TagStore.addListener(this._onChange);
+    ApiUtil.fetchAllTags();
+  },
+
+  componentWillUnmount: function () {
+    this.tagListener.remove();
+  },
 
   getInitialState: function () {
-   return ({title: this.props.track.title,
-     artist: this.props.track.artist,
-     play_count: this.props.track.play_count,
-   });
+    var tag_ids = [];
+    this.props.track.tags.forEach( function (tag) {
+      tag_ids.push(tag.id);
+    });
+
+    return ({title: this.props.track.title,
+      artist: this.props.track.artist,
+      taggings: this.props.track.taggings,
+      tags: this.props.track.tags,
+      allTags: "",
+      tag_ids: tag_ids,
+    });
   },
 
   closeForm: function (e) {
@@ -36,15 +57,18 @@ var EditTrackForm = React.createClass({
   //   }
   // },
 
-  editProfile: function(e) {
+  editTrack: function(e) {
     e.preventDefault();
     ModalUtil.removeCurrentModal();
 
     var formData = new FormData();
 
+    for (var i = 0; i < this.state.tag_ids.length; i++) {
+      formData.append("track[tag_ids][]", this.state.tag_ids[i]);
+    }
+
     formData.append("track[title]", this.state.title);
     formData.append("track[artist]", this.state.artist);
-    formData.append("track[play_count]", this.state.play_count);
 
     // Audio?
 
@@ -57,21 +81,56 @@ var EditTrackForm = React.createClass({
     var trackId = this.props.track.id;
 
     ApiUtil.editTrackInfo(formData, trackId);
-
-    this.resetForm();
   },
 
-  resetForm: function() {
-    this.setState({title: "", artist: "", play_count: ""});
+  handleTagClick: function (e) {
+    var newTags = this.state.tag_ids;
+    for (var i = 0; i < newTags.length; i++) {
+      if (newTags[i] === parseInt(e.target.id)) {
+      newTags.splice(i, 1);
+      this.setState({ tag_ids: newTags });
+      return;
+      }
+    }
+    newTags.push(parseInt(e.target.id));
+    this.setState({ tag_ids: newTags });
   },
+
 
   render: function () {
+    var tagCheckboxes = [];
+    var valueLink = this.state.tag_ids;
+
+    if (this.state.allTags !== "") {
+      for (var i = 0; i < this.state.allTags.length; i++) {
+        var currentId = this.state.allTags[i].id.toString();
+        var currentChecked = "";
+        if (this.state.tag_ids.indexOf(this.state.allTags[i].id) !== -1) {
+          currentChecked = "checked";
+        }
+         tagCheckboxes.push(
+           <li key={i} className="checkboxes group">
+             <input type="checkbox"
+               className="checkbox-input"
+               name="track[tag_id][]"
+               id={currentId}
+               onChange={this.handleTagClick}
+               checked={currentChecked} />
+             <label htmlFor={this.state.allTags[i].name}
+               className="checkbox-label">
+               {this.state.allTags[i].name}
+             </label>
+         </li>
+      );
+    }
+  }
+
   return(
     <div>
       <div className="overlay" onClick={this.closeForm}></div>
       <div className="modal">
       <p className="sign-form">Update your track below</p>
-        <form className="form-session group" onSubmit={this.editProfile}>
+        <form className="form-session group" onSubmit={this.editTrack}>
           <label>Change the song title</label>
           <input type="text"
             valueLink={this.linkState("title")} />
@@ -79,6 +138,8 @@ var EditTrackForm = React.createClass({
           <label>Update the artist's name</label>
           <input type="text"
             valueLink={this.linkState("artist")} />
+
+          <ul className="form-checkboxes">{tagCheckboxes}</ul>
 
           <ul className="form-buttons group">
             <li className="form-li">

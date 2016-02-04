@@ -53,11 +53,15 @@ var TrackForm = React.createClass({
 
     var formData = new FormData();
 
+    for (var i = 0; i < this.state.tag_ids.length; i++) {
+      formData.append("track[tag_ids][]", this.state.tag_ids[i]);
+    }
+
     formData.append("track[title]", this.state.title);
     formData.append("track[artist]", this.state.artist);
     formData.append("track[user_id]", this.props.user.id);
     formData.append("track[audio]", this.state.audioFile);
-    formData.append("track[tag_ids]"), this.state.
+    // formData.append("track[tag_ids][]", tagsArray);
 
     // not including a callback at the moment
     ApiUtil.addTrack(formData);
@@ -80,26 +84,22 @@ var TrackForm = React.createClass({
     }
     newTags.push(e.target.id);
     this.setState({ tag_ids: newTags });
-    debugger
   },
 
  render: function () {
 
    var tagCheckboxes = [];
    var valueLink = this.state.tag_ids;
-  //  var handleChange = function(e) {
-  //    debugger
-  //    valueLink.requestChange(e.target.value);
-  //  };
 
    if (this.state.allTags !== "") {
      for (var i = 0; i < this.state.allTags.length; i++) {
+       var currentId = this.state.allTags[i].id.toString();
         tagCheckboxes.push(
           <li key={i} className="checkboxes group">
             <input type="checkbox"
               className="checkbox-input"
               name="track[tag_id][]"
-              id={this.state.allTags[i].name}
+              id={currentId}
               onChange={this.handleTagClick}
               value={valueLink.value} />
               <label htmlFor={this.state.allTags[i].name}

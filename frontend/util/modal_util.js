@@ -2,7 +2,12 @@ var ModalActions = require('../actions/modal_actions');
 
 var ModalUtil = {
   setCurrentModal: function (modal) {
-    ModalActions.setModal(modal);
+
+    if (modal.id === undefined) {
+      ModalActions.setModal(modal);
+    } else {
+      ModalActions.setModalPlus(modal);
+    }
   },
 
   removeCurrentModal: function () {

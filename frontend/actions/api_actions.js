@@ -132,6 +132,13 @@ ApiActions = {
       actionType: TagConstants.RESET_TAGS,
       tags: tags
     });
+  },
+
+  setTaggings: function (taggings) {
+    AppDispatcher.dispatch({
+      actionType: TagConstants.RESET_TAGS,
+      tags: tags
+    });
   }
 };
 

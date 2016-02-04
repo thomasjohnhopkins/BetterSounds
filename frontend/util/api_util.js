@@ -286,6 +286,20 @@ var ApiUtil = {
       }
     });
   },
+
+  fetchAllTaggings: function (id) {
+    $.ajax({
+      type: "GET",
+      url: "/api/taggings",
+      dataType: 'json',
+      success: function (data) {
+        ApiActions.setTaggings(data);
+      },
+      error: function (data) {
+
+      }
+    });
+  },
 };
 
 module.exports = ApiUtil;

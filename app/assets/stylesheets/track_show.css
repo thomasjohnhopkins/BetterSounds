@@ -73,8 +73,14 @@
   color: #ccc;
 }
 
+.form-checkboxes {
+  margin-top: 15px;
+}
+
 .checkboxes {
   margin-top: 5px;
+  height: 20px;
+  float: left;
 }
 
 .checkbox-input, .checkbox-label {
@@ -82,4 +88,8 @@
   margin-left: 5px;
   float: left;
   display: inline;
+}
+
+.checkbox-label {
+  margin-right: 10px;
 }

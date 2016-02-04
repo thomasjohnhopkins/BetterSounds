@@ -10,6 +10,7 @@ var ModalUtil = require('../util/modal_util');
 var SignIn = require('./signIn');
 var SignUp = require('./signUp');
 var TrackForm = require('./track/trackForm');
+var EditTrackForm = require('./track/editTrackForm');
 var EditUserForm = require('./user/editUserForm');
 var ErrorDisplay = require('./errorDisplay');
 
@@ -186,6 +187,8 @@ var siteHeader = React.createClass({
       display = <ErrorDisplay errors={this.state.errors} />;
     } else if (this.state.modal === null) {
       display = "";
+    } else if (Array.isArray(this.state.modal)) {
+      display = <EditTrackForm track={this.state.modal[0]} />;
     } else {
       display = this.getCurrentModal();
     }

@@ -2,6 +2,7 @@ class Api::TracksController < ApplicationController
 
   def create
     @track = Track.new(track_params)
+    debugger
     if @track.user_id == nil
       @track.user_id = current_user.id
     end
@@ -38,6 +39,8 @@ class Api::TracksController < ApplicationController
   end
 
   def update
+    debugger
+    Tagging.where(track_id: params[:id]).destroy_all
     @track = Track.find(params[:id])
 
     if @track.update(track_params)

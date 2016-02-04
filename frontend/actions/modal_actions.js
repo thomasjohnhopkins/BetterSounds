@@ -10,6 +10,13 @@ ModalActions = {
     });
   },
 
+  setModalPlus: function (modal) {
+    AppDispatcher.dispatch({
+      actionType: ModalConstants.SET_MODAL_PLUS,
+      modal: modal
+    });
+  },
+
   removeModal: function () {
     AppDispatcher.dispatch({
       actionType: ModalConstants.REMOVE_MODAL,

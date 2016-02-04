@@ -30,8 +30,7 @@ var TrackIndexItem = React.createClass({
       volume: AudioPlayerStore.getVolume(),
       duration: AudioPlayerStore.getDuration(),
       followed: this.userFollowsTrack(),
-      liked: this.userLikesTrack(),
-      modal: CurrentModalStore.currentModal()
+      liked: this.userLikesTrack()
     };
   },
 
@@ -44,14 +43,12 @@ var TrackIndexItem = React.createClass({
     this.audioPlayerToken = AudioPlayerStore.addListener(this._onChange);
     this.userFollowListener = UserFollowStore.addListener(this._onChange);
     this.userLikeListener = UserLikeStore.addListener(this._onChange);
-    this.currentModalListener = CurrentModalStore.addListener(this._onChange);
   },
 
   componentWillUnmount: function () {
     this.audioPlayerToken.remove();
     this.userFollowListener.remove();
     this.userLikeListener.remove();
-    this.currentModalListener.remove();
   },
 
   showTrack: function (e) {
@@ -133,8 +130,9 @@ var TrackIndexItem = React.createClass({
 
   editTrack: function (e) {
     e.preventDefault();
-    var modal = "edit track";
+    var modal = (this.props.track);
 
+    // ModalUtil.removeCurrentModal();
     ModalUtil.setCurrentModal(modal);
   },
 
@@ -163,12 +161,6 @@ var TrackIndexItem = React.createClass({
 
   _onChange: function () {
     this.setState(this.getStateFromStore());
-  },
-
-  getCurrentModal: function () {
-    if (this.state.modal === "edit track") {
-      return <EditTrackForm track={this.props.track} />;
-    }
   },
 
   render: function () {
@@ -217,15 +209,8 @@ var TrackIndexItem = React.createClass({
 
     var playCount = this.props.track.play_count;
 
-    if (this.state.modal === null) {
-      display = "";
-    } else {
-      display = this.getCurrentModal();
-    }
-
     return (
         <div className="group">
-          {display}
           <button className="track-index-item-button"
             onClick={this.addToPlayerStore}>
               {icon}
