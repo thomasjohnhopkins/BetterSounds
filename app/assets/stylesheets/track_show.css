@@ -72,3 +72,14 @@
   cursor: pointer;
   color: #ccc;
 }
+
+.checkboxes {
+  margin-top: 5px;
+}
+
+.checkbox-input, .checkbox-label {
+  padding-top: 0;
+  margin-left: 5px;
+  float: left;
+  display: inline;
+}

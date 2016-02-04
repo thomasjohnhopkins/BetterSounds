@@ -271,7 +271,21 @@ var ApiUtil = {
 
       }
     });
-  }
+  },
+
+  fetchAllTags: function () {
+    $.ajax({
+      type: "GET",
+      url: "/api/tags",
+      dataType: 'json',
+      success: function (data) {
+        ApiActions.setTags(data);
+      },
+      error: function (data) {
+
+      }
+    });
+  },
 };
 
 module.exports = ApiUtil;

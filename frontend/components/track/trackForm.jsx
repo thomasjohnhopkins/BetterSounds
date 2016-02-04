@@ -3,14 +3,28 @@ var ApiUtil = require('../../util/api_util');
 var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ModalUtil = require('../../util/modal_util');
+var TagStore = require('../../stores/tag');
 
 
 var TrackForm = React.createClass({
   mixins: [LinkedStateMixin, History],
 
+  _onChange: function () {
+    this.setState({ allTags: TagStore.allTags() });
+  },
+
+  componentDidMount: function () {
+    this.tagListener = TagStore.addListener(this._onChange);
+    ApiUtil.fetchAllTags();
+  },
+
+  componentWillUnmount: function () {
+    this.tagListener.remove();
+  },
 
  getInitialState: function () {
-   return ({title: "", artist: "", audioFile: null, audioUrl: ""});
+   return ({title: "", artist: "", allTags: "",
+   tag_ids: [], audioFile: null, audioUrl: ""});
  },
 
  closeForm: function (e) {
@@ -43,6 +57,7 @@ var TrackForm = React.createClass({
     formData.append("track[artist]", this.state.artist);
     formData.append("track[user_id]", this.props.user.id);
     formData.append("track[audio]", this.state.audioFile);
+    formData.append("track[tag_ids]"), this.state.
 
     // not including a callback at the moment
     ApiUtil.addTrack(formData);
@@ -54,7 +69,48 @@ var TrackForm = React.createClass({
     this.setState({title: "", artist: "", audioFile: null, audioUrl: ""});
   },
 
+  handleTagClick: function (e) {
+    var newTags = this.state.tag_ids;
+    for (var i = 0; i < newTags.length; i++) {
+      if (newTags[i] === e.target.id) {
+      newTags.splice(i, 1);
+      this.setState({ tag_ids: newTags });
+      return;
+      }
+    }
+    newTags.push(e.target.id);
+    this.setState({ tag_ids: newTags });
+    debugger
+  },
+
  render: function () {
+
+   var tagCheckboxes = [];
+   var valueLink = this.state.tag_ids;
+  //  var handleChange = function(e) {
+  //    debugger
+  //    valueLink.requestChange(e.target.value);
+  //  };
+
+   if (this.state.allTags !== "") {
+     for (var i = 0; i < this.state.allTags.length; i++) {
+        tagCheckboxes.push(
+          <li key={i} className="checkboxes group">
+            <input type="checkbox"
+              className="checkbox-input"
+              name="track[tag_id][]"
+              id={this.state.allTags[i].name}
+              onChange={this.handleTagClick}
+              value={valueLink.value} />
+              <label htmlFor={this.state.allTags[i].name}
+                className="checkbox-label">
+                {this.state.allTags[i].name}
+              </label>
+          </li>
+       );
+     }
+   }
+
   return(
     <div>
       <div className="overlay" onClick={this.closeForm}></div>
@@ -71,6 +127,8 @@ var TrackForm = React.createClass({
 
           <label>Add audio file</label>
           <input id="file-upload" type="file" onChange={this.changeFile} />
+
+          <ul className="form-checkboxes">{tagCheckboxes}</ul>
 
           <ul className="form-buttons group">
             <li className="form-li">

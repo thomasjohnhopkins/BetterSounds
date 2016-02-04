@@ -5,6 +5,7 @@ var TrackConstants = require('../constants/track_constants');
 var CommentConstants = require('../constants/comment_constants');
 var UserFollowConstants = require('../constants/user_follow_constants');
 var UserLikeConstants = require('../constants/user_like_constants');
+var TagConstants = require('../constants/tag_constants');
 
 ApiActions = {
   logInUser: function (user) {
@@ -123,6 +124,13 @@ ApiActions = {
     AppDispatcher.dispatch({
       actionType: UserLikeConstants.RESET_USER_LIKES,
       userLikes: userLikes
+    });
+  },
+
+  setTags: function (tags) {
+    AppDispatcher.dispatch({
+      actionType: TagConstants.RESET_TAGS,
+      tags: tags
     });
   }
 };

@@ -1,12 +1,26 @@
 User.destroy_all
 
 demo_user = User.create!(
-    email: "DemoUser@gmail.com",
+    email: "demo@user.com",
     password: "password",
     username: "DemoUser",
     description: "New York, NY",
     image: 'https://pixabay.com/static/uploads/photo/2016/01/13/01/36/bagan-1137015_960_720.jpg'
 )
+
+Tag.destroy_all
+
+Tag.create!(name: "Rock")
+Tag.create!(name: "Rap")
+Tag.create!(name: "Accoustic")
+Tag.create!(name: "Mashup")
+Tag.create!(name: "Cover")
+Tag.create!(name: "Alternative")
+Tag.create!(name: "Classical")
+Tag.create!(name: "Pop")
+Tag.create!(name: "Soft Rock")
+Tag.create!(name: "Easy Listening")
+Tag.create!(name: "Electronic")  
 
 # Track.destroy_all
 #

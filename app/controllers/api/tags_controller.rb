@@ -1,7 +1,6 @@
 
 class Api::TagsController < ApplicationController
 def index
-  # currently counts published stories and drafts
   @tags = Tag.all
 
   render :index
