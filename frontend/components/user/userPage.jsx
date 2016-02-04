@@ -5,7 +5,7 @@ var TrackStore = require('../../stores/track');
 var AudioPlayerActions = require('../../actions/audio_player_actions');
 var UserStore = require('../../stores/user');
 var UserShow = require('./userShow');
-var TrackIndex = require('../track/trackIndex');
+var UserLibrary = require('./userLibrary');
 var UserDetails = require('./userDetails');
 
 var UserPage = React.createClass({
@@ -52,7 +52,7 @@ var UserPage = React.createClass({
         <UserShow />
         <div className="index-info-contatiner group">
           <h2 className="track-index-header">Collection</h2>
-          <TrackIndex />
+          <UserLibrary user={this.state.user} />
           <UserDetails user={this.state.user} />
         </div>
       </div>

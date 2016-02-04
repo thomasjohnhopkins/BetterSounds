@@ -3,6 +3,7 @@ var ApiUtil = require('../../util/api_util');
 var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var CommentStore = require('../../stores/comment');
+var SessionApiUtil = require('../../util/sessions_api_util');
 var CurrentUserStore = require('../../stores/currentUser');
 var UserStore = require('../../stores/user');
 var TrackStore = require('../../stores/track');
@@ -45,7 +46,9 @@ var TrackComments = React.createClass({
     this.trackListener = TrackStore.addListener(this._onChange);
     this.userFollowListener = UserFollowStore.addListener(this._onChange);
     this.userLikeListener = UserLikeStore.addListener(this._onChange);
+    this.currentUserListener = CurrentUserStore.addListener(this._onChange);
     var trackId = parseInt(this.getTrackId());
+    SessionApiUtil.fetchCurrentUser();
     ApiUtil.fetchComments();
     ApiUtil.fetchUsers();
     ApiUtil.fetchAllTracks();
@@ -81,6 +84,7 @@ var TrackComments = React.createClass({
   userFollowsTrack: function () {
     var user = CurrentUserStore.currentUser();
     var userFollows = UserFollowStore.allUserFollows();
+
     if (user === undefined || this.props.track === undefined) {
       return false;
     }

@@ -46,7 +46,21 @@ TrackStore.find = function (id) {
 };
 
 TrackStore.findUsersTracks = function (user) {
-  
+  var userTracks= [];
+  var followObjects = user.user_follows;
+
+  _tracks.forEach( function (track) {
+    if (track.user_id === user.id) {
+      userTracks.push(track);
+    } else {
+      for (var i = 0; i < followObjects.length; i++) {
+        if (followObjects[i].track_id === track.id) {
+          userTracks.unshift(track);
+        }
+      }
+    }
+  });
+  return userTracks;
 };
 
 TrackStore.__onDispatch = function (payload) {

@@ -2,6 +2,7 @@ var Store = require('flux/utils').Store;
 var AppDispatcher = require('../dispatcher/app_dispatcher');
 var AudioPlayerConstants = require('../constants/audio_player_constants');
 var AudioPlayerActions = require('../actions/audio_player_actions');
+var ApiUtil = require('../util/api_util');
 
 var _track = {};
 var _playRequested = false;
@@ -122,6 +123,13 @@ var setTrack = function (track) {
   _isPlaying = true;
   _playRequested = true;
   _currentTime = 0;
+  var trackId = track.id;
+  var playCount = track.play_count + 1;
+
+  var formData = new FormData();
+  formData.append("track[play_count]", playCount);
+
+  ApiUtil.addPlay(formData, track.id);
   AudioPlayerStore.__emitChange();
 };
 
