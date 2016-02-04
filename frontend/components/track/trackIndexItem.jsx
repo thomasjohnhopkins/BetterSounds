@@ -144,6 +144,23 @@ var TrackIndexItem = React.createClass({
     ApiUtil.deleteTrack(this.props.track.id);
   },
 
+  findDateSinceCreated: function () {
+    if (this.state.track === undefined) {
+      return;
+    }
+    var dateCreated = new Date(this.state.track.created_at);
+    var yearCreated = dateCreated.getUTCFullYear();
+    var monthCreated = dateCreated.getUTCMonth();
+    var dayCreated = dateCreated.getUTCDate();
+
+    var dateUTC = Date.UTC(yearCreated, monthCreated, dayCreated);
+
+    var difference = Date.now() - dateUTC;
+
+    return Math.floor(difference / 86400000).toString();
+
+  },
+
   _onChange: function () {
     this.setState(this.getStateFromStore());
   },
@@ -198,6 +215,8 @@ var TrackIndexItem = React.createClass({
       deleteIcon = <div></div>;
     }
 
+    var playCount = this.props.track.play_count;
+
     if (this.state.modal === null) {
       display = "";
     } else {
@@ -228,6 +247,9 @@ var TrackIndexItem = React.createClass({
               </div>
               {editIcon}
               {deleteIcon}
+              <div className="play-count-icon">
+                <i className="fa fa-play play-count">{playCount}</i>
+              </div>
             </li>
           </ul>
         </div>

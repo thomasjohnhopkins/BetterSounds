@@ -7,6 +7,8 @@ class Track < ActiveRecord::Base
   has_many :comments
   has_many :user_follows
   has_many :user_likes
+  has_many :taggings, dependent: :destroy
+  has_many :tracks, through: :taggings
 
   validates :title, presence: true
   validates :artist, presence: true

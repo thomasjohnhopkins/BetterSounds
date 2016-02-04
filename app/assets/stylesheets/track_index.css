@@ -44,6 +44,7 @@
   float: left;
   margin-top: 20px;
   margin-left: 30px;
+  width: 80%;
 }
 
 .track-index-item-details > li {
@@ -79,6 +80,15 @@
   padding-top: 1px;
   display: inline;
   margin-right: 10px;
+}
+
+.play-count-icon {
+  float: right;
+}
+
+i.play-count {
+  font-size: 12px;
+  color: #aaa;
 }
 
 i.rt-index {
