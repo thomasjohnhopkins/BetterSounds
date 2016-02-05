@@ -47,7 +47,7 @@ var TrackComments = React.createClass({
     this.userFollowListener = UserFollowStore.addListener(this._onChange);
     this.userLikeListener = UserLikeStore.addListener(this._onChange);
     this.currentUserListener = CurrentUserStore.addListener(this._onChange);
-    var trackId = parseInt(this.getTrackId());
+    // var trackId = parseInt(this.getTrackId());
     SessionApiUtil.fetchCurrentUser();
     ApiUtil.fetchComments();
     ApiUtil.fetchUsers();
@@ -57,6 +57,7 @@ var TrackComments = React.createClass({
   },
 
   componentWillUnmount: function () {
+    this.currentUserListener.remove();
     this.commentListener.remove();
     this.trackListener.remove();
     this.userFollowListener.remove();

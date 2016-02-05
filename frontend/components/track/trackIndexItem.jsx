@@ -57,7 +57,6 @@ var TrackIndexItem = React.createClass({
   },
 
   showUser: function (e) {
-    debugger
     e.preventDefault();
     ApiUtil.fetchUsers();
     this.history.pushState(null, '/user/' + this.props.user.id, {});
@@ -165,7 +164,6 @@ var TrackIndexItem = React.createClass({
   },
 
   render: function () {
-
     var icon;
 
     if (this.state.track.id === this.props.track.id && this.state.isPlaying) {
