@@ -59,7 +59,7 @@ var TrackDetails = React.createClass({
       return <div></div>;
     }
     trackTags = this.state.track.tags.map( function (tag) {
-      return <li className="tag-names">{tag.name}</li>;
+      return <li key={tag.id} className="tag-names">{tag.name}</li>;
     });
 
     return (

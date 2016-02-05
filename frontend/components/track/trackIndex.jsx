@@ -8,7 +8,7 @@ var UserStore = require('../../stores/user');
 var TrackIndex = React.createClass({
   mixins: [History],
 
-  getIntialState: function () {
+  getInitialState: function () {
     return { tracks: TrackStore.all() };
   },
 
@@ -45,25 +45,36 @@ var TrackIndex = React.createClass({
 
     return array;
 },
-
-  render: function () {
-
+  setTracksToRender: function () {
     var allTracks = [];
+
     if (this.state !== null) {
       this.state.tracks.forEach( function (track) {
         var user = UserStore.findUser(track.user_id);
 
         allTracks.push(<li className="track-index-item" key={track.id}>
-          <TrackIndexItem track={track} user={user} />
-        </li>);
-      });
+        <TrackIndexItem track={track} user={user} />
+      </li>);
+    });
+  }
+
+  var toRender = this.shuffle(allTracks);
+  toRender.splice(6);
+  this.toRender = toRender;
+  },
+
+
+
+  render: function () {
+
+    if (!this.toRender && this.state.tracks.length > 0) {
+      
+      this.setTracksToRender();
     }
 
-    var toRender = this.shuffle(allTracks);
-    toRender.splice(6);
     return(
       <div className="track-index">
-        <ul>{toRender}</ul>
+        <ul>{this.toRender}</ul>
       </div>
     );
   }
