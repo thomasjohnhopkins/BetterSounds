@@ -57,6 +57,7 @@ var TrackIndexItem = React.createClass({
   },
 
   showUser: function (e) {
+    debugger
     e.preventDefault();
     ApiUtil.fetchUsers();
     this.history.pushState(null, '/user/' + this.props.user.id, {});
