@@ -62,10 +62,11 @@
   padding-left: 50px;
   border-left: 1px solid #ccc;
   width: 350px;
-  height: 250px;
+  height: 350px;
   font-size: 16px;
   font-weight: 300;
   margin-top: 43px;
+  margin-bottom: 60px;
 }
 
 .track-details > li {
@@ -85,6 +86,7 @@
   margin-top: 5px;
   height: 20px;
   float: left;
+  width: 150px;
 }
 
 .checkbox-input, .checkbox-label {

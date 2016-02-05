@@ -1,7 +1,8 @@
 class Track < ActiveRecord::Base
   # Don't want a default
   has_attached_file :audio
-  validates_attachment_content_type :audio, :content_type => /.*/
+  validates_attachment_content_type :audio,
+                                    content_type: /\Aaudio\/.*\Z/
 
   belongs_to :user
   has_many :comments
