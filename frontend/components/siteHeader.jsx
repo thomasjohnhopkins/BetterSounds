@@ -51,7 +51,9 @@ var siteHeader = React.createClass({
 
   showProfile: function (e) {
     e.preventDefault();
-    this.history.pushState(null, '/user/' + this.state.currentUser.id, {});
+    
+    var userId = CurrentUserStore.currentUser().id.toString();
+    this.history.pushState(null, '/user/' + userId, {});
   },
 
   toggleDropdown: function (e) {

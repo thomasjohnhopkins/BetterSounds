@@ -16,13 +16,13 @@ var UserPage = React.createClass({
     var locationArray = location.split("/");
     var userId = locationArray[2].split("?");
     var toShow;
-    
+
     if (locationArray[1] === "user") {
       toShow = UserStore.findUser(parseInt(userId[0]));
     } else {
       toShow = UserStore.findUser(parseInt(CurrentUserStore.currentUser().id));
     }
-
+    debugger
     return { user: toShow };
   },
 
@@ -46,7 +46,14 @@ var UserPage = React.createClass({
     this.UserListener.remove();
   },
 
+  componentWillReceiveProps: function (nextProps) {
+    debugger
+    ApiUtil.fetchUsers();
+    // this.setState(this.getStateFromStore());
+  },
+
   render: function () {
+    debugger
     if (this.state.user === undefined) { return <div></div>; }
 
     return (
