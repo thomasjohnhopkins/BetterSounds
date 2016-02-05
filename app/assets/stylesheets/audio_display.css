@@ -42,7 +42,7 @@ figure.audio-controller {
   display: block;
   vertical-align: middle;
   margin: 10px;
-  margin-right: 50px;
+  margin-left: 5%;
 }
 
 div.controller-button {
@@ -61,7 +61,7 @@ div.controller-button {
 }
 
 figure.audio-timeline {
-  padding-left: 50px;
+  padding-left: 20px;
   display: block;
   float: left;
   vertical-align: middle;

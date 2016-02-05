@@ -128,6 +128,9 @@ var setTrack = function (track) {
 
   var formData = new FormData();
   formData.append("track[play_count]", playCount);
+  for (var i = 0; i < track.tags.length; i++) {
+    formData.append("track[tag_ids][]", track.tags[i].id);
+  }
 
   ApiUtil.addPlay(formData, track.id);
   AudioPlayerStore.__emitChange();

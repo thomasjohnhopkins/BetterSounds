@@ -93,3 +93,13 @@
 .checkbox-label {
   margin-right: 10px;
 }
+
+.tag-header {
+  font-weight: bold;
+}
+
+li.tag-names {
+  font-size: 14px;
+  margin: 0 15px;
+  padding: 5px 10px;
+}

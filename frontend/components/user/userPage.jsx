@@ -14,9 +14,11 @@ var UserPage = React.createClass({
   getStateFromStore: function () {
     var location = window.location.hash;
     var locationArray = location.split("/");
+    var userId = locationArray[2].split("?");
     var toShow;
+    
     if (locationArray[1] === "user") {
-      toShow = UserStore.findUser(parseInt(locationArray[2].substring(0, 1)));
+      toShow = UserStore.findUser(parseInt(userId[0]));
     } else {
       toShow = UserStore.findUser(parseInt(CurrentUserStore.currentUser().id));
     }

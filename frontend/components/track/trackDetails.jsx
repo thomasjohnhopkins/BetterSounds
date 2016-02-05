@@ -58,22 +58,31 @@ var TrackDetails = React.createClass({
     } else if (this.state.poster === undefined || this.state.track === undefined) {
       return <div></div>;
     }
+    trackTags = this.state.track.tags.map( function (tag) {
+      return <li className="tag-names">{tag.name}</li>;
+    });
 
     return (
-      <ul className="track-details">
-        <li className="track-uploader" onClick={this.showUser}>
-          Uploaded by: {this.state.poster.username}
-        </li>
-        <li>
-          Play Count: {this.state.track.play_count}
-        </li>
-        <li>
-          Follows: {UserFollowStore.getFollows(this.state.track.id).length}
-        </li>
-        <li>
-          Likes: {UserLikeStore.getLikes(this.state.track.id).length}
-        </li>
+      <div>
+        <ul className="track-details">
+          <li className="track-uploader" onClick={this.showUser}>
+            Uploaded by: {this.state.poster.username}
+          </li>
+          <li>
+            Play Count: {this.state.track.play_count}
+          </li>
+          <li>
+            Follows: {UserFollowStore.getFollows(this.state.track.id).length}
+          </li>
+          <li>
+            Likes: {UserLikeStore.getLikes(this.state.track.id).length}
+          </li>
+        </ul>
+        <ul className="track-details">
+          <li className="tag-header">Tags</li>
+          {trackTags}
       </ul>
+      </div>
     );
   }
 });

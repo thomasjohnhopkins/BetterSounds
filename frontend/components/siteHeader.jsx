@@ -49,6 +49,11 @@ var siteHeader = React.createClass({
     ModalUtil.setCurrentModal(modal);
   },
 
+  showProfile: function (e) {
+    e.preventDefault();
+    this.history.pushState(null, '/user/' + this.state.currentUser.id, {});
+  },
+
   toggleDropdown: function (e) {
     e.preventDefault();
     if (this.state.dropdownClicked === false) {
@@ -100,6 +105,9 @@ var siteHeader = React.createClass({
   showDropdown: function () {
     return (
       <ul className="dropdown">
+        <li className="dropdown-li" type="submit" onClick={this.showProfile}>
+          Profile
+        </li>
         <li className="dropdown-li" type="submit" onClick={this.toAddTrack}>
           Add Track
         </li>
