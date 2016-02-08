@@ -31,7 +31,7 @@ var WelcomeIndex = React.createClass({
     var welcomeTracks = "";
     if (this.state !== null) {
       for (var i = 0; i < 12 || i < this.state.tracks.length; i++) {
-        allTracks.push(<li
+        welcomeTracks.push(<li
           className="welcome-index-items"
           key={this.state.tracks[i].id}>
             <WelcomeIndexItem track={this.state.tracks[i]} />
