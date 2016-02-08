@@ -16,8 +16,8 @@ var ApiUtil = {
         ApiActions.updateUser(user);
       },
       error: function (errors) {
-      }
 
+      }
     });
   },
 
@@ -33,13 +33,13 @@ var ApiUtil = {
         ApiActions.updateTrack(track);
       },
       error: function (errors) {
-      }
 
+      }
     });
   },
 
   addPlay: function (formData, trackId) {
-    debugger
+
     $.ajax({
       type: "PATCH",
       url: "api/tracks/" + trackId,
@@ -146,6 +146,7 @@ var ApiUtil = {
         ApiActions.uploadTrack(data);
       },
       error: function (data) {
+        ErrorActions.displayErrors("Sorry. The required fields to add a track were not completed, please try again.");
       }
     });
   },
