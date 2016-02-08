@@ -5,13 +5,14 @@
 
 .header a {
   display: block;
-  padding: 15px;
+  padding: 13px 15px 0 15px;
   text-decoration: none;
   vertical-align: bottom;
 }
 
 .header-nav {
   border-top: 2px solid #f50;
+  height: 52px;
   margin: 0 auto;
   width: 1000px;
   height: 300px;
@@ -23,7 +24,7 @@
 .header-logo {
   text-decoration: none;
   float: left;
-  width: 250px;
+  width: 175px;
 }
 
 .header-logo > a > i {
@@ -106,7 +107,7 @@ i {
 #header-user-id {
   margin-right: 7px;
   padding: 10px;
-  padding-top: 16px;
+  padding-top: 13px;
   font-size: 18px;
 }
 
@@ -142,4 +143,8 @@ i {
 .dropdown-li:hover {
   background: #333;
   color: #fff;
+}
+
+.empty-display {
+  content: "";
 }

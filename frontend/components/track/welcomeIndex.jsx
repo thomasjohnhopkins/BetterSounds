@@ -36,10 +36,11 @@ var WelcomeIndex = React.createClass({
         </li>;
       });
     }
-
+    allTracks.splice(12);
+    welcomeTracks = AllTracks
     return(
       <div className="welcome-index">
-        <ul className="index-tracks group">{allTracks}</ul>
+        <ul className="index-tracks group">{welcomeTracks}</ul>
       </div>
     );
   }

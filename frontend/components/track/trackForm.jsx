@@ -65,8 +65,6 @@ var TrackForm = React.createClass({
 
     // not including a callback at the moment
     ApiUtil.addTrack(formData);
-
-    this.history.pushState(null, "/");
   },
 
   resetForm: function() {

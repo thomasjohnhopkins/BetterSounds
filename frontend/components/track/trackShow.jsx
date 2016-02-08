@@ -45,7 +45,7 @@ var TrackShow = React.createClass({
 
   addToPlayerStore: function () {
     var currentTrack = AudioPlayerStore.fetchTrack();
-    
+
     if (this.state.track.id === currentTrack.id && this.state.isPlaying) {
       AudioPlayerActions.pauseAudio();
     } else if (this.state.track.id === currentTrack.id && this.state.currentTime !== 0) {
@@ -97,7 +97,7 @@ var TrackShow = React.createClass({
     return (
       <div>
         <div className="track-banner group">
-
+          <div className="track-show-player">
           <button className="track-show-play-button" onClick={this.addToPlayerStore}>
             {icon}
           </button>
@@ -109,7 +109,7 @@ var TrackShow = React.createClass({
             </li>
           </ul>
           <div className="days-since-created">{days}</div>
-
+          </div>
         </div>
         <div className="track-info-container">
           <div className="comments">

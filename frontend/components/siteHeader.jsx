@@ -196,7 +196,7 @@ var siteHeader = React.createClass({
     if (this.state.errors && this.state.errors.length > 0) {
       display = <ErrorDisplay errors={this.state.errors} />;
     } else if (this.state.modal === null) {
-      display = "";
+      display = <div className="empty-display"></div>;
     } else if (Array.isArray(this.state.modal)) {
       display = <EditTrackForm track={this.state.modal[0]} />;
     } else {

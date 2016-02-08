@@ -8,8 +8,10 @@
 }
 
 .post-image {
+  display: inline-block;
   float: left;
-  margin: 40px;
+  margin-top: 50px;
+  margin-left: 80px;
   height: 150px;
   width: auto;
 }
@@ -19,7 +21,8 @@
 }
 
 .user-info {
-  margin-top: 40px;
+  margin-top: 50px;
+  margin-left: 40px;
   float: left;
 }
 

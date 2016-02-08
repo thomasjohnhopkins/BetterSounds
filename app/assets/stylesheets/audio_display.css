@@ -160,5 +160,9 @@ div.current-audio {
 }
 
 div.player-title {
-  font-weight: bold;
+  font-weight: 700;
+}
+
+div.player-artist {
+  font-weight: 300;
 }
