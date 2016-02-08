@@ -50,10 +50,9 @@ var TrackIndex = React.createClass({
 
     if (this.state !== null) {
       this.state.tracks.forEach( function (track) {
-        var user = UserStore.findUser(track.user_id);
 
         allTracks.push(<li className="track-index-item" key={track.id}>
-        <TrackIndexItem track={track} user={user} />
+        <TrackIndexItem track={track} userId={track.user_id} />
       </li>);
     });
   }
@@ -66,9 +65,8 @@ var TrackIndex = React.createClass({
 
 
   render: function () {
-
     if (!this.toRender && this.state.tracks.length > 0) {
-      
+
       this.setTracksToRender();
     }
 

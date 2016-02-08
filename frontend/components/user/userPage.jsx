@@ -56,7 +56,7 @@ var UserPage = React.createClass({
     return (
       <div>
         <UserShow />
-        <div className="index-info-contatiner group">
+        <div className="index-info-container group">
           <h2 className="track-index-header">Collection</h2>
           <UserLibrary user={this.state.user} />
           <UserDetails user={this.state.user} />

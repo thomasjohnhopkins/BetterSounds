@@ -1,7 +1,7 @@
 .track-banner {
   margin: 0 auto;
   z-index: -1;
-  width: 90%;
+  width: 1000px;
   height: 250px;
   display: block;
   background: linear-gradient(345deg, #555, #eee);
@@ -58,10 +58,9 @@
 
 .side-bar {
   float: right;
-  margin-right: 5%;
   padding-left: 50px;
   border-left: 1px solid #ccc;
-  width: 350px;
+  width: 300px;
   height: 350px;
   font-size: 16px;
   font-weight: 300;

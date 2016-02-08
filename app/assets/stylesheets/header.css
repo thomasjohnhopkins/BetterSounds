@@ -13,7 +13,7 @@
 .header-nav {
   border-top: 2px solid #f50;
   margin: 0 auto;
-  width: 90%;
+  width: 1000px;
   height: 300px;
   display: block;
   background-image: url('concert.jpg');
@@ -74,7 +74,7 @@ i {
   background-image: none;
   background: #333;
   margin: 0 auto;
-  width: 90%;
+  width: 1000px;
   height: 44px;
   display: block;
 }

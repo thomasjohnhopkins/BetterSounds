@@ -30,7 +30,7 @@ var TrackIndexItem = React.createClass({
       volume: AudioPlayerStore.getVolume(),
       duration: AudioPlayerStore.getDuration(),
       followed: this.userFollowsTrack(),
-      liked: this.userLikesTrack()
+      liked: this.userLikesTrack(),
     };
   },
 
@@ -58,8 +58,7 @@ var TrackIndexItem = React.createClass({
 
   showUser: function (e) {
     e.preventDefault();
-    ApiUtil.fetchUsers();
-    this.history.pushState(null, '/user/' + this.props.user.id, {});
+    this.history.pushState(null, '/user/' + this.props.userId, {});
   },
 
   addToPlayerStore: function () {
@@ -69,6 +68,7 @@ var TrackIndexItem = React.createClass({
       AudioPlayerActions.playAudio();
     } else {
       AudioPlayerActions.setTrack(this.props.track);
+
     }
   },
 
@@ -206,7 +206,13 @@ var TrackIndexItem = React.createClass({
       deleteIcon = <div className="follow-track-icon"></div>;
     }
 
-    var playCount = this.props.track.play_count;
+    var playCount;
+
+    if (this.state.track.id !== undefined) {
+      playCount = this.state.track.play_count;
+    } else {
+      playCount = this.props.track.play_count;
+    }
 
     return (
         <div className="group">

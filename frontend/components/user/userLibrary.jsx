@@ -52,10 +52,8 @@ var UserLibrary = React.createClass({
     var that = this;
     if (this.state !== null) {
       userTracks = this.state.tracks.map(function(track) {
-        var user = UserStore.findUser(track.user_id);
-
         return <li className="track-index-item" key={track.id}>
-          <TrackIndexItem track={track} user={user} />
+          <TrackIndexItem track={track} userId={track.user_id} />
         </li>;
       });
     }

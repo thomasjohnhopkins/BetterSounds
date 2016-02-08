@@ -39,7 +39,7 @@ var ApiUtil = {
   },
 
   addPlay: function (formData, trackId) {
-
+    debugger
     $.ajax({
       type: "PATCH",
       url: "api/tracks/" + trackId,
