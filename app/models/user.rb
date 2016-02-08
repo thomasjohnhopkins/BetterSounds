@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
       uid: uid,
       username: auth_hash[:info][:name],
       email: auth_hash[:info][:email],
-      Description: "Earth",
+      description: "Earth",
       website: "Edit me using option in navigation bar.",
       bio: "Edit me using option in navigation bar.",
       password: SecureRandom::urlsafe_base64
