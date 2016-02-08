@@ -28,16 +28,16 @@ var WelcomeIndex = React.createClass({
 
   render: function () {
     var that = this;
-    var allTracks = "";
+    var welcomeTracks = "";
     if (this.state !== null) {
-      allTracks = this.state.tracks.map(function(track) {
-        return <li className="welcome-index-items" key={track.id}>
-          <WelcomeIndexItem track={track} />
-        </li>;
-      });
-    }
-    allTracks.splice(12);
-    welcomeTracks = AllTracks
+      for (var i = 0; i < 12 || i < this.state.tracks.length; i++) {
+        allTracks.push(<li
+          className="welcome-index-items"
+          key={this.state.tracks[i].id}>
+            <WelcomeIndexItem track={this.state.tracks[i]} />
+        </li>)
+      }
+
     return(
       <div className="welcome-index">
         <ul className="index-tracks group">{welcomeTracks}</ul>
