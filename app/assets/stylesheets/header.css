@@ -23,10 +23,26 @@
 .header-logo {
   text-decoration: none;
   float: left;
+  width: 250px;
 }
 
 .header-logo > a > i {
   color: #aaa;
+}
+
+i.fa-volume-up {
+  width: 20px;
+  display: inline-block;
+  float: left;
+  vertical-align: baseline;
+  margin-top: 3px;
+}
+
+.logo-text {
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: 300;
+  float: left;
 }
 
 i {
@@ -91,7 +107,7 @@ i {
   margin-right: 7px;
   padding: 10px;
   padding-top: 16px;
-
+  font-size: 18px;
 }
 
 .header-button {

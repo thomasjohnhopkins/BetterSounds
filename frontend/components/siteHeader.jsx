@@ -51,7 +51,7 @@ var siteHeader = React.createClass({
 
   showProfile: function (e) {
     e.preventDefault();
-    
+
     var userId = CurrentUserStore.currentUser().id.toString();
     this.history.pushState(null, '/user/' + userId, {});
   },
@@ -216,7 +216,12 @@ var siteHeader = React.createClass({
           <nav className={background}>
 
           <h1 className={logo}>
-            <a href="#"><i className="fa fa-volume-up">  BetterSounds</i></a>
+            <a href="#">
+              <div className="group">
+                <i className="fa fa-volume-up"></i>
+                <p className="logo-text">BetterSounds</p>
+              </div>
+            </a>
           </h1>
 
           {buttons}

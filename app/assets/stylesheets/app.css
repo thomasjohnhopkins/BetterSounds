@@ -1,6 +1,6 @@
 html, body, main, div, p, form, ul, i,
 input, button, a, header, nav, h1, li, audio,
-h5 {
+h5, .fa {
   margin: 0;
   padding: 0;
   border: 0;
@@ -16,7 +16,8 @@ h5 {
 
 body {
   box-sizing: content-box;
-  font-family: sans-serif;;
+  font-family: 'Lato', Arial;
+  font-weight: 300;
   font-size: 16px;
   line-height: 1.1666666666;
   background: #fff;

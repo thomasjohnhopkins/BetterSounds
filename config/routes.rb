@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   get 'auth/facebook/callback', to: 'api/sessions#omniauth_facebook'
+  get 'auth/twitter/callback', to: 'api/sessions#omniauth_twitter'
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :show, :update, :index]

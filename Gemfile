@@ -42,6 +42,8 @@ gem 'font-awesome-rails'
 
 gem 'omniauth-facebook'
 
+gem 'omniauth-twitter'
+
 
 group :production do
   gem 'rails_12factor'
