@@ -71,8 +71,10 @@ var TrackIndex = React.createClass({
     }
 
     return(
-      <div className="track-index">
-        <ul>{this.toRender}</ul>
+      <div className="explore-index-container">
+        <div className="explore-index">
+          <ul>{this.toRender}</ul>
+        </div>
       </div>
     );
   }

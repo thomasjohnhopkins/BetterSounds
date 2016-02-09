@@ -16,6 +16,7 @@ var CurrentUserStore = require('./stores/currentUser');
 var SessionsApiUtil = require('./util/sessions_api_util');
 var App = require('./components/app');
 var TrackShow = require('./components/track/trackShow');
+var TrackIndex = require('./components/track/trackIndex');
 var UserPage = require('./components/user/userPage');
 
 
@@ -46,6 +47,7 @@ var routes = (
       <Route path="sign-in" component={SignIn} />
       <Route path="track/:trackId" component={TrackShow}/>
       <Route path="user/:userId" component={UserPage} />
+      <Route path="explore" component={TrackIndex} />
   </Route>
 );
 

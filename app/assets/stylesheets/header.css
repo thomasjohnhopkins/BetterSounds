@@ -21,14 +21,26 @@
   background-size: cover;
 }
 
-.header-logo {
+.header-logo-welcome {
   text-decoration: none;
   float: left;
   width: 175px;
+  color: #fff;
 }
 
-.header-logo > a > i {
-  color: #aaa;
+.header-logo-welcome > a > i, .header-logo > a > i {
+  color: #fff;
+}
+
+.header-logo {
+  background: #f50;
+  margin-left: 30px;
+  padding-top: 1px;
+  padding-bottom: 9px;
+  text-decoration: none;
+  float: left;
+  width: 165px;
+  color: #fff;
 }
 
 i.fa-volume-up {
@@ -37,6 +49,7 @@ i.fa-volume-up {
   float: left;
   vertical-align: baseline;
   margin-top: 3px;
+  color: #fff;
 }
 
 .logo-text {
@@ -47,6 +60,21 @@ i.fa-volume-up {
 }
 
 i {
+  color: #fff;
+}
+
+a.explore-link {
+  float: left;
+  width: 100px;
+  display: block;
+  text-decoration: none;
+  color: #aaa;
+  height: 31px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+a.explore-link:hover {
   color: #fff;
 }
 

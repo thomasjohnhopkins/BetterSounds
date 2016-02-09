@@ -118,7 +118,7 @@ label {
   font-size: 12px;
 }
 
-i.fa-facebook-official {
+i.fa-facebook-official, i.fa-twitter {
   color: blue;
   font-size: 12px;
   margin-left: 25px;
@@ -133,7 +133,11 @@ i.fa-facebook-official {
   border-radius: 5px;
 }
 
-.fa-facebook-official:hover {
+i.fa-twitter {
+  color: #55acee;
+}
+
+.fa-facebook-official:hover, .fa-twitter:hover {
   background: #ccc;
   border: 1px solid #000;
 }

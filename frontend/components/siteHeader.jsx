@@ -191,7 +191,7 @@ var siteHeader = React.createClass({
     var display;
     var buttons;
     var background = "header-nav group";
-    var logo = "header-logo welcome";
+    var logo = "header-logo-welcome";
 
     if (this.state.errors && this.state.errors.length > 0) {
       display = <ErrorDisplay errors={this.state.errors} />;
@@ -223,6 +223,10 @@ var siteHeader = React.createClass({
               </div>
             </a>
           </h1>
+
+          <a className="explore-link" href="#/explore">
+            Explore
+          </a>
 
           {buttons}
 

@@ -54,6 +54,10 @@ var LogIn = React.createClass({
         <a className="oauth-text" href="/auth/facebook">
           Sign in with Facebook
         </a></i>
+      <i className="fa fa-twitter">
+        <a className="oauth-text" href="/auth/twitter">
+          Sign in with twitter
+        </a></i>
           <form className="form-session group" onSubmit={this.logIn}>
             <label>Your email address</label>
             <input type="text"

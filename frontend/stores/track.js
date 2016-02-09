@@ -47,6 +47,10 @@ TrackStore.find = function (id) {
 
 TrackStore.findUsersTracks = function (user) {
   var userTracks= [];
+  if (user === undefined) {
+    return userTracks;
+  }
+  
   var followObjects = user.user_follows;
 
   _tracks.forEach( function (track) {
