@@ -17,6 +17,13 @@ div.index-info-container, div.explore-index-container {
   margin-top: 30px;
 }
 
+.explore-blurb {
+  float: right;
+  margin: 40px 10px 20px 10px;
+  width: 275px;
+  font-size: 14px;
+}
+
 .track-index-header {
   padding-top: 20px;
   padding-bottom: 10px;

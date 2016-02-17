@@ -17,7 +17,7 @@
   width: 1000px;
   height: 300px;
   display: block;
-  background-image: url('concert.jpg');
+  background-image: url('drums.jpg');
   background-size: cover;
 }
 
@@ -69,9 +69,10 @@ a.explore-link {
   display: block;
   text-decoration: none;
   color: #aaa;
-  height: 31px;
+  height: 30px;
+  margin-top: 0.5px;
   font-size: 18px;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 a.explore-link:hover {

@@ -75,6 +75,15 @@ var TrackIndex = React.createClass({
         <div className="explore-index">
           <ul>{this.toRender}</ul>
         </div>
+        <p className="explore-blurb">
+          Use BetterSounds to organize your favorite tracks in one place, upload your own audio, and discover artists with similar tastes.
+        </p>
+        <p className="explore-blurb">
+          This web application is inspired by SoundCloud and built using Ruby on Rails and React.js.  The tracks on the left are a sample of what BetterSounds has to offer.
+        </p>
+        <p className="explore-blurb">
+          Clicking on the artists name will bring you to the uploader's profile page, and clicking on the track name will route you to a page with more details concerning that song.
+        </p>
       </div>
     );
   }

@@ -190,6 +190,7 @@ var siteHeader = React.createClass({
   render: function () {
     var display;
     var buttons;
+    var explore;
     var background = "header-nav group";
     var logo = "header-logo-welcome";
 
@@ -208,6 +209,9 @@ var siteHeader = React.createClass({
     if (CurrentUserStore.isLoggedIn()) {
       background = "header-nav group background";
       logo = "header-logo";
+      explore = <a className="explore-link" href="#/explore">
+        Explore
+      </a>
     }
 
     return (
@@ -224,9 +228,7 @@ var siteHeader = React.createClass({
             </a>
           </h1>
 
-          <a className="explore-link" href="#/explore">
-            Explore
-          </a>
+          {explore}
 
           {buttons}
 

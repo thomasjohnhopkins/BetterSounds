@@ -53,11 +53,11 @@ var UserLibrary = React.createClass({
     var userTracks = "";
     var that = this;
     if (this.state.tracks.length === 0) {
-      userTracks = [<li className="library-blurb">
+      userTracks = [<li className="library-blurb" key="p1">
         It looks like your library is empty. Click on the explore
         button in the header to discover what BetterSounds has to offer.
       </li>,
-      <li className="library-blurb">
+      <li className="library-blurb" key="p2">
         There is also a drop down in the header with an option to add
         your own audio.
       </li>]
