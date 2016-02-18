@@ -37,8 +37,16 @@ div.index-info-container, div.explore-index-container {
 
 .track-index-item {
   height: 125px;
-  width: 550px;
+  width: 600px;
   padding: 20px 20px 25px 20px;
+}
+
+.track-image {
+  display: inline-block;
+  float: left;
+  margin-top: 35px;
+  height: 75px;
+  width: 75px;
 }
 
 .track-index-item-button {
@@ -46,8 +54,8 @@ div.index-info-container, div.explore-index-container {
 }
 
 .track-index-item-button > i {
-  margin-top: 25px;
-  margin-left: 25px;
+  margin-top: 45px;
+  margin-left: 45px;
   color: #f50;
 }
 
@@ -58,7 +66,7 @@ div.index-info-container, div.explore-index-container {
 .track-index-item-details {
   float: left;
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 10px;
   width: 400px;
 }
 

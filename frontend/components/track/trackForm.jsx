@@ -24,7 +24,8 @@ var TrackForm = React.createClass({
 
  getInitialState: function () {
    return ({title: "", artist: "", allTags: "",
-   tag_ids: [], audioFile: null, audioUrl: ""});
+   tag_ids: [], audioFile: null, audioUrl: "",
+   imageFile: null, imageUrl: ""});
  },
 
  closeForm: function (e) {
@@ -32,7 +33,7 @@ var TrackForm = React.createClass({
   ModalUtil.removeCurrentModal();
  },
 
- changeFile: function(e) {
+ changeAudioFile: function(e) {
     var reader = new FileReader();
     var file = e.currentTarget.files[0];
 
@@ -46,6 +47,21 @@ var TrackForm = React.createClass({
       this.setState({audioFile: null, audioUrl: ""});
     }
   },
+
+  changeImageFile: function(e) {
+     var reader = new FileReader();
+     var file = e.currentTarget.files[0];
+
+     reader.onloadend = function () {
+       this.setState({imageFile: file, imageUrl: reader.result});
+     }.bind(this);
+
+     if (file) {
+       reader.readAsDataURL(file);
+     } else {
+       this.setState({imageFile: null, imageUrl: ""});
+     }
+   },
 
   addTrack: function(e) {
     e.preventDefault();
@@ -85,6 +101,13 @@ var TrackForm = React.createClass({
   },
 
  render: function () {
+
+
+   var previewImage = "preview-image";
+
+   if (this.state.imageUrl === "") {
+     previewImage = "no-preview-image";
+   }
 
    var tagCheckboxes = [];
    var valueLink = this.state.tag_ids;
@@ -127,7 +150,16 @@ var TrackForm = React.createClass({
           <div className="file-upload"><input id="file-upload"
             className="file-upload"
             type="file"
-            onChange={this.changeFile} /></div>
+            onChange={this.changeAudioFile} /></div>
+
+          <label>Upload track image</label>
+          <div className="file-upload">
+            <input id="file-upload"
+              type="file"
+              onChange={this.changeImageFile} /></div>
+
+
+          <img className={previewImage} src={this.state.imageUrl}/>
 
           <ul className="form-checkboxes">{tagCheckboxes}</ul>
 

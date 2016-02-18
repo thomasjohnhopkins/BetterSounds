@@ -15,8 +15,8 @@ var EditUserForm = React.createClass({
      email: this.props.user.email,
      description: this.props.user.description,
      website: this.props.user.website,
-     bio: this.props.user.bio
-   });
+     bio: this.props.user.bio,
+     imageFile: null, imageUrl: ""});
   },
 
   closeForm: function (e) {
@@ -24,18 +24,18 @@ var EditUserForm = React.createClass({
     ModalUtil.removeCurrentModal();
   },
 
-  // changeFile: function(e) {
-  //   var reader = new FileReader();
-  //   var file = e.currentTarget.files[0];
-  //   if (file) {
-  //     reader.onloadend = function () {
-  //       this.setState({imageFile: file, imageUrl: reader.result});
-  //     }.bind(this);
-  //     reader.readAsDataURL(file);
-  //   } else {
-  //     this.setState({imageFile: null, imageUrl: ""});
-  //   }
-  // },
+  changeFile: function(e) {
+    var reader = new FileReader();
+    var file = e.currentTarget.files[0];
+    if (file) {
+      reader.onloadend = function () {
+        this.setState({imageFile: file, imageUrl: reader.result});
+      }.bind(this);
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({imageFile: null, imageUrl: ""});
+    }
+  },
 
   editProfile: function(e) {
     e.preventDefault();
@@ -48,6 +48,9 @@ var EditUserForm = React.createClass({
     formData.append("user[description]", this.state.description);
     formData.append("user[bio]", this.state.bio);
     formData.append("user[website]", this.state.website);
+    if (this.state.imageFile) {
+      formData.append("user[image]", this.state.imageFile);
+    }
     // if (imageFile === "") {
     //   formData.append("user[image]", this.props.user.imageFile)
     // } else {
@@ -62,10 +65,18 @@ var EditUserForm = React.createClass({
   },
 
   resetForm: function() {
-    this.setState({username: "", email: "", description: "", website: "", bio: ""});
+    this.setState({username: "", email: "", description: "",
+                    website: "", bio: "", imageFile: null});
   },
 
   render: function () {
+
+    var previewImage = "preview-image";
+
+    if (this.state.imageUrl === "") {
+      previewImage = "no-preview-image";
+    }
+
   return(
     <div>
       <div className='overlay' onClick={this.closeForm}></div>
@@ -91,6 +102,11 @@ var EditUserForm = React.createClass({
           <label>Tell us about yourself</label>
           <textarea
             valueLink={this.linkState("bio")} />
+
+          <label>Upload a new profile image</label>
+            <input id="file-upload" type="file" onChange={this.changeFile} />
+
+          <img className={previewImage} src={this.state.imageUrl}/>
 
           <ul className="form-buttons group">
             <li className="form-li">

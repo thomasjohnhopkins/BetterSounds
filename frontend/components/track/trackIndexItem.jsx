@@ -165,11 +165,19 @@ var TrackIndexItem = React.createClass({
 
   render: function () {
     var icon;
+    var trackImage;
+
+    if (this.props.track.image_url) {
+
+      trackImage = <img
+        className="track-image"
+        src={this.props.track.image_url} />;
+    }
 
     if (this.state.track.id === this.props.track.id && this.state.isPlaying) {
-      icon = <i className="fa fa-pause-circle fa-4x"></i>;
+      icon = <i className="fa fa-pause-circle fa-3x"></i>;
     } else {
-      icon = <i className="fa fa-play-circle fa-4x"></i>;
+      icon = <i className="fa fa-play-circle fa-3x"></i>;
     }
 
     var followIconClass;
@@ -216,6 +224,7 @@ var TrackIndexItem = React.createClass({
 
     return (
         <div className="group">
+          {trackImage}
           <button className="track-index-item-button"
             onClick={this.addToPlayerStore}>
               {icon}
