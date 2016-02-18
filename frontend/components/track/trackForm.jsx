@@ -124,7 +124,10 @@ var TrackForm = React.createClass({
             valueLink={this.linkState("artist")} />
 
           <label>Add audio file</label>
-          <input id="file-upload" type="file" onChange={this.changeFile} />
+          <div className="file-upload"><input id="file-upload"
+            className="file-upload"
+            type="file"
+            onChange={this.changeFile} /></div>
 
           <ul className="form-checkboxes">{tagCheckboxes}</ul>
 

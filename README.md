@@ -1,9 +1,11 @@
 # BetterSounds
 
-BetterSounds (http://www.better-sounds.com) is an app that allows you to
+BetterSounds ([live](http://www.better-sounds.com)) is an app that allows you to
 organize all of your favorite tracks in one place. You can upload your own music,
 and discover artists with similar tastes.  This web application is inspired by
 SoundCloud and built using Ruby on Rails and React.js.
+
+[Screenshot]: https://github.com/thomasjohnhopkins/BetterSounds/blob/master/app/assets/images/screenshot.jpg "Screenshot"
 
 ## Features
 
@@ -19,7 +21,7 @@ followed
 
 ## Exploring the site
 
-Click around to experience the sites various functionality:
+Click around to experience the site's various functionality:
 
 - Users who are not logged in will be brought to a welcome page. This page is populated with tracks featured on BetterSounds. Clicking on a track item will bring up the music player. If you start playing a track before you log in, the audio player will persist during the navigation of the site, including the sign in/sign up process.
 - Upon entry to the site, the current users collection of tracks are displayed. This collection includes any tracks uploaded or explicitly followed by the user, if any.

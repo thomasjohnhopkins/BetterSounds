@@ -41,6 +41,14 @@ audio {
   width: 92%;
 }
 
+input.checkbox-input:hover {
+  cursor: pointer;
+}
+
+div.file-upload:hover {
+  cursor: pointer;
+}
+
 /* --- CLEARFIX --- */
 
 .group:after {

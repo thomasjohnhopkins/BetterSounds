@@ -27,6 +27,10 @@ p.welcome-text {
   border-radius: 5px;
 }
 
+.welcome-index-item:hover {
+  cursor: pointer;
+}
+
 .welcome-index-item-details {
   height: 100px;
 }

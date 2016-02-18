@@ -86,6 +86,10 @@ a.explore-link:hover {
   padding-left: 20px;
 }
 
+.header-list:hover {
+  cursor: pointer;
+}
+
 .header-list-active {
   float: right;
   position: relative;
@@ -102,6 +106,7 @@ a.explore-link:hover {
   padding-bottom: 5px;
 }
 
+
 .header-list > div {
   float: left;
   display: block;
@@ -114,6 +119,10 @@ a.explore-link:hover {
   display: block;
   padding-right: 10px;
   padding-bottom: 5px;
+}
+
+.header-list-active > div:hover {
+  cursor: pointer;
 }
 
 .background {
@@ -170,6 +179,7 @@ a.explore-link:hover {
 }
 
 .dropdown-li:hover {
+  cursor: pointer;
   background: #333;
   color: #fff;
 }
