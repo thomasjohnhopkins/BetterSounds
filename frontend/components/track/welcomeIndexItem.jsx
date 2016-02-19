@@ -11,9 +11,19 @@ var WelcomeIndexItem = React.createClass({
   },
 
   render: function () {
+    var trackImage;
+
+    if (this.props.track.image_url) {
+      trackImage = <img
+        className="track-image"
+        src={this.props.track.image_url} />;
+    }
 
     return (
       <div className="welcome-index-item" onClick={this.playTrack}>
+
+        <div className="track-welcome-image">{trackImage}</div>
+
         <ul className="welcome-index-item-details">
           <li className="welcome-index-item-title">
             {this.props.track.title}

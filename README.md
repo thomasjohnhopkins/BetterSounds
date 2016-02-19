@@ -5,7 +5,7 @@ organize all of your favorite tracks in one place. You can upload your own music
 and discover artists with similar tastes.  This web application is inspired by
 SoundCloud and built using Ruby on Rails and React.js.
 
-![Screenshot](/app/assets/images/track_default.png)
+![Screenshot](/app/assets/images/Screenshot.png)
 
 ## Features
 

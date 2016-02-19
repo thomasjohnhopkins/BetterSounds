@@ -76,6 +76,7 @@ var TrackShow = React.createClass({
     if (this.state.track) {
       title = this.state.track.title;
       artist = this.state.track.artist;
+    
       if (this.findDateSinceCreated() === "1") {
         days = "1 day";
       } else {

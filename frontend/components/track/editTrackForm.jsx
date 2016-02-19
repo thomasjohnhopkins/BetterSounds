@@ -36,6 +36,8 @@ var EditTrackForm = React.createClass({
       tags: this.props.track.tags,
       allTags: "",
       tag_ids: tag_ids,
+      imageFile: null,
+      imageUrl: ""
     });
   },
 
@@ -44,18 +46,18 @@ var EditTrackForm = React.createClass({
     ModalUtil.removeCurrentModal();
   },
 
-  // changeFile: function(e) {
-  //   var reader = new FileReader();
-  //   var file = e.currentTarget.files[0];
-  //   if (file) {
-  //     reader.onloadend = function () {
-  //       this.setState({imageFile: file, imageUrl: reader.result});
-  //     }.bind(this);
-  //     reader.readAsDataURL(file);
-  //   } else {
-  //     this.setState({imageFile: null, imageUrl: ""});
-  //   }
-  // },
+  changeImageFile: function(e) {
+    var reader = new FileReader();
+    var file = e.currentTarget.files[0];
+    if (file) {
+      reader.onloadend = function () {
+        this.setState({imageFile: file, imageUrl: reader.result});
+      }.bind(this);
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({imageFile: null, imageUrl: ""});
+    }
+  },
 
   editTrack: function(e) {
     e.preventDefault();
@@ -69,6 +71,9 @@ var EditTrackForm = React.createClass({
 
     formData.append("track[title]", this.state.title);
     formData.append("track[artist]", this.state.artist);
+    if (this.state.imageFile) {
+      formData.append("track[image]", this.state.imageFile);
+    }
 
     // Audio?
 
@@ -138,6 +143,12 @@ var EditTrackForm = React.createClass({
           <label>Update the artist's name</label>
           <input type="text"
             valueLink={this.linkState("artist")} />
+
+          <label>Change track image</label>
+          <div className="file-upload">
+            <input id="file-upload"
+              type="file"
+              onChange={this.changeImageFile} /></div>
 
           <ul className="form-checkboxes">{tagCheckboxes}</ul>
 

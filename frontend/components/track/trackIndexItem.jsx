@@ -168,7 +168,6 @@ var TrackIndexItem = React.createClass({
     var trackImage;
 
     if (this.props.track.image_url) {
-
       trackImage = <img
         className="track-image"
         src={this.props.track.image_url} />;
@@ -224,7 +223,7 @@ var TrackIndexItem = React.createClass({
 
     return (
         <div className="group">
-          {trackImage}
+          <div className="track-index-image">{trackImage}</div>
           <button className="track-index-item-button"
             onClick={this.addToPlayerStore}>
               {icon}

@@ -10,6 +10,8 @@ p.welcome-text {
 }
 
 .index-tracks {
+  width: 930px;
+  margin: 0 auto;
   margin-bottom: 60px;
 }
 
@@ -19,8 +21,8 @@ p.welcome-text {
 
 .welcome-index-item {
   display: block;
-  height: 120px;
-  width: 215px;
+  height: 160px;
+  width: 200px;
   text-align: center;
   margin: 15px;
   border: 1px solid #ccc;
@@ -31,12 +33,19 @@ p.welcome-text {
   cursor: pointer;
 }
 
+div.track-welcome-image {
+  display: inline-block;
+  margin: 5px auto;
+  height: 85px;
+  width: 90px;
+}
+
 .welcome-index-item-details {
-  height: 100px;
+
 }
 
 .welcome-index-item-details > li {
-  padding: 10px 20px;
+  padding: 5px;
 }
 
 .welcome-index-item-artist {
@@ -46,7 +55,7 @@ p.welcome-text {
 }
 
 .welcome-index-item-title {
-  margin-top: 25px;
+  margin-top: 5px;
   font-size: 14px;
   color: #000;
 }

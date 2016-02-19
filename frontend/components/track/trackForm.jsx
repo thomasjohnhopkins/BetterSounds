@@ -77,6 +77,9 @@ var TrackForm = React.createClass({
     formData.append("track[artist]", this.state.artist);
     formData.append("track[user_id]", this.props.user.id);
     formData.append("track[audio]", this.state.audioFile);
+    if (this.state.imageFile) {
+      formData.append("track[image]", this.state.imageFile);
+    }
     // formData.append("track[tag_ids][]", tagsArray);
 
     // not including a callback at the moment
