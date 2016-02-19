@@ -15,7 +15,7 @@ var WelcomeIndexItem = React.createClass({
 
     if (this.props.track.image_url) {
       trackImage = <img
-        className="track-image"
+        className="welcome-image"
         src={this.props.track.image_url} />;
     }
 

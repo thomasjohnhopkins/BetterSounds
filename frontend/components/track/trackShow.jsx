@@ -76,7 +76,7 @@ var TrackShow = React.createClass({
     if (this.state.track) {
       title = this.state.track.title;
       artist = this.state.track.artist;
-    
+
       if (this.findDateSinceCreated() === "1") {
         days = "1 day";
       } else {
@@ -109,9 +109,17 @@ var TrackShow = React.createClass({
               {title}
             </li>
           </ul>
-          <div className="days-since-created">{days}</div>
-          </div>
+          <ul className="track-show-details-right group">
+            <li className="track-show-image">
+              <img
+                className="track-show-image"
+                src={this.state.track.image_url} />
+            </li>
+            <li className="days-since-created">{days}</li>
+          
+          </ul>
         </div>
+      </div>
         <div className="track-info-container">
           <div className="comments">
             <TrackComments track={this.state.track} />

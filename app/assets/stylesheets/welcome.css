@@ -35,9 +35,20 @@ p.welcome-text {
 
 div.track-welcome-image {
   display: inline-block;
-  margin: 5px auto;
+  margin: 0 auto;
+  margin-top: 10px;
   height: 85px;
-  width: 90px;
+  width: 110px;
+  position: relative;
+}
+
+img.welcome-image {
+  position: absolute;
+  height: 85px;
+  overflow: hidden;
+  right: 0;
+  bottom: 0;
+  border-radius: 2px;
 }
 
 .welcome-index-item-details {

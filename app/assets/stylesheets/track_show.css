@@ -8,7 +8,7 @@
 }
 
 .track-show-player {
-  width: 700px;
+  width: 900px;
   margin: 0 auto;
 }
 
@@ -52,13 +52,29 @@
   color: #fff;
   text-align: left;
 }
+.track-show-details-right {
+  float: right;
+}
 
 .days-since-created {
   float: right;
   color: #D4CECB;
   margin-top: 50px;
-  padding-right: 100px;
+  padding-right: 50px;
   font-size: 20px;
+}
+
+li.track-show-image {
+  float: right;
+}
+
+img.track-show-image {
+  background: white;
+  padding: 5px;
+  border: 2px solid white;
+  margin-top: 35px;
+  height: 165px;
+  width: 205px;
 }
 
 .side-bar {
