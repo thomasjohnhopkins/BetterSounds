@@ -32,16 +32,32 @@ class User < ActiveRecord::Base
 
     return user if user
 
-    User.create(
-      provider: provider,
-      uid: uid,
-      username: auth_hash[:info][:name],
-      email: auth_hash[:info][:email],
-      description: "Earth",
-      website: "Edit me using option in navigation bar.",
-      bio: "Edit me using option in navigation bar.",
-      password: SecureRandom::urlsafe_base64
-    )
+    if provider == "facebook"
+      User.create(
+        provider: provider,
+        uid: uid,
+        username: auth_hash[:info][:name],
+        email: auth_hash[:info][:email],
+        description: "Earth",
+        website: "Edit me using option in navigation bar.",
+        bio: "Edit me using option in navigation bar.",
+        password: SecureRandom::urlsafe_base64
+      )
+    end
+
+    if provider == "twitter"
+      User.create(
+        provider: provider,
+        uid: uid,
+        username: auth_hash[:info][:nickname],
+        email: auth_hash[:info][:nickname] + "@twitter.com",
+        description: "Earth",
+        website: "Edit me using option in navigation bar.",
+        bio: "Edit me using option in navigation bar. Note that your email is generated using your twitter user name. Please feel free to edit it, as you may use it to log back in later.",
+        password: SecureRandom::urlsafe_base64
+      )
+    end
+
   end
 
   def password=(password)
