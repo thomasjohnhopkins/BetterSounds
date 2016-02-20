@@ -35,7 +35,6 @@ class Api::SessionsController < ApplicationController
   end
 
   def omniauth_twitter
-    debugger
     @user = User.find_or_create_by_auth_hash(auth_hash)
     log_in!(@user)
     redirect_to root_url + '#/'

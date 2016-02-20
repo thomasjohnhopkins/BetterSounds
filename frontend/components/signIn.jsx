@@ -56,7 +56,7 @@ var LogIn = React.createClass({
         </a></i>
       <i className="fa fa-twitter">
         <a className="oauth-text" href="/auth/twitter">
-          Sign in with twitter
+          Sign in with Twitter
         </a></i>
           <form className="form-session group" onSubmit={this.logIn}>
             <label>Your email address</label>
