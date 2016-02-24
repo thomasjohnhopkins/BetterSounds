@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
         email: auth_hash[:info][:nickname] + "@twitter.com",
         description: "Earth",
         website: "Edit me using option in navigation bar.",
-        bio: "Edit me using option in navigation bar. Note that your email is generated using your twitter user name. Please feel free to edit it, as you may use it to log back in later.",
+        bio: "Edit me using option in navigation bar. Note that your email has been generated using your twitter user name. Please feel free to edit it, as you may use it to log back in later.",
         password: SecureRandom::urlsafe_base64
       )
     end
