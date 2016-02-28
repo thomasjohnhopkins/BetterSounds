@@ -10,6 +10,7 @@ var CurrentModalStore = require('../../stores/modal');
 var UserFollowStore = require('../../stores/userFollow');
 var UserLikeStore = require('../../stores/userLike');
 var UserStore = require('../../stores/user');
+var TrackStore = require('../../stores/track');
 var EditTrackForm = require('./editTrackForm');
 
 
@@ -43,12 +44,14 @@ var TrackIndexItem = React.createClass({
     this.audioPlayerToken = AudioPlayerStore.addListener(this._onChange);
     this.userFollowListener = UserFollowStore.addListener(this._onChange);
     this.userLikeListener = UserLikeStore.addListener(this._onChange);
+    this.trackListener = TrackStore.addListener(this._onChange);
   },
 
   componentWillUnmount: function () {
     this.audioPlayerToken.remove();
     this.userFollowListener.remove();
     this.userLikeListener.remove();
+    this.trackListener.remove();
   },
 
   showTrack: function (e) {
@@ -213,11 +216,9 @@ var TrackIndexItem = React.createClass({
       deleteIcon = <div className="follow-track-icon"></div>;
     }
 
-    var playCount;
+    var playCount = 0;
 
-    if (this.state.track.id !== undefined) {
-      playCount = this.state.track.play_count;
-    } else {
+    if (this.props.track.id) {
       playCount = this.props.track.play_count;
     }
 

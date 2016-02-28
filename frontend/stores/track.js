@@ -50,7 +50,7 @@ TrackStore.findUsersTracks = function (user) {
   if (user === undefined) {
     return userTracks;
   }
-  
+
   var followObjects = user.user_follows;
 
   _tracks.forEach( function (track) {
