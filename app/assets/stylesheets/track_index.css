@@ -51,6 +51,10 @@ div.track-index-image {
   margin-bottom: 5px;
 }
 
+div.track-index-image:hover {
+  cursor: pointer;
+}
+
 img.track-image {
   position: absolute;
   height: 120px;

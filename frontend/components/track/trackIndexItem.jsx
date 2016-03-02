@@ -224,7 +224,10 @@ var TrackIndexItem = React.createClass({
 
     return (
         <div className="group">
-          <div className="track-index-image">{trackImage}</div>
+          <div className="track-index-image"
+            onClick={this.showTrack}>
+              {trackImage}
+          </div>
           <button className="track-index-item-button"
             onClick={this.addToPlayerStore}>
               {icon}
